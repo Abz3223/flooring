@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Calendar, ArrowRight } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 import { BlogPost } from '@/types/database';
 
 export const metadata: Metadata = {
@@ -41,13 +40,7 @@ const breadcrumbSchema = {
 };
 
 export default async function BlogPage() {
-  const { data: posts } = await supabase
-    .from('blog_posts')
-    .select('*')
-    .eq('published', true)
-    .order('created_at', { ascending: false });
-
-  const blogPosts: BlogPost[] = posts || [];
+  const blogPosts: BlogPost[] = [];
 
   return (
     <div>

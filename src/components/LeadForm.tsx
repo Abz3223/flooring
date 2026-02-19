@@ -3,7 +3,6 @@
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { FLOORING_TYPES } from '../constants/services';
 
 interface LeadFormProps {
@@ -31,48 +30,25 @@ export default function LeadForm({ sourcePage = 'homepage' }: LeadFormProps) {
     setError('');
 
     try {
-      const { error: insertError } = await supabase
-        .from('leads')
-        .insert([
-          {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
-            address: formData.address,
-            flooring_type: formData.flooring_type,
-            message: formData.message,
-            source_page: sourcePage,
-            status: 'new',
-            consent_to_share: true,
-            accepted_terms: formData.accepted_terms,
-            accepted_privacy: formData.accepted_terms,
-            consent_timestamp: new Date().toISOString(),
-            terms_version: '1.0',
-          },
-        ]);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          address: formData.address,
+          flooring_type: formData.flooring_type,
+          message: formData.message,
+          source_page: sourcePage,
+        }),
+      });
 
-      if (insertError) throw insertError;
-
-      try {
-        const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/send-lead-notification`;
-        await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
-            address: formData.address,
-            flooring_type: formData.flooring_type,
-            message: formData.message,
-            source_page: sourcePage,
-          }),
-        });
-      } catch (emailError) {
-        console.error('Email notification error:', emailError);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit form');
       }
 
       setSubmitted(true);

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
 import { FAQ } from '../../types/database';
 
 export default function FAQSection() {
@@ -10,18 +9,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useEffect(() => {
-    const fetchFAQs = async () => {
-      const { data } = await supabase
-        .from('faqs')
-        .select('*')
-        .order('sort_order');
-
-      if (data) {
-        setFaqs(data);
-      }
-    };
-
-    fetchFAQs();
+    setFaqs([]);
   }, []);
 
   const toggleFAQ = (index: number) => {

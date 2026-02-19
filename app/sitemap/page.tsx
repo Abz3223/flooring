@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MapPin, Wrench, FileText, Home as HomeIcon } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
 import { ServiceArea, AffluentNeighborhood, BlogPost } from '@/types/database';
 import { FLOORING_SERVICES } from '@/constants/services';
 
@@ -14,19 +13,9 @@ export default function SitemapPage() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const [areasResult, neighborhoodsResult, postsResult] = await Promise.all([
-        supabase.from('service_areas').select('*').order('name'),
-        supabase.from('affluent_neighborhoods').select('*').order('name'),
-        supabase.from('blog_posts').select('*').eq('published', true).order('title'),
-      ]);
-
-      if (areasResult.data) setServiceAreas(areasResult.data);
-      if (neighborhoodsResult.data) setNeighborhoods(neighborhoodsResult.data);
-      if (postsResult.data) setBlogPosts(postsResult.data);
-    };
-
-    fetchData();
+    setServiceAreas([]);
+    setNeighborhoods([]);
+    setBlogPosts([]);
   }, []);
 
   return (

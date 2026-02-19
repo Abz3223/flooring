@@ -3,27 +3,13 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MapPin, TrendingUp, ArrowRight } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
 import { AffluentNeighborhood } from '../../types/database';
 
 export default function AffluentNeighborhoodsSection() {
   const [neighborhoods, setNeighborhoods] = useState<AffluentNeighborhood[]>([]);
 
   useEffect(() => {
-    const fetchNeighborhoods = async () => {
-      const { data } = await supabase
-        .from('affluent_neighborhoods')
-        .select('*')
-        .eq('featured', true)
-        .order('average_home_value', { ascending: false })
-        .limit(6);
-
-      if (data) {
-        setNeighborhoods(data);
-      }
-    };
-
-    fetchNeighborhoods();
+    setNeighborhoods([]);
   }, []);
 
   if (neighborhoods.length === 0) return null;

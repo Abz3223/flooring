@@ -3,26 +3,13 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
-import { supabase } from '../../lib/supabase';
 import { ServiceArea } from '../../types/database';
 
 export default function ServiceAreasSection() {
   const [areas, setAreas] = useState<ServiceArea[]>([]);
 
   useEffect(() => {
-    const fetchAreas = async () => {
-      const { data } = await supabase
-        .from('service_areas')
-        .select('*')
-        .eq('featured', true)
-        .order('name');
-
-      if (data) {
-        setAreas(data);
-      }
-    };
-
-    fetchAreas();
+    setAreas([]);
   }, []);
 
   return (

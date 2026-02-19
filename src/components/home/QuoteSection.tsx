@@ -3,27 +3,13 @@
 import { useEffect, useState } from 'react';
 import LeadForm from '../LeadForm';
 import TestimonialCard from '../TestimonialCard';
-import { supabase } from '../../lib/supabase';
 import { Testimonial } from '../../types/database';
 
 export default function QuoteSection() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
-    const fetchTestimonials = async () => {
-      const { data } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('featured', true)
-        .order('created_at', { ascending: false })
-        .limit(3);
-
-      if (data) {
-        setTestimonials(data);
-      }
-    };
-
-    fetchTestimonials();
+    setTestimonials([]);
   }, []);
 
   return (

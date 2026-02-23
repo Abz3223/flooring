@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { Send } from 'lucide-react';
-import { FLOORING_TYPES } from '../constants/services';
 import Link from 'next/link';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { FLOORING_TYPES } from '../constants/services';
 
 interface HeroLeadFormProps {
   sourcePage?: string;
@@ -17,197 +17,136 @@ export default function HeroLeadForm({ sourcePage = 'hero' }: HeroLeadFormProps)
     message: '',
     accepted_terms: false,
   });
-
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+    }));
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setError('');
-
     try {
-      const response = await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          flooring_type: formData.flooring_type,
-          message: formData.message,
-          source_page: sourcePage,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, source_page: sourcePage }),
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit form');
+      if (!res.ok) {
+        const d = await res.json();
+        throw new Error(d.error || 'Failed to submit');
       }
-
       setSubmitted(true);
-      setFormData({
-        name: '',
-        phone: '',
-        flooring_type: '',
-        message: '',
-        accepted_terms: false,
-      });
+      setFormData({ name: '', phone: '', flooring_type: '', message: '', accepted_terms: false });
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
-      setError('Failed to submit form. Please try again or call us directly.');
-      console.error('Form submission error:', errorMessage, err);
+      setError('Unable to submit. Please call us directly.');
+      console.error(err);
     } finally {
       setSubmitting(false);
     }
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const target = e.target;
-    const value = target.type === 'checkbox' ? (target as HTMLInputElement).checked : target.value;
-    const name = target.name;
-
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   if (submitted) {
     return (
-      <div className="bg-green-50 border-2 border-green-500 rounded-lg p-6 text-center">
-        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-          <Send className="w-6 h-6 text-white" />
+      <div className="text-center py-6">
+        <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-3">
+          <CheckCircle className="w-8 h-8 text-green-600" />
         </div>
-        <h3 className="text-xl font-heading font-bold text-navy mb-2">Thank You!</h3>
-        <p className="text-gray-700 text-sm mb-3">
-          We'll call you back soon.
-        </p>
-        <button
-          onClick={() => setSubmitted(false)}
-          className="text-oak hover:text-oak-dark font-semibold text-sm"
-        >
-          Submit Another Request
-        </button>
+        <h3 className="font-heading font-bold text-navy text-lg mb-1">Request Received!</h3>
+        <p className="text-gray-500 text-sm">We'll call you back within 2 hours.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-3.5">
       <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-navy mb-1.5">
-          Full Name *
-        </label>
         <input
           type="text"
-          id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-300 rounded-lg focus:border-oak focus:outline-none transition-colors text-navy text-base"
-          placeholder="John Smith"
+          placeholder="Your Full Name *"
+          className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oak/40 focus:border-oak transition-colors text-sm"
         />
       </div>
-
       <div>
-        <label htmlFor="phone" className="block text-sm font-semibold text-navy mb-1.5">
-          Phone Number *
-        </label>
         <input
           type="tel"
-          id="phone"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
           required
-          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-300 rounded-lg focus:border-oak focus:outline-none transition-colors text-navy text-base"
-          placeholder="1 (647) 905-0050"
+          placeholder="Phone Number *"
+          className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oak/40 focus:border-oak transition-colors text-sm"
         />
       </div>
-
       <div>
-        <label htmlFor="flooring_type" className="block text-sm font-semibold text-navy mb-1.5">
-          Flooring Type
-        </label>
         <select
-          id="flooring_type"
           name="flooring_type"
           value={formData.flooring_type}
           onChange={handleChange}
-          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-300 rounded-lg focus:border-oak focus:outline-none transition-colors bg-white text-navy text-base"
+          className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-navy focus:outline-none focus:ring-2 focus:ring-oak/40 focus:border-oak transition-colors text-sm bg-white"
         >
-          <option value="">Select Flooring Type</option>
-          {FLOORING_TYPES.map((type) => (
-            <option key={type.value} value={type.value}>
-              {type.label}
-            </option>
-          ))}
+          <option value="">Flooring Type (optional)</option>
+          {FLOORING_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
       </div>
-
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-navy mb-1.5">
-          Project Description (Optional)
-        </label>
         <textarea
-          id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          rows={3}
-          className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-300 rounded-lg focus:border-oak focus:outline-none transition-colors resize-none text-navy text-base"
-          placeholder="Tell us about your flooring project..."
+          rows={2}
+          placeholder="Project details (optional)"
+          className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-oak/40 focus:border-oak transition-colors text-sm resize-none"
         />
       </div>
 
-      <div className="flex items-start space-x-2">
+      <div className="flex items-start gap-2.5">
         <input
           type="checkbox"
-          id="accepted_terms"
           name="accepted_terms"
+          id="hero_terms"
           checked={formData.accepted_terms}
           onChange={handleChange}
           required
-          className="mt-0.5 w-5 h-5 text-oak border-2 border-gray-300 rounded focus:ring-oak focus:ring-2 flex-shrink-0"
+          className="mt-0.5 flex-shrink-0 accent-oak"
         />
-        <label htmlFor="accepted_terms" className="text-xs text-gray-700 leading-snug">
+        <label htmlFor="hero_terms" className="text-xs text-gray-500 leading-relaxed">
           I agree to the{' '}
-          <Link href="/terms" target="_blank" className="text-oak hover:underline font-semibold">Terms</Link>
-          {' '}and{' '}
-          <Link href="/privacy" target="_blank" className="text-oak hover:underline font-semibold">Privacy Policy</Link>. *
+          <Link href="/terms" className="text-oak hover:underline">Terms</Link> &amp;{' '}
+          <Link href="/privacy" className="text-oak hover:underline">Privacy Policy</Link>
         </label>
       </div>
 
       {error && (
-        <div className="p-3 bg-red-50 border border-red-300 rounded-lg text-red-700 text-xs">
+        <div className="flex items-center gap-2 text-red-600 text-xs bg-red-50 rounded-lg px-3 py-2">
+          <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
           {error}
         </div>
       )}
 
       <button
         type="submit"
-        disabled={submitting || !formData.accepted_terms}
-        className="w-full bg-oak hover:bg-oak-light disabled:bg-gray-400 disabled:cursor-not-allowed text-navy font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-[1.02] min-h-[48px]"
+        disabled={submitting}
+        className="w-full bg-oak hover:bg-oak-light disabled:opacity-60 text-navy font-bold px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm"
       >
-        {submitting ? (
-          <span>Submitting...</span>
-        ) : (
+        {submitting ? 'Sending...' : (
           <>
-            <span>Request Callback</span>
             <Send className="w-4 h-4" />
+            Request Free Estimate
           </>
         )}
       </button>
-
-      <p className="text-xs text-gray-500 text-center leading-relaxed">
-        By submitting, you consent to being contacted and allow us to share your information with a local contractor.
-      </p>
     </form>
   );
 }

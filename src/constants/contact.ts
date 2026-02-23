@@ -1,36 +1,31 @@
 export const CONTACT_INFO = {
-  businessName: 'Flooring Installers Toronto',
-  phone: '1 (647) 905-0050',
-  phoneRaw: '16479050050',
+  name: 'Flooring Installers Toronto',
+  phone: '(647) 905-0050',
+  phoneRaw: '+16479050050',
   email: 'info@flooringinstallerstoronto.com',
-  address: {
-    street: '123 King Street West',
-    city: 'Toronto',
-    province: 'ON',
-    postalCode: 'M5H 1A1',
-  },
-  serviceRadius: '50km from Toronto',
+  address: 'Toronto, Ontario',
+  serviceRadius: 'Greater Toronto Area',
 };
 
 export const TRUST_FACTORS = [
   {
-    title: 'Easy Connection',
-    description: 'Simple online form connects you with local contractors',
-    icon: 'shield-check',
+    title: '15+ Years Experience',
+    description: 'Serving Toronto and the GTA with professional flooring installations since 2009.',
+    icon: 'Award',
   },
   {
-    title: 'Multiple Quotes',
-    description: 'Compare pricing and services from different contractors',
-    icon: 'award',
+    title: 'Licensed & Insured',
+    description: 'All contractors are fully licensed, insured with $2M liability, and WSIB compliant.',
+    icon: 'Shield',
   },
   {
-    title: 'Independent Contractors',
-    description: 'Network of experienced flooring specialists',
-    icon: 'star',
+    title: 'Free Estimates',
+    description: 'No-obligation, detailed quotes provided before any work begins.',
+    icon: 'ClipboardList',
   },
   {
-    title: 'Free Service',
-    description: 'No cost to submit requests or receive quotes',
-    icon: 'heart',
+    title: '5-Year Warranty',
+    description: 'Every installation backed by our comprehensive workmanship guarantee.',
+    icon: 'CheckCircle',
   },
 ];

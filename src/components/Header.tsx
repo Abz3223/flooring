@@ -1,177 +1,150 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, Menu, X, Home } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown } from 'lucide-react';
 import { CONTACT_INFO } from '../constants/contact';
+import { FLOORING_SERVICES } from '../constants/services';
+import { LOCATIONS } from '../constants/locations';
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [locationsOpen, setLocationsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (mobileOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   return (
-    <header className="bg-navy text-white sticky top-0 z-50 shadow-lg">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-navy shadow-lg' : 'bg-navy/95'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-3 lg:py-4">
-          <Link href="/" className="flex items-center space-x-2">
-            <Home className="w-6 h-6 sm:w-8 sm:h-8 text-oak flex-shrink-0" />
-            <div className="min-w-0">
-              <div className="text-sm sm:text-base lg:text-xl font-heading font-bold truncate">{CONTACT_INFO.businessName}</div>
-              <div className="hidden sm:block text-xs text-oak">Licensed & Insured GTA Flooring Contractors</div>
-            </div>
+        <div className="flex items-center justify-between h-16 md:h-18">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0" onClick={() => setMobileOpen(false)}>
+            <span className="text-oak font-heading font-bold text-xl leading-tight">Flooring</span>
+            <span className="text-white font-heading font-semibold text-xl leading-tight hidden sm:inline">Installers</span>
+            <span className="text-white/70 font-heading text-sm leading-tight hidden md:inline">Toronto</span>
           </Link>
 
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="hover:text-oak transition-colors">
-              Home
-            </Link>
+          <nav className="hidden lg:flex items-center gap-1">
+            <Link href="/" className="text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">Home</Link>
+
             <div className="relative group">
-              <button className="hover:text-oak transition-colors">
-                Services
+              <button className="flex items-center gap-1 text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">
+                Services <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white text-navy rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <div className="py-2">
-                  <Link href="/services/hardwood-flooring-installation" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Hardwood Flooring
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1">
+                {FLOORING_SERVICES.map((s) => (
+                  <Link key={s.id} href={`/services/${s.slug}`} className="block px-4 py-2 text-sm text-navy hover:bg-background hover:text-oak transition-colors">
+                    {s.name}
                   </Link>
-                  <Link href="/services/laminate-flooring-installation" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Laminate Flooring
-                  </Link>
-                  <Link href="/services/vinyl-flooring-installation" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Vinyl Flooring
-                  </Link>
-                  <Link href="/services/tile-flooring-installation" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Tile Flooring
-                  </Link>
-                  <Link href="/services/carpet-installation" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Carpet Installation
-                  </Link>
-                </div>
+                ))}
               </div>
             </div>
+
             <div className="relative group">
-              <button className="hover:text-oak transition-colors">
-                Service Areas
+              <button className="flex items-center gap-1 text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">
+                Locations <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white text-navy rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <div className="py-2">
-                  <Link href="/locations/toronto" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Toronto
+              <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1">
+                {LOCATIONS.map((l) => (
+                  <Link key={l.slug} href={`/locations/${l.slug}`} className="block px-4 py-2 text-sm text-navy hover:bg-background hover:text-oak transition-colors">
+                    {l.name}
                   </Link>
-                  <Link href="/locations/scarborough" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Scarborough
-                  </Link>
-                  <Link href="/locations/north-york" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    North York
-                  </Link>
-                  <Link href="/locations/vaughan" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Vaughan
-                  </Link>
-                  <Link href="/locations/markham" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Markham
-                  </Link>
-                  <Link href="/locations/mississauga" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Mississauga
-                  </Link>
-                  <Link href="/locations/pickering" className="block px-4 py-2 hover:bg-oak/10 transition-colors">
-                    Pickering
-                  </Link>
-                </div>
+                ))}
               </div>
             </div>
-            <Link href="/blog" className="hover:text-oak transition-colors">
-              Blog
-            </Link>
-            <Link href="/about" className="hover:text-oak transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-oak transition-colors">
-              Contact
-            </Link>
+
+            <Link href="/blog" className="text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">Blog</Link>
+            <Link href="/about" className="text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">About</Link>
+            <Link href="/contact" className="text-white/80 hover:text-white px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/10">Contact</Link>
           </nav>
 
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="flex items-center gap-3">
             <a
               href={`tel:${CONTACT_INFO.phoneRaw}`}
-              className="flex items-center space-x-2 text-oak font-semibold hover:text-oak-light transition-colors"
+              className="hidden sm:flex items-center gap-2 bg-oak hover:bg-oak-light text-navy px-4 py-2 rounded-lg font-semibold text-sm transition-colors"
             >
-              <Phone className="w-5 h-5" />
-              <span className="text-lg">{CONTACT_INFO.phone}</span>
+              <Phone className="w-4 h-4" />
+              {CONTACT_INFO.phone}
             </a>
-            <a
-              href="#quote"
-              className="bg-oak hover:bg-oak-light text-navy px-6 py-2 rounded-md font-semibold transition-colors"
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              aria-label="Toggle menu"
             >
-              Request Callback
-            </a>
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-white p-2 -mr-2 hover:bg-navy-light rounded-md transition-colors"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
-
-        {mobileMenuOpen && (
-          <>
-            <div
-              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-hidden="true"
-            />
-            <div className="lg:hidden pb-4 border-t border-navy-light mt-3 pt-4 relative z-50">
-              <nav className="flex flex-col space-y-3">
-                <Link href="/" className="hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                  Home
-                </Link>
-                <div className="pl-2 space-y-2">
-                  <p className="text-oak font-semibold py-1 px-2">Services</p>
-                  <Link href="/services/hardwood-flooring-installation" className="block hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                    Hardwood Flooring
-                  </Link>
-                  <Link href="/services/laminate-flooring-installation" className="block hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                    Laminate Flooring
-                  </Link>
-                  <Link href="/services/vinyl-flooring-installation" className="block hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                    Vinyl Flooring
-                  </Link>
-                  <Link href="/services/tile-flooring-installation" className="block hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                    Tile Flooring
-                  </Link>
-                  <Link href="/services/carpet-installation" className="block hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                    Carpet Installation
-                  </Link>
-                </div>
-                <Link href="/blog" className="hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                  Blog
-                </Link>
-                <Link href="/about" className="hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                  About
-                </Link>
-                <Link href="/contact" className="hover:text-oak transition-colors py-2 px-2 rounded-md hover:bg-navy-light" onClick={() => setMobileMenuOpen(false)}>
-                  Contact
-                </Link>
-                <a
-                  href={`tel:${CONTACT_INFO.phoneRaw}`}
-                  className="flex items-center space-x-2 text-oak font-semibold py-3 px-2 rounded-md hover:bg-navy-light min-h-[44px]"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>{CONTACT_INFO.phone}</span>
-                </a>
-                <a
-                  href="#quote"
-                  className="bg-oak hover:bg-oak-light text-navy px-6 py-3 rounded-md font-semibold transition-colors inline-block text-center min-h-[44px]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Request Callback
-                </a>
-              </nav>
-            </div>
-          </>
-        )}
       </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 top-16 bg-navy z-40 overflow-y-auto">
+          <div className="container mx-auto px-4 py-6 space-y-1">
+            <Link href="/" onClick={() => setMobileOpen(false)} className="block text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors">Home</Link>
+
+            <div>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="w-full flex items-center justify-between text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors"
+              >
+                Services <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {servicesOpen && (
+                <div className="pl-4 space-y-1">
+                  {FLOORING_SERVICES.map((s) => (
+                    <Link key={s.id} href={`/services/${s.slug}`} onClick={() => setMobileOpen(false)} className="block text-white/60 hover:text-oak px-4 py-2 rounded-lg hover:bg-white/10 text-sm transition-colors">
+                      {s.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <button
+                onClick={() => setLocationsOpen(!locationsOpen)}
+                className="w-full flex items-center justify-between text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors"
+              >
+                Locations <ChevronDown className={`w-4 h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {locationsOpen && (
+                <div className="pl-4 space-y-1">
+                  {LOCATIONS.map((l) => (
+                    <Link key={l.slug} href={`/locations/${l.slug}`} onClick={() => setMobileOpen(false)} className="block text-white/60 hover:text-oak px-4 py-2 rounded-lg hover:bg-white/10 text-sm transition-colors">
+                      {l.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link href="/blog" onClick={() => setMobileOpen(false)} className="block text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors">Blog</Link>
+            <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors">About</Link>
+            <Link href="/contact" onClick={() => setMobileOpen(false)} className="block text-white/80 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-base transition-colors">Contact</Link>
+
+            <div className="pt-4 border-t border-white/10">
+              <a
+                href={`tel:${CONTACT_INFO.phoneRaw}`}
+                className="flex items-center justify-center gap-2 bg-oak hover:bg-oak-light text-navy px-6 py-3 rounded-lg font-bold text-base transition-colors w-full"
+              >
+                <Phone className="w-5 h-5" />
+                {CONTACT_INFO.phone}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

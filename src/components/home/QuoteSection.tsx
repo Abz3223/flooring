@@ -1,80 +1,77 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import { Phone, Star } from 'lucide-react';
 import LeadForm from '../LeadForm';
-import TestimonialCard from '../TestimonialCard';
-import { Testimonial } from '../../types/database';
+import { CONTACT_INFO } from '../../constants/contact';
+
+const testimonials = [
+  {
+    name: 'Sarah K.',
+    location: 'North York',
+    rating: 5,
+    text: 'Absolutely stunning hardwood throughout our main floor. The installers were professional, on time, and cleaned up perfectly. Could not be happier.',
+  },
+  {
+    name: 'Michael T.',
+    location: 'Vaughan',
+    rating: 5,
+    text: 'Had LVP installed in our basement and laundry room. Completed in one day and it looks incredible. Will definitely use again for the rest of the house.',
+  },
+  {
+    name: 'Priya R.',
+    location: 'Mississauga',
+    rating: 5,
+    text: 'Very fair pricing, fast scheduling, and the tile work in our bathrooms exceeded expectations. Highly recommend to anyone in the GTA.',
+  },
+];
 
 export default function QuoteSection() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-
-  useEffect(() => {
-    setTestimonials([]);
-  }, []);
-
   return (
-    <section id="quote" className="py-12 sm:py-16 md:py-20 bg-background">
+    <section id="quote" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="font-heading font-bold text-navy mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl">
-            Request Your Callback Today
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Fill out the form below and our expert flooring contractors will call you back
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-oak font-semibold uppercase tracking-widest text-sm mb-3">Get Started</p>
+            <h2 className="font-heading font-bold text-navy text-3xl sm:text-4xl mb-4">Request Your Free Estimate</h2>
+            <p className="text-gray-600 leading-relaxed mb-8">
+              Fill in your details and one of our flooring experts will contact you within 2 hours to discuss your project and provide a detailed, no-obligation estimate.
+            </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-          <div className="lg:col-span-2">
-            <LeadForm sourcePage="homepage" />
-          </div>
-
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <div className="bg-navy text-white rounded-lg p-5 sm:p-6">
-              <h3 className="text-lg sm:text-xl font-heading font-semibold mb-3 sm:mb-4">Why Get a Quote?</h3>
-              <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
-                <li className="flex items-start">
-                  <span className="text-oak mr-2">✓</span>
-                  <span>Free on-site consultation and measurements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-oak mr-2">✓</span>
-                  <span>Comprehensive project assessment and planning</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-oak mr-2">✓</span>
-                  <span>Expert recommendations for your specific needs</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-oak mr-2">✓</span>
-                  <span>No obligation, pressure-free process</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-oak mr-2">✓</span>
-                  <span>Professional service from start to finish</span>
-                </li>
-              </ul>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 mb-8">
+              <LeadForm sourcePage="home-quote" />
             </div>
 
-            {testimonials.length > 0 && (
-              <div>
-                <h3 className="text-base sm:text-lg font-heading font-semibold text-navy mb-3 sm:mb-4">
-                  What Customers Say
-                </h3>
-                <div className="space-y-3 sm:space-y-4">
-                  {testimonials.slice(0, 2).map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.id}
-                      name={testimonial.name}
-                      location={testimonial.location}
-                      rating={testimonial.rating}
-                      review={testimonial.review}
-                      flooringType={testimonial.flooring_type}
-                    />
-                  ))}
+            <div className="flex items-center gap-3 text-gray-500 text-sm">
+              <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="flex items-center gap-2 text-oak hover:text-oak-dark font-semibold transition-colors">
+                <Phone className="w-4 h-4" />
+                Prefer to call? {CONTACT_INFO.phone}
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-oak font-semibold uppercase tracking-widest text-sm mb-3">Reviews</p>
+            <h3 className="font-heading font-bold text-navy text-2xl mb-6">What Our Clients Say</h3>
+
+            <div className="space-y-4">
+              {testimonials.map((t, i) => (
+                <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+                  <div className="flex items-center gap-1 mb-3">
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <Star key={j} className="w-4 h-4 text-oak fill-oak" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-3 italic">"{t.text}"</p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-oak/20 rounded-full flex items-center justify-center">
+                      <span className="text-oak font-bold text-sm">{t.name[0]}</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-navy text-sm">{t.name}</p>
+                      <p className="text-gray-400 text-xs">{t.location}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
+              ))}
+            </div>
           </div>
         </div>
       </div>

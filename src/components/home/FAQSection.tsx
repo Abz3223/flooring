@@ -1,70 +1,70 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { FAQ } from '../../types/database';
+
+const faqs = [
+  {
+    q: 'How long does a typical flooring installation take?',
+    a: 'Most residential projects are completed in 1–3 days depending on the size and complexity. Larger commercial jobs may take longer. We\'ll give you a realistic timeline before work begins.',
+  },
+  {
+    q: 'Do you provide a warranty on your installations?',
+    a: 'Yes — every installation is backed by our 5-year workmanship warranty. If anything goes wrong due to installation quality, we\'ll fix it at no charge. Material warranties vary by manufacturer.',
+  },
+  {
+    q: 'What areas of Toronto and the GTA do you serve?',
+    a: 'We serve all of Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, Pickering, and surrounding communities throughout the Greater Toronto Area.',
+  },
+  {
+    q: 'Do I need to supply the flooring materials or do you provide them?',
+    a: 'We can work both ways. Our contractors can source premium materials at competitive trade pricing, or we can install materials you\'ve already purchased. We\'ll advise on quantities and quality.',
+  },
+  {
+    q: 'What is included in the free estimate?',
+    a: 'Our estimates include a site assessment, material recommendations, detailed scope of work, and a transparent price breakdown. There\'s no obligation and no hidden fees.',
+  },
+  {
+    q: 'Can you install flooring over an existing floor?',
+    a: 'In many cases, yes. We\'ll assess the condition of your existing floor during the estimate. Some installations can go directly over existing flooring while others require full removal. We\'ll advise on the best approach.',
+  },
+];
 
 export default function FAQSection() {
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  useEffect(() => {
-    setFaqs([]);
-  }, []);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-white">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="font-heading font-bold text-navy mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Common questions about flooring installation in Toronto and the GTA
-          </p>
-        </div>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-oak font-semibold uppercase tracking-widest text-sm mb-3">FAQ</p>
+            <h2 className="font-heading font-bold text-navy text-3xl sm:text-4xl mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-600">Everything you need to know about working with Toronto's flooring installers.</p>
+          </div>
 
-        <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={faq.id}
-              className="bg-background rounded-lg shadow-md overflow-hidden border-2 border-transparent hover:border-oak/30 transition-colors"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 flex items-center justify-between text-left min-h-[60px]"
-              >
-                <h3 className="text-base sm:text-lg font-heading font-semibold text-navy pr-3 sm:pr-4">
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-oak flex-shrink-0" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-oak flex-shrink-0" />
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-background transition-colors"
+                >
+                  <span className="font-heading font-semibold text-navy text-sm sm:text-base">{faq.q}</span>
+                  {open === i ? (
+                    <ChevronUp className="w-5 h-5 text-oak flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  )}
+                </button>
+                {open === i && (
+                  <div className="px-5 pb-4 bg-background border-t border-gray-100">
+                    <p className="text-gray-600 text-sm leading-relaxed pt-3">{faq.a}</p>
+                  </div>
                 )}
-              </button>
-
-              {openIndex === index && (
-                <div className="px-4 sm:px-5 md:px-6 pb-3 sm:pb-4">
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{faq.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 sm:mt-12 text-center">
-          <p className="text-gray-600 mb-4">Still have questions?</p>
-          <a
-            href="/contact"
-            className="inline-block bg-oak hover:bg-oak-light text-navy px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors min-h-[44px]"
-          >
-            Contact Our Team
-          </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

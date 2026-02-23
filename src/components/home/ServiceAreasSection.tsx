@@ -1,57 +1,36 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
-import { ServiceArea } from '../../types/database';
+import { MapPin, ArrowRight } from 'lucide-react';
+import { LOCATIONS } from '../../constants/locations';
 
 export default function ServiceAreasSection() {
-  const [areas, setAreas] = useState<ServiceArea[]>([]);
-
-  useEffect(() => {
-    setAreas([]);
-  }, []);
-
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-white">
+    <section id="service-areas" className="py-20 bg-navy">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="font-heading font-bold text-navy mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl">
-            Serving Toronto & the Greater Toronto Area
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Professional flooring installers proudly serving homes and businesses across the GTA
+        <div className="text-center mb-14">
+          <p className="text-oak font-semibold uppercase tracking-widest text-sm mb-3">Where We Work</p>
+          <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl mb-4">Service Areas</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            We install flooring across the Greater Toronto Area. Select your city to see how we can help.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
-          {areas.map((area) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {LOCATIONS.map((loc) => (
             <Link
-              key={area.id}
-              href={`/locations/${area.slug}`}
-              className="bg-background hover:bg-oak/10 active:bg-oak/10 border-2 border-transparent hover:border-oak active:border-oak rounded-lg p-4 sm:p-5 md:p-6 transition-all group min-h-[100px]"
+              key={loc.slug}
+              href={`/locations/${loc.slug}`}
+              className="group bg-navy-light hover:bg-white/10 border border-white/10 hover:border-oak/40 rounded-xl p-5 transition-all duration-300"
             >
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-10 h-10 bg-oak rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <MapPin className="w-5 h-5 text-navy" />
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-9 h-9 bg-oak/20 rounded-lg flex items-center justify-center group-hover:bg-oak/30 transition-colors">
+                  <MapPin className="w-4 h-4 text-oak" />
                 </div>
-                <h3 className="text-lg font-heading font-semibold text-navy">{area.name}</h3>
+                <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-oak transition-colors" />
               </div>
-              <p className="text-gray-600 text-sm line-clamp-2">{area.description}</p>
+              <h3 className="font-heading font-bold text-white text-base mb-1 group-hover:text-oak transition-colors">{loc.name}</h3>
+              <p className="text-gray-400 text-xs">{loc.region}</p>
             </Link>
           ))}
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 mb-4">
-            Don't see your area? We service a 50km radius from Toronto
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-oak hover:bg-oak-light text-navy px-8 py-3 rounded-lg font-semibold transition-colors"
-          >
-            Contact Us for Your Area
-          </Link>
         </div>
       </div>
     </section>

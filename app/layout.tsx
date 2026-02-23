@@ -1,43 +1,40 @@
 import type { Metadata } from 'next';
+import { Poppins, Lato } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-lato',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
+  title: 'Flooring Installers Toronto | Hardwood, LVP, Tile & Carpet | GTA',
+  description: 'Toronto\'s trusted flooring installers. Expert hardwood, laminate, vinyl, tile, and carpet installation across the GTA. Licensed, insured, 5-year warranty. Free estimates.',
   metadataBase: new URL('https://flooringinstallerstoronto.com'),
-  title: {
-    default: 'Toronto Flooring Installers - Professional Flooring Contractors | GTA',
-    template: '%s | Flooring Installers Toronto',
-  },
-  description: 'Professional flooring installers serving Toronto and the GTA. Expert hardwood, laminate, vinyl, tile, and carpet installation. Licensed, insured, and trusted contractors with 15+ years experience.',
   openGraph: {
     type: 'website',
     locale: 'en_CA',
     url: 'https://flooringinstallerstoronto.com',
     siteName: 'Flooring Installers Toronto',
   },
-  twitter: {
-    card: 'summary_large_image',
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-body bg-background text-navy">
+    <html lang="en-CA" className={`${poppins.variable} ${lato.variable}`}>
+      <body className="font-body">
         <Header />
         <main>{children}</main>
         <Footer />

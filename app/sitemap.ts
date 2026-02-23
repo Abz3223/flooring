@@ -1,38 +1,38 @@
 import { MetadataRoute } from 'next';
 import { FLOORING_SERVICES } from '@/constants/services';
+import { LOCATIONS } from '@/constants/locations';
 import { BLOG_POSTS } from '@/constants/blogPosts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://flooringinstallerstoronto.com';
-  const locationSlugs = ['toronto', 'scarborough', 'north-york', 'vaughan', 'markham', 'mississauga', 'pickering'];
+  const base = 'https://flooringinstallerstoronto.com';
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-  ];
-
-  const serviceRoutes: MetadataRoute.Sitemap = FLOORING_SERVICES.map((service) => ({
-    url: `${baseUrl}/services/${service.slug}`,
+  const staticPages = ['', '/about', '/contact', '/blog', '/privacy', '/terms', '/disclaimer'].map((path) => ({
+    url: `${base}${path}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.9,
+    changeFrequency: 'monthly' as const,
+    priority: path === '' ? 1 : 0.7,
   }));
 
-  const locationRoutes: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
-    url: `${baseUrl}/locations/${slug}`,
+  const servicePages = FLOORING_SERVICES.map((s) => ({
+    url: `${base}/services/${s.slug}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
 
-  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  const locationPages = LOCATIONS.map((l) => ({
+    url: `${base}/locations/${l.slug}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly',
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const blogPages = BLOG_POSTS.map((b) => ({
+    url: `${base}/blog/${b.slug}`,
+    lastModified: new Date(b.date),
+    changeFrequency: 'yearly' as const,
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...blogRoutes];
+  return [...staticPages, ...servicePages, ...locationPages, ...blogPages];
 }

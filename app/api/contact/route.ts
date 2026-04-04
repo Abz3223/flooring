@@ -1,5 +1,11 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -18,41 +24,54 @@ interface ContactPayload {
 
 export async function POST(request: NextRequest) {
   try {
-    if (!resend) {
-      return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
-    }
-
     const body: ContactPayload = await request.json();
-    const { name, phone, email, address, flooring_type, message, source_page } = body;
+    const { name, phone, email, address, flooring_type, message, source_page, accepted_terms } = body;
 
     if (!name || !phone) {
       return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 });
     }
 
-    const lines = [
-      `New Lead Submission — Flooring Installers Toronto`,
-      ``,
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      email ? `Email: ${email}` : null,
-      address ? `Address: ${address}` : null,
-      flooring_type ? `Flooring Type: ${flooring_type}` : null,
-      message ? `Message: ${message}` : null,
-      source_page ? `Source: ${source_page}` : null,
-      ``,
-      `Submitted: ${new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })} EST`,
-    ].filter(Boolean).join('\n');
-
-    const { error } = await resend.emails.send({
-      from: 'Flooring Installers Toronto <noreply@resend.dev>',
-      to: 'abduljaafar10@gmail.com',
-      subject: `New Flooring Lead: ${name} — ${phone}`,
-      text: lines,
+    const { error: dbError } = await supabase.from('leads').insert({
+      name,
+      phone,
+      email: email || null,
+      address: address || null,
+      flooring_type: flooring_type || null,
+      message: message || null,
+      source_page: source_page || null,
+      accepted_terms: accepted_terms ?? false,
+      consent_timestamp: new Date().toISOString(),
     });
 
-    if (error) {
-      console.error('Resend error:', error);
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    if (dbError) {
+      console.error('Supabase insert error:', dbError);
+    }
+
+    if (resend) {
+      const lines = [
+        `New Lead Submission — Flooring Installers Toronto`,
+        ``,
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        email ? `Email: ${email}` : null,
+        address ? `Address: ${address}` : null,
+        flooring_type ? `Flooring Type: ${flooring_type}` : null,
+        message ? `Message: ${message}` : null,
+        source_page ? `Source: ${source_page}` : null,
+        ``,
+        `Submitted: ${new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })} EST`,
+      ].filter(Boolean).join('\n');
+
+      const { error: emailError } = await resend.emails.send({
+        from: 'Flooring Installers Toronto <onboarding@resend.dev>',
+        to: 'abduljaafar10@gmail.com',
+        subject: `New Flooring Lead: ${name} — ${phone}`,
+        text: lines,
+      });
+
+      if (emailError) {
+        console.error('Resend error:', emailError);
+      }
     }
 
     return NextResponse.json({ success: true }, { status: 200 });

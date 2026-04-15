@@ -38,24 +38,63 @@ export const locationsData: LocationData[] = [
   {
     slug: 'scarborough',
     city: 'Scarborough',
-    title: 'Flooring Installation in Scarborough',
-    metaTitle: 'Flooring Installation Scarborough ON | Toronto Flooring Installers',
+    title: 'Flooring Installers in Scarborough',
+    metaTitle: 'Flooring Installers in Scarborough | Local Licensed Contractors',
     metaDescription:
-      'Professional flooring installation in Scarborough, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Agincourt, Malvern, Rouge Hill, and more. Free estimates. Call (647) 905-0050.',
+      'Scarborough-based flooring installation — hardwood, laminate, vinyl, tile, carpet. Headquartered on McCowan Rd. Licensed, insured, 5-year warranty. Free estimates.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Scarborough, ON</h1>
+  <h1>Flooring Installers in Scarborough</h1>
 
-  <p>Our company is based in Scarborough at 2061 McCowan Rd, which means we know this part of the city inside and out. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout Scarborough and the surrounding communities.</p>
+  <p>We are flooring installers in Scarborough — and this isn't a service area we drive out to. Our shop is on McCowan Rd, right in the heart of the community we grew up working in. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> for homeowners and condo owners across Scarborough. When you call, we can often do a same-day or next-day site visit — there's no travel time factored into the estimate, because we're already here.</p>
+
+  <h2>Scarborough's Housing Stock and Flooring Needs</h2>
+
+  <p>Scarborough has one of the most varied housing inventories in the GTA, and the flooring challenges that come with it are specific. We've worked in enough homes here to know what we're walking into before we arrive.</p>
+
+  <p>The 1960s and 70s bungalows in Agincourt are a common job for us. Many have original strip hardwood hiding under decades of carpet — and uncovering it is always a gamble. The subfloor condition varies widely, and some of the older homes in that era used asbestos floor tile in the basement, which has to be addressed before any new flooring goes down. We know who to call for abatement and how to coordinate the sequencing so the project doesn't stall.</p>
+
+  <p>Post-war homes in Wexford and Woburn present a different set of constraints: narrow hallways, small room footprints, and frequent transitions between rooms. Getting clean, tight transitions in these layouts takes more care than a wide-open modern floor plan. We've done enough of these that the details come automatically.</p>
+
+  <p>In the newer townhome developments in Malvern, the ask is usually an upgrade from builder-grade laminate. Homeowners want something that feels more substantial — wider planks, a real wood look, better acoustic performance. LVP has become the default spec on these jobs, and it performs well on the concrete subfloors that are standard in newer builds.</p>
+
+  <p>High-rise condos along Kingston Road and the McCowan corridor have their own distinct requirements. Concrete subfloors are universal, which shapes product selection immediately. Beyond that, most buildings in this area have noise bylaw requirements — typically a minimum IIC (Impact Insulation Class) rating for the underlayment — and some require prior approval from the condo board before installation can begin. We're familiar with the <a href="https://www.toronto.ca/city-government/planning-development/official-plan-guidelines/design-guidelines/noise/" rel="nofollow noopener" target="_blank">City of Toronto's noise guidelines</a> and have helped many Scarborough condo owners navigate the approval process without delays.</p>
+
+  <p>The detached homes in Guildwood and near the Scarborough Bluffs are a different conversation entirely. Proximity to the lake means elevated humidity levels year-round — not extreme, but enough to matter when you're installing solid hardwood. We typically recommend engineered hardwood for these properties, and we always conduct moisture testing on the subfloor before any product goes down.</p>
+
+  <h2>Flooring Services in Scarborough</h2>
+
+  <p><a href="/services/hardwood-flooring-installation">Hardwood flooring installation in Scarborough</a> is our most requested service. Whether it's uncovering and refinishing original strip hardwood in an Agincourt bungalow or installing new wide-plank engineered oak in a Guildwood detached, we handle the full scope from subfloor prep through final trim.</p>
+
+  <p><a href="/services/laminate-flooring-installation">Laminate flooring installation</a> is a practical and cost-effective option for families with high-traffic areas. We install quality laminate throughout Scarborough and often use it in the upper floors of townhomes where budget and durability are both priorities.</p>
+
+  <p><a href="/services/vinyl-flooring-installation">Vinyl and LVP flooring installation</a> has become the standard for Scarborough condos and below-grade spaces. It's waterproof, works directly over concrete, and the acoustic underlayment options available today meet most building management requirements without the cost of engineered hardwood.</p>
+
+  <p><a href="/services/tile-flooring-installation">Tile installation</a> in Scarborough homes frequently comes up as part of bathroom renovations and kitchen refreshes. We install porcelain, ceramic, and natural stone, and we know how to set tile properly on the older subfloor systems found in this area's post-war housing stock.</p>
+
+  <p><a href="/services/carpet-installation">Carpet installation</a> remains a popular choice for bedrooms and basements across Scarborough. We supply and install quality carpet with appropriate underpadding, and we handle stair carpeting for the split-levels and two-storeys common throughout the area.</p>
 
   <h2>Scarborough Neighbourhoods We Serve</h2>
 
-  <p>We regularly work in Agincourt, Birchcliffe, Clairlea, Cliffside, Dorset Park, Eglinton East, Guildwood, Highland Creek, Kingston Road corridor, L'Amoreaux, Malvern, Maryvale, McCowan area, Morningside, Rouge Hill, Scarborough Village, Tam O'Shanter-Sullivan, Wexford, and Woburn. Scarborough's housing stock includes a large number of post-war bungalows and split-levels that often benefit from hardwood or luxury vinyl upgrades to replace worn carpet or dated linoleum.</p>
+  <p>We work across all of Scarborough's communities. Agincourt and Tam O'Shanter are regulars on our schedule — the housing era and density there means we're often doing multiple jobs in the same week within a few blocks. Birch Cliff and Cliffside homeowners tend to be doing more significant renovations, often replacing all the flooring on a main floor in one project. In Dorset Park and Bendale, we see a lot of rental property upgrades — landlords replacing worn carpet with LVP before re-listing. We also work regularly in Guildwood, Scarborough Village, Rouge Hill, Wexford, Woburn, Malvern, West Hill, and Morningside.</p>
 
-  <p>Being locally based means we can often schedule estimates and installations faster than contractors coming from outside the area. Our response time for Scarborough clients is typically within 24–48 hours. We also serve neighbouring areas including <a href="/locations/toronto">Toronto</a>, <a href="/locations/markham">Markham</a>, and <a href="/locations/pickering">Pickering</a>.</p>
+  <h2>Why Choose a Local Scarborough Installer</h2>
+
+  <p>There are no travel surcharges when you book with us in Scarborough — our base is here, not in Etobicoke or Mississauga. Same-day and next-day site assessments are genuinely possible because we're not adding a 45-minute drive to every appointment. We're familiar with the building eras throughout Scarborough and the subfloor conditions that come with each one, which means fewer surprises mid-job and more accurate estimates upfront. For condo owners, we know what to expect from the building management process along the Kingston Road and McCowan corridors and can help you get approval documentation ready before we book the installation.</p>
+
+  <p>We also serve clients in nearby <a href="/locations/markham">Markham</a>, <a href="/locations/pickering">Pickering</a>, <a href="/locations/north-york">North York</a>, and across <a href="/locations/toronto">Toronto</a>.</p>
+
+  <div class="map-embed">
+    <h2>Our Location</h2>
+    <p>We are based at 2061 McCowan Rd, Scarborough, ON M1S 3Y6.</p>
+    <!-- Google Map embed: 2061 McCowan Rd, Scarborough, ON -->
+    <div style="width:100%;height:300px;background:#e5e7eb;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+      <p style="color:#6b7280;font-size:14px;">Map: 2061 McCowan Rd, Scarborough, ON M1S 3Y6</p>
+    </div>
+  </div>
 
   <div class="cta-block">
-    <h2>Free Flooring Estimate in Scarborough</h2>
-    <p>Call us at <a href="tel:6479050050">(647) 905-0050</a> or fill out our contact form to book your free estimate.</p>
+    <h2>Get Your Free Estimate in Scarborough</h2>
+    <p>Call us at <a href="tel:6479050050">(647) 905-0050</a> or fill out our contact form. We're local, we're licensed and insured, and we can usually get to you within a day.</p>
     <a href="/contact" class="cta-button">Request a Free Estimate</a>
   </div>
 </article>`,

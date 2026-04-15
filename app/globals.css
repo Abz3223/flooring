@@ -3,23 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    color: #1B263B;
-    background-color: #F7F7F7;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Georgia', serif; }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .service-content h1 {
+    @apply text-3xl font-bold text-gray-900 mb-6 leading-tight;
+  }
+  .service-content h2 {
+    @apply text-2xl font-bold text-gray-800 mt-10 mb-4 leading-snug;
+  }
+  .service-content h3 {
+    @apply text-xl font-semibold text-gray-700 mt-6 mb-3;
+  }
+  .service-content p {
+    @apply text-gray-600 leading-relaxed mb-4;
+  }
+  .service-content a {
+    @apply text-brand-600 underline hover:text-brand-700;
+  }
+  .service-content .cta-block {
+    @apply bg-brand-50 border border-brand-200 rounded-xl p-8 mt-12;
+  }
+  .service-content .cta-block h2 {
+    @apply text-2xl font-bold text-gray-900 mt-0 mb-3;
+  }
+  .service-content .cta-block p {
+    @apply mb-4;
+  }
+  .service-content .cta-button {
+    @apply inline-block bg-brand-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors no-underline;
   }
 }

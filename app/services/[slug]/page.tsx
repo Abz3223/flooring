@@ -1,124 +1,103 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { Phone, ArrowRight, CheckCircle } from 'lucide-react';
-import { FLOORING_SERVICES } from '@/constants/services';
-import { CONTACT_INFO } from '@/constants/contact';
-import LeadForm from '@/components/LeadForm';
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { getServiceBySlug, getAllServiceSlugs } from '@/lib/services-data'
 
-type Props = { params: Promise<{ slug: string }> };
+interface PageProps {
+  params: { slug: string }
+}
 
 export async function generateStaticParams() {
-  return FLOORING_SERVICES.map((s) => ({ slug: s.slug }));
+  return getAllServiceSlugs().map((slug) => ({ slug }))
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const service = FLOORING_SERVICES.find((s) => s.slug === slug);
-  if (!service) return { title: 'Service Not Found' };
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const service = getServiceBySlug(params.slug)
+  if (!service) return {}
   return {
-    title: `${service.name} in Toronto & GTA | Professional Installation`,
-    description: `${service.description} Serving Toronto, Scarborough, North York, Vaughan, Markham, Mississauga & Pickering. Licensed, insured, 5-year warranty.`,
-    alternates: { canonical: `https://flooringinstallerstoronto.com/services/${slug}` },
-  };
+    title: service.metaTitle,
+    description: service.metaDescription,
+  }
 }
 
-export default async function ServicePage({ params }: Props) {
-  const { slug } = await params;
-  const service = FLOORING_SERVICES.find((s) => s.slug === slug);
-  if (!service) notFound();
-
-  const otherServices = FLOORING_SERVICES.filter((s) => s.id !== service.id);
+export default function ServicePage({ params }: PageProps) {
+  const service = getServiceBySlug(params.slug)
+  if (!service) notFound()
 
   return (
-    <div className="pt-16">
-      <section className="bg-navy text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <p className="text-oak font-semibold uppercase tracking-widest text-sm mb-4">Flooring Services</p>
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl mb-6">{service.name} in Toronto & GTA</h1>
-            <p className="text-gray-200 text-xl leading-relaxed mb-8">{service.description}</p>
-            <div className="flex flex-wrap gap-4">
-              <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="flex items-center gap-2 bg-oak hover:bg-oak-light text-navy px-7 py-3.5 rounded-xl font-bold transition-colors">
-                <Phone className="w-5 h-5" /> {CONTACT_INFO.phone}
-              </a>
-              <Link href="#estimate" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-7 py-3.5 rounded-xl font-semibold transition-colors">
-                Free Estimate <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
+    <div className="min-h-screen bg-white">
+      {/* Breadcrumb */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <nav className="text-sm text-gray-500 flex items-center gap-2">
+            <Link href="/" className="hover:text-brand-600">Home</Link>
+            <span>/</span>
+            <span className="text-gray-900 font-medium">{service.title}</span>
+          </nav>
         </div>
-      </section>
+      </div>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-heading font-bold text-navy text-3xl mb-6">Why Choose Our {service.name} Installation?</h2>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Our certified contractors specialise in {service.name.toLowerCase()} installation across the Greater Toronto Area. From subfloor preparation to final trim, we handle every step of the process.
+      {/* Content + Sidebar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2">
+            <div
+              className="prose max-w-none"
+              dangerouslySetInnerHTML={{ __html: service.content }}
+            />
+          </div>
+
+          {/* Sidebar */}
+          <aside className="mt-12 lg:mt-0 space-y-6">
+            {/* CTA Card */}
+            <div className="bg-brand-50 border border-brand-200 rounded-xl p-6 sticky top-24">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Get a Free Estimate</h3>
+              <p className="text-gray-600 text-sm mb-4">
+                We serve Toronto and the entire GTA. Contact us today for a free, no-obligation on-site quote.
               </p>
-              <ul className="space-y-3">
-                {service.benefits.map((b) => (
-                  <li key={b} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-oak/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-oak" />
-                    </div>
-                    <span className="text-navy font-medium text-sm">{b}</span>
-                  </li>
-                ))}
-                <li className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-oak/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-3.5 h-3.5 text-oak" />
-                  </div>
-                  <span className="text-navy font-medium text-sm">5-year workmanship warranty</span>
-                </li>
+              <Link
+                href="/contact"
+                className="block w-full bg-brand-600 text-white font-semibold text-center px-4 py-3 rounded-lg hover:bg-brand-700 transition-colors mb-3"
+              >
+                Request a Free Quote
+              </Link>
+              <a
+                href="tel:6479050050"
+                className="block w-full border border-brand-600 text-brand-600 font-semibold text-center px-4 py-3 rounded-lg hover:bg-brand-600 hover:text-white transition-colors"
+              >
+                Call (647) 905-0050
+              </a>
+            </div>
+
+            {/* Other Services */}
+            <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <h3 className="text-base font-bold text-gray-900 mb-3">Other Services</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/services/hardwood-flooring-installation" className="text-brand-600 hover:text-brand-700">Hardwood Flooring</Link></li>
+                <li><Link href="/services/laminate-flooring-installation" className="text-brand-600 hover:text-brand-700">Laminate Flooring</Link></li>
+                <li><Link href="/services/vinyl-flooring-installation" className="text-brand-600 hover:text-brand-700">Vinyl / LVP Flooring</Link></li>
+                <li><Link href="/services/tile-flooring-installation" className="text-brand-600 hover:text-brand-700">Tile Flooring</Link></li>
+                <li><Link href="/services/carpet-installation" className="text-brand-600 hover:text-brand-700">Carpet Installation</Link></li>
               </ul>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { stat: '15+', label: 'Years Installing' },
-                { stat: '500+', label: 'Projects Done' },
-                { stat: '$2M', label: 'Liability Coverage' },
-                { stat: '5★', label: 'Client Rating' },
-              ].map(({ stat, label }) => (
-                <div key={label} className="bg-background rounded-xl p-6 text-center">
-                  <div className="font-heading font-bold text-oak text-3xl mb-1">{stat}</div>
-                  <div className="text-navy text-sm font-medium">{label}</div>
-                </div>
-              ))}
+            {/* Service Areas */}
+            <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <h3 className="text-base font-bold text-gray-900 mb-3">Service Areas</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/locations/toronto" className="text-brand-600 hover:text-brand-700">Toronto</Link></li>
+                <li><Link href="/locations/scarborough" className="text-brand-600 hover:text-brand-700">Scarborough</Link></li>
+                <li><Link href="/locations/north-york" className="text-brand-600 hover:text-brand-700">North York</Link></li>
+                <li><Link href="/locations/vaughan" className="text-brand-600 hover:text-brand-700">Vaughan</Link></li>
+                <li><Link href="/locations/markham" className="text-brand-600 hover:text-brand-700">Markham</Link></li>
+                <li><Link href="/locations/mississauga" className="text-brand-600 hover:text-brand-700">Mississauga</Link></li>
+                <li><Link href="/locations/pickering" className="text-brand-600 hover:text-brand-700">Pickering</Link></li>
+              </ul>
             </div>
-          </div>
+          </aside>
         </div>
-      </section>
-
-      <section id="estimate" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="font-heading font-bold text-navy text-3xl mb-4">Get Your {service.name} Estimate</h2>
-              <p className="text-gray-600">Tell us about your project and we'll be in touch within 2 hours with a detailed quote.</p>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
-              <LeadForm sourcePage={`service-${service.id}`} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading font-bold text-navy text-2xl mb-8 text-center">Other Flooring Services</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {otherServices.map((s) => (
-              <Link key={s.id} href={`/services/${s.slug}`} className="group bg-background hover:bg-oak/5 border border-gray-100 hover:border-oak/30 rounded-xl p-4 text-center transition-all duration-200">
-                <p className="font-semibold text-navy text-sm group-hover:text-oak transition-colors">{s.name}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
-  );
+  )
 }

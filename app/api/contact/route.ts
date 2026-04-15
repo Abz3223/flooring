@@ -1,82 +1,56 @@
-import { Resend } from 'resend';
-import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
-
-interface ContactPayload {
-  name: string;
-  phone: string;
-  email?: string;
-  address?: string;
-  flooring_type?: string;
-  message?: string;
-  source_page?: string;
-  accepted_terms?: boolean;
-}
+import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   try {
-    const body: ContactPayload = await request.json();
-    const { name, phone, email, address, flooring_type, message, source_page, accepted_terms } = body;
+    const body = await request.json()
+    const { name, email, phone, service, message } = body
 
-    if (!name || !phone) {
-      return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 });
+    if (!name || !email || !service) {
+      return NextResponse.json(
+        { error: 'Name, email, and service are required fields.' },
+        { status: 400 }
+      )
     }
 
-    const { error: dbError } = await supabase.from('leads').insert({
-      name,
-      phone,
-      email: email || null,
-      address: address || null,
-      flooring_type: flooring_type || null,
-      message: message || null,
-      source_page: source_page || null,
-      accepted_terms: accepted_terms ?? false,
-      consent_timestamp: new Date().toISOString(),
-    });
+    const emailBody = `
+New flooring enquiry from flooringinstallerstoronto.com
 
-    if (dbError) {
-      console.error('Supabase insert error:', dbError);
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Service Requested: ${service}
+
+Message:
+${message || 'No additional message provided.'}
+
+---
+This lead was submitted via the contact form at flooringinstallerstoronto.com
+    `.trim()
+
+    const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: ['abduljaafar10@gmail.com'],
+      subject: `New Lead from Toronto Flooring Website - ${name}`,
+      text: emailBody,
+      reply_to: email,
+    })
+
+    if (error) {
+      console.error('Resend error:', error)
+      return NextResponse.json(
+        { error: 'Failed to send email. Please call us at (647) 905-0050.' },
+        { status: 500 }
+      )
     }
 
-    if (resend) {
-      const lines = [
-        `New Lead Submission — Flooring Installers Toronto`,
-        ``,
-        `Name: ${name}`,
-        `Phone: ${phone}`,
-        email ? `Email: ${email}` : null,
-        address ? `Address: ${address}` : null,
-        flooring_type ? `Flooring Type: ${flooring_type}` : null,
-        message ? `Message: ${message}` : null,
-        source_page ? `Source: ${source_page}` : null,
-        ``,
-        `Submitted: ${new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })} EST`,
-      ].filter(Boolean).join('\n');
-
-      const { error: emailError } = await resend.emails.send({
-        from: 'Flooring Installers Toronto <onboarding@resend.dev>',
-        to: 'abduljaafar10@gmail.com',
-        subject: `New Flooring Lead: ${name} — ${phone}`,
-        text: lines,
-      });
-
-      if (emailError) {
-        console.error('Resend error:', emailError);
-      }
-    }
-
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json({ success: true, id: data?.id }, { status: 200 })
   } catch (err) {
-    console.error('Contact API error:', err);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Contact API error:', err)
+    return NextResponse.json(
+      { error: 'An unexpected error occurred. Please call us at (647) 905-0050.' },
+      { status: 500 }
+    )
   }
 }

@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getServiceBySlug, getAllServiceSlugs } from '@/lib/services-data'
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '@/src/lib/schema'
+import { serviceSchemaData } from '@/src/constants/service-schema-data'
+import { serviceFAQs } from '@/src/constants/faqs'
 
 interface PageProps {
   params: { slug: string }
@@ -20,12 +23,42 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+const BASE_URL = 'https://flooringinstallerstoronto.com'
+
 export default function ServicePage({ params }: PageProps) {
   const service = getServiceBySlug(params.slug)
   if (!service) notFound()
 
+  const schemaInput = serviceSchemaData[params.slug]
+  const faqs = serviceFAQs[params.slug]
+
+  const serviceSchema = schemaInput ? getServiceSchema(schemaInput) : null
+  const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(faqs) : null
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: BASE_URL },
+    { name: 'Services', url: `${BASE_URL}/services` },
+    { name: service.title, url: `${BASE_URL}/services/${params.slug}` },
+  ])
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">

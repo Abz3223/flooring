@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { getLocalBusinessSchema } from '@/src/lib/schema'
 
 export const metadata: Metadata = {
   title: 'Toronto Flooring Installers | Hardwood, Laminate, Vinyl, Tile & Carpet',
@@ -64,8 +65,15 @@ const areas = [
 ]
 
 export default function HomePage() {
+  const localBusinessSchema = getLocalBusinessSchema()
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">

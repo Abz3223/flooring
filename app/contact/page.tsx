@@ -1,14 +1,9 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import type { Metadata } from 'next'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
-// Note: metadata must be in a separate server component when using 'use client'
-// but for simplicity, we export it here anyway — Next.js will handle this
-// The actual metadata export is handled server-side; for client components,
-// define it in a parent layout or a separate metadata file.
-
-const services = [
+const flooringServices = [
   'Hardwood Flooring',
   'Laminate Flooring',
   'Vinyl / LVP Flooring',
@@ -22,6 +17,7 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
+    address: '',
     service: '',
     message: '',
   })
@@ -48,7 +44,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setStatus('success')
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', address: '', service: '', message: '' })
       } else {
         const data = await res.json()
         setStatus('error')
@@ -60,186 +56,251 @@ export default function ContactPage() {
     }
   }
 
+  const inputClass =
+    'w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-charcoal text-[0.9375rem] placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors'
+
+  const labelClass = 'block font-sans font-medium text-charcoal text-[0.8125rem] mb-1.5'
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gray-900 text-white py-16 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">Get a Free Flooring Estimate</h1>
-          <p className="text-xl text-gray-300">
-            Fill out the form below and we&apos;ll get back to you within a few hours. Or call us directly at{' '}
-            <a href="tel:6479050050" className="text-brand-400 font-semibold hover:text-brand-300">
-              (647) 905-0050
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-5 gap-12">
-          {/* Form */}
-          <div className="lg:col-span-3">
-            {status === 'success' ? (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-                <div className="text-5xl mb-4">&#10003;</div>
-                <h2 className="text-2xl font-bold text-green-800 mb-2">Message Sent!</h2>
-                <p className="text-green-700">
-                  Thank you for reaching out. We typically respond within 2&ndash;4 hours during business hours. We look forward to speaking with you.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Jane Smith"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="jane@example.com"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-1">
-                    Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(647) 555-1234"
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-1">
-                    Service Needed <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    required
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
-                  >
-                    <option value="">Select a service...</option>
-                    {services.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1">
-                    Tell Us About Your Project
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Approximate square footage, type of rooms, subfloor info, timeline..."
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-none"
-                  />
-                </div>
-
-                {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-sm">
-                    {errorMessage}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="w-full bg-brand-600 hover:bg-brand-700 disabled:bg-brand-400 text-white font-bold px-6 py-4 rounded-lg transition-colors text-lg"
-                >
-                  {status === 'loading' ? 'Sending...' : 'Send My Request'}
-                </button>
-
-                <p className="text-xs text-gray-500 text-center">
-                  By submitting, you agree to be contacted by Toronto Flooring Installers. We respect your privacy.
-                </p>
-              </form>
-            )}
+    <div className="min-h-screen bg-surface">
+      <div className="bg-charcoal pt-32 pb-16 px-4">
+        <div className="max-w-wide mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-content">
+            <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-gold mb-3">
+              Free Estimates
+            </p>
+            <h1 className="font-serif text-stone-50 leading-tight mb-3" style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)' }}>
+              Get a Free Flooring Estimate
+            </h1>
+            <p className="text-stone-400 text-[1.0625rem] leading-relaxed">
+              Fill out the form and we&apos;ll get back to you within a few hours. Or call{' '}
+              <a href="tel:+16479050050" className="text-gold hover:text-gold-light transition-colors font-medium">
+                (647) 905-0050
+              </a>{' '}
+              to talk directly.
+            </p>
           </div>
+        </div>
+      </div>
 
-          {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-gray-50 rounded-xl p-6 space-y-4">
-              <h2 className="text-xl font-bold text-gray-900">Contact Information</h2>
+      <section className="py-12 lg:py-16">
+        <div className="max-w-wide mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
 
-              <div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone</p>
-                <a href="tel:6479050050" className="text-brand-600 hover:text-brand-700 text-lg font-semibold">
-                  (647) 905-0050
+            <div className="lg:col-span-3">
+              {status === 'success' ? (
+                <div className="bg-white border border-stone-200 rounded-2xl p-10 text-center">
+                  <div className="w-14 h-14 bg-gold-muted rounded-full flex items-center justify-center mx-auto mb-5">
+                    <svg className="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h2 className="font-serif text-[1.5rem] text-charcoal mb-3">Request Sent</h2>
+                  <p className="text-stone-500 text-[0.9375rem] leading-relaxed max-w-sm mx-auto">
+                    Thank you for reaching out. We typically respond within 2&ndash;4 hours during business hours and will confirm your estimate appointment by phone.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="name" className={labelClass}>
+                        Full Name <span className="text-gold">*</span>
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Jane Smith"
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className={labelClass}>
+                        Phone Number <span className="text-gold">*</span>
+                      </label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="(647) 555-1234"
+                        className={inputClass}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className={labelClass}>
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="jane@example.com"
+                      className={inputClass}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="address" className={labelClass}>
+                      Property Address
+                    </label>
+                    <input
+                      id="address"
+                      name="address"
+                      type="text"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="123 Main St, Toronto, ON"
+                      className={inputClass}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="service" className={labelClass}>
+                      Flooring Type <span className="text-gold">*</span>
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      value={formData.service}
+                      onChange={handleChange}
+                      className={inputClass}
+                    >
+                      <option value="">Select a service...</option>
+                      {flooringServices.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className={labelClass}>
+                      Project Details
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Approximate square footage, rooms involved, current subfloor, timeline..."
+                      className={`${inputClass} resize-none`}
+                    />
+                  </div>
+
+                  {status === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-[0.875rem]">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="w-full bg-gold hover:bg-gold-hover disabled:opacity-60 text-white font-semibold text-[0.9375rem] px-6 py-4 rounded-lg transition-colors"
+                  >
+                    {status === 'loading' ? 'Sending...' : 'Request a Free Estimate'}
+                  </button>
+
+                  <p className="text-stone-400 text-[0.75rem] text-center">
+                    By submitting, you agree to be contacted by Toronto Flooring Installers. We respect your privacy and will not share your information.
+                  </p>
+                </form>
+              )}
+            </div>
+
+            <div className="lg:col-span-2 space-y-6">
+              <div className="bg-white border border-stone-200 rounded-2xl p-6 space-y-5">
+                <h2 className="font-serif text-[1.25rem] text-charcoal">Contact Information</h2>
+
+                <a
+                  href="tel:+16479050050"
+                  className="flex items-start gap-3.5 group"
+                >
+                  <div className="w-9 h-9 bg-gold-muted rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Phone className="w-4 h-4 text-gold" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="font-sans font-medium text-charcoal text-[0.9375rem] group-hover:text-gold transition-colors">
+                      (647) 905-0050
+                    </p>
+                    <p className="text-stone-400 text-[0.8125rem] mt-0.5">Call or text anytime</p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:info@flooringinstallerstoronto.com"
+                  className="flex items-start gap-3.5 group"
+                >
+                  <div className="w-9 h-9 bg-gold-muted rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Mail className="w-4 h-4 text-gold" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="font-sans font-medium text-charcoal text-[0.9375rem] group-hover:text-gold transition-colors break-all">
+                      info@flooringinstallerstoronto.com
+                    </p>
+                    <p className="text-stone-400 text-[0.8125rem] mt-0.5">We respond same day</p>
+                  </div>
+                </a>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 bg-gold-muted rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4 text-gold" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="font-sans font-medium text-charcoal text-[0.9375rem]">
+                      2061 McCowan Rd
+                    </p>
+                    <p className="text-stone-500 text-[0.875rem] mt-0.5">Scarborough, ON M1S 3Y6</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 bg-gold-muted rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4 text-gold" strokeWidth={1.75} />
+                  </div>
+                  <div>
+                    <p className="font-sans font-medium text-charcoal text-[0.9375rem]">Business Hours</p>
+                    <div className="text-stone-500 text-[0.8125rem] mt-1.5 space-y-1">
+                      <p>Monday &ndash; Friday: 8:00 AM &ndash; 7:00 PM</p>
+                      <p>Saturday: 9:00 AM &ndash; 5:00 PM</p>
+                      <p>Sunday: By appointment</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-charcoal rounded-2xl p-6">
+                <h3 className="font-serif text-[1.125rem] text-stone-50 mb-2">Prefer to call?</h3>
+                <p className="text-stone-400 text-[0.875rem] leading-relaxed mb-4">
+                  Most homeowners find it easier to describe their project over the phone. We can answer questions and schedule an estimate in the same call.
+                </p>
+                <a
+                  href="tel:+16479050050"
+                  className="flex items-center justify-center gap-2 w-full bg-gold hover:bg-gold-hover text-white font-semibold text-[0.9375rem] px-5 py-3.5 rounded-xl transition-colors"
+                >
+                  <Phone className="w-4 h-4" strokeWidth={2} />
+                  Call (647) 905-0050
                 </a>
               </div>
 
-              <div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Address</p>
-                <address className="not-italic text-gray-700">
-                  2061 McCowan Rd<br />
-                  Scarborough, ON M1S 3Y6
-                </address>
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Business Hours</p>
-                <div className="text-gray-700 text-sm space-y-1">
-                  <p>Monday &ndash; Friday: 8:00 AM &ndash; 7:00 PM</p>
-                  <p>Saturday: 9:00 AM &ndash; 5:00 PM</p>
-                  <p>Sunday: By appointment</p>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Service Areas</p>
-                <p className="text-gray-700 text-sm">
-                  Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, Pickering
+              <div className="bg-stone-100 rounded-2xl p-5">
+                <p className="font-sans font-medium text-charcoal text-[0.875rem] mb-2">Service Areas</p>
+                <p className="text-stone-500 text-[0.8125rem] leading-relaxed">
+                  Toronto, Scarborough, North York, Vaughan, Markham, Mississauga &amp; Pickering
                 </p>
               </div>
-            </div>
-
-            <div className="bg-brand-50 border border-brand-200 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-2">Prefer to call?</h3>
-              <p className="text-gray-600 text-sm mb-3">
-                Most clients find it easiest to describe their project over the phone. We&apos;re happy to answer questions and schedule an estimate in the same call.
-              </p>
-              <a
-                href="tel:6479050050"
-                className="block w-full bg-brand-600 text-white font-semibold text-center px-4 py-3 rounded-lg hover:bg-brand-700 transition-colors"
-              >
-                Call (647) 905-0050
-              </a>
             </div>
           </div>
         </div>

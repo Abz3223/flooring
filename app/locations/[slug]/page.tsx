@@ -2,6 +2,12 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocationBySlug, getAllLocationSlugs } from '@/lib/locations-data'
+import Breadcrumbs from '@/src/components/ui/Breadcrumbs'
+import CTASection from '@/src/components/ui/CTASection'
+import MobileStickyCTA from '@/src/components/ui/MobileStickyCTA'
+import { FLOORING_SERVICES } from '@/src/constants/services'
+import { LOCATIONS } from '@/src/constants/locations'
+import { ArrowRight } from 'lucide-react'
 
 interface PageProps {
   params: { slug: string }
@@ -24,86 +30,86 @@ export default function LocationPage({ params }: PageProps) {
   const location = getLocationBySlug(params.slug)
   if (!location) notFound()
 
+  const otherLocations = LOCATIONS.filter((l) => l.slug !== params.slug)
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="text-sm text-gray-500 flex items-center gap-2">
-            <Link href="/" className="hover:text-brand-600">Home</Link>
-            <span>/</span>
-            <span>Locations</span>
-            <span>/</span>
-            <span className="text-gray-900 font-medium">{location.city}</span>
-          </nav>
-        </div>
-      </div>
-
-      {/* Content + Sidebar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="lg:grid lg:grid-cols-3 lg:gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            <div
-              className="prose max-w-none"
-              dangerouslySetInnerHTML={{ __html: location.content }}
+    <div className="min-h-screen bg-surface">
+      <div className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden pt-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/engineered-hardwood-hallway-flooring-toronto.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-charcoal/10" />
+        <div className="relative w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+          <div className="max-w-content">
+            <Breadcrumbs
+              light
+              crumbs={[
+                { label: 'Home', href: '/' },
+                { label: 'Locations', href: '/locations' },
+                { label: location.city },
+              ]}
             />
+            <h1 className="font-serif text-white mt-3 leading-tight" style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+              Flooring Installers in {location.city}
+            </h1>
+            <p className="text-white/75 text-[1rem] mt-2">
+              Serving {location.city} and surrounding communities. Free estimates. 5-year warranty.
+            </p>
           </div>
-
-          {/* Sidebar */}
-          <aside className="mt-12 lg:mt-0 space-y-6">
-            {/* CTA Card */}
-            <div className="bg-brand-50 border border-brand-200 rounded-xl p-6 sticky top-24">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                Free Estimate in {location.city}
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Call us or fill out our form to book a free, no-obligation on-site quote.
-              </p>
-              <Link
-                href="/contact"
-                className="block w-full bg-brand-600 text-white font-semibold text-center px-4 py-3 rounded-lg hover:bg-brand-700 transition-colors mb-3"
-              >
-                Request a Free Quote
-              </Link>
-              <a
-                href="tel:6479050050"
-                className="block w-full border border-brand-600 text-brand-600 font-semibold text-center px-4 py-3 rounded-lg hover:bg-brand-600 hover:text-white transition-colors"
-              >
-                Call (647) 905-0050
-              </a>
-            </div>
-
-            {/* Services We Offer */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="text-base font-bold text-gray-900 mb-3">
-                Services in {location.city}
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/services/hardwood-flooring-installation" className="text-brand-600 hover:text-brand-700">Hardwood Flooring</Link></li>
-                <li><Link href="/services/laminate-flooring-installation" className="text-brand-600 hover:text-brand-700">Laminate Flooring</Link></li>
-                <li><Link href="/services/vinyl-flooring-installation" className="text-brand-600 hover:text-brand-700">Vinyl / LVP Flooring</Link></li>
-                <li><Link href="/services/tile-flooring-installation" className="text-brand-600 hover:text-brand-700">Tile Flooring</Link></li>
-                <li><Link href="/services/carpet-installation" className="text-brand-600 hover:text-brand-700">Carpet Installation</Link></li>
-              </ul>
-            </div>
-
-            {/* Other Locations */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 className="text-base font-bold text-gray-900 mb-3">Other Service Areas</h3>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/locations/toronto" className="text-brand-600 hover:text-brand-700">Toronto</Link></li>
-                <li><Link href="/locations/scarborough" className="text-brand-600 hover:text-brand-700">Scarborough</Link></li>
-                <li><Link href="/locations/north-york" className="text-brand-600 hover:text-brand-700">North York</Link></li>
-                <li><Link href="/locations/vaughan" className="text-brand-600 hover:text-brand-700">Vaughan</Link></li>
-                <li><Link href="/locations/markham" className="text-brand-600 hover:text-brand-700">Markham</Link></li>
-                <li><Link href="/locations/mississauga" className="text-brand-600 hover:text-brand-700">Mississauga</Link></li>
-                <li><Link href="/locations/pickering" className="text-brand-600 hover:text-brand-700">Pickering</Link></li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </div>
+
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div
+          className="location-content"
+          dangerouslySetInnerHTML={{ __html: location.content }}
+        />
+
+        <div className="mt-12 pt-10 border-t border-stone-200">
+          <h2 className="font-serif text-[1.5rem] text-charcoal mb-6">
+            Our Services in {location.city}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {FLOORING_SERVICES.map((service) => (
+              <Link
+                key={service.id}
+                href={`/services/${service.slug}`}
+                className="flex items-center justify-between p-4 bg-white border border-stone-200 rounded-xl hover:border-gold hover:shadow-sm transition-all group"
+              >
+                <span className="font-sans font-medium text-charcoal text-[0.9375rem]">
+                  {service.name}
+                </span>
+                <ArrowRight className="w-4 h-4 text-stone-300 group-hover:text-gold transition-colors flex-shrink-0" strokeWidth={2} />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <h2 className="font-serif text-[1.25rem] text-charcoal mb-4">
+            Nearby Areas We Serve
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {otherLocations.map((loc) => (
+              <Link
+                key={loc.slug}
+                href={`/locations/${loc.slug}`}
+                className="inline-flex items-center font-sans text-[0.875rem] font-medium text-stone-600 hover:text-gold bg-white border border-stone-200 hover:border-gold px-4 py-2 rounded-full transition-all"
+              >
+                {loc.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <CTASection
+        headline={`Get a Free Flooring Estimate in ${location.city}`}
+        subtext={`We serve ${location.city} and surrounding areas with professional flooring installation. Call us or fill out our form and we'll get back to you within hours.`}
+      />
+
+      <MobileStickyCTA />
     </div>
   )
 }

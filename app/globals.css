@@ -3,36 +3,242 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Georgia', serif; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #FAFAF8;
+    color: #1C1C1E;
+    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #B8860B;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 }
 
 @layer components {
+  .service-content {
+    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+  }
+
   .service-content h1 {
-    @apply text-3xl font-bold text-gray-900 mb-6 leading-tight;
+    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    color: #1C1C1E;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+    display: none;
   }
+
   .service-content h2 {
-    @apply text-2xl font-bold text-gray-800 mt-10 mb-4 leading-snug;
+    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+    font-weight: 400;
+    color: #1C1C1E;
+    line-height: 1.25;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
   }
+
   .service-content h3 {
-    @apply text-xl font-semibold text-gray-700 mt-6 mb-3;
+    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #1C1C1E;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0;
   }
+
   .service-content p {
-    @apply text-gray-600 leading-relaxed mb-4;
+    font-size: 1.0625rem;
+    color: #3A3A3C;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
   }
+
   .service-content a {
-    @apply text-brand-600 underline hover:text-brand-700;
+    color: #B8860B;
+    text-decoration: underline;
+    text-decoration-color: rgba(184, 134, 11, 0.35);
+    text-underline-offset: 3px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
   }
+
+  .service-content a:hover {
+    color: #9A7209;
+    text-decoration-color: rgba(154, 114, 9, 0.6);
+  }
+
   .service-content .cta-block {
-    @apply bg-brand-50 border border-brand-200 rounded-xl p-8 mt-12;
+    background-color: #F7EDD6;
+    border: 1px solid #E8D5A3;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
   }
+
   .service-content .cta-block h2 {
-    @apply text-2xl font-bold text-gray-900 mt-0 mb-3;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #1C1C1E;
   }
+
   .service-content .cta-block p {
-    @apply mb-4;
+    color: #4A4A4A;
+    margin-bottom: 1.25rem;
   }
+
   .service-content .cta-button {
-    @apply inline-block bg-brand-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors no-underline;
+    display: inline-block;
+    background-color: #B8860B;
+    color: #FAFAF8;
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+  }
+
+  .service-content .cta-button:hover {
+    background-color: #9A7209;
+    text-decoration: none !important;
+  }
+
+  .location-content {
+    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+  }
+
+  .location-content h1 {
+    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    color: #1C1C1E;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+    display: none;
+  }
+
+  .location-content h2 {
+    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+    font-weight: 400;
+    color: #1C1C1E;
+    line-height: 1.25;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .location-content h3 {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #1C1C1E;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-content p {
+    font-size: 1.0625rem;
+    color: #3A3A3C;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .location-content a {
+    color: #B8860B;
+    text-decoration: underline;
+    text-decoration-color: rgba(184, 134, 11, 0.35);
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  .location-content a:hover {
+    color: #9A7209;
+  }
+
+  .location-content ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .location-content li {
+    font-size: 1.0625rem;
+    color: #3A3A3C;
+    line-height: 1.75;
+    margin-bottom: 0.375rem;
+  }
+
+  .location-content .cta-block {
+    background-color: #F7EDD6;
+    border: 1px solid #E8D5A3;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .location-content .cta-block h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .location-content .cta-button {
+    display: inline-block;
+    background-color: #B8860B;
+    color: #FAFAF8;
+    font-family: var(--font-sans), sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+  }
+
+  .location-content .cta-button:hover {
+    background-color: #9A7209;
+  }
+}
+
+@layer utilities {
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .section-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Disclaimer | Flooring Installers Toronto',
   description: 'Disclaimer for Flooring Installers Toronto. Important information about our referral services and contractor relationships.',
-  alternates: { canonical: 'https://flooringinstallerstoronto.com/disclaimer' },
+  alternates: { canonical: '/disclaimer' },
 };
 
 export default function DisclaimerPage() {

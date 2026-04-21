@@ -22,7 +22,6 @@ export function getLocalBusinessSchema() {
     telephone: '+1-647-905-0050',
     email: 'info@flooringinstallerstoronto.com',
     priceRange: '$$',
-    image: 'TODO: https://flooringinstallerstoronto.com/og-image.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '2061 McCowan Rd',
@@ -51,13 +50,6 @@ export function getLocalBusinessSchema() {
       },
     ],
     areaServed: SERVICE_AREA_CITIES,
-    sameAs: [
-      'TODO: https://www.facebook.com/TorontoFlooringInstallers',
-      'TODO: https://www.instagram.com/torontoflooringinstallers',
-      'TODO: https://www.youtube.com/@torontoflooringinstallers',
-      'TODO: https://www.yelp.com/biz/toronto-flooring-installers',
-      'TODO: https://www.homestars.com/companies/toronto-flooring-installers',
-    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Flooring Installation Services',
@@ -104,13 +96,6 @@ export function getLocalBusinessSchema() {
         },
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: 'TODO: 4.9',
-      reviewCount: 'TODO: 112',
-      bestRating: '5',
-      worstRating: '1',
-    },
   }
 }
 
@@ -139,10 +124,6 @@ export interface ServiceSchemaInput {
   description: string
   serviceType: string
   url: string
-  priceCurrency?: string
-  priceMin?: string
-  priceMax?: string
-  priceUnit?: string
 }
 
 export function getServiceSchema(input: ServiceSchemaInput) {
@@ -158,14 +139,6 @@ export function getServiceSchema(input: ServiceSchemaInput) {
       '@id': BUSINESS_ID,
     },
     areaServed: SERVICE_AREA_CITIES,
-    offers: {
-      '@type': 'Offer',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        priceCurrency: input.priceCurrency ?? 'CAD',
-        price: `TODO: ${input.priceMin ?? 'X'}–${input.priceMax ?? 'Y'} per ${input.priceUnit ?? 'sq ft'}`,
-      },
-    },
   }
 }
 

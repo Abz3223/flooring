@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Flooring Blog',
   description:
     'Flooring tips, guides, and inspiration from Toronto Flooring Installers. Hardwood, laminate, vinyl, tile, and carpet advice for GTA homeowners.',
+  alternates: { canonical: '/blog' },
 }
 
 const comingSoonTopics = [

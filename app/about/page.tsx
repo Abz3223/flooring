@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Learn about Toronto Flooring Installers — a licensed, insured flooring company serving the GTA since 2010. Based in Scarborough, ON.',
+  alternates: { canonical: '/about' },
 }
 
 const values = [

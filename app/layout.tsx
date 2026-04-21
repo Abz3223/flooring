@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     siteName: 'Toronto Flooring Installers',
     locale: 'en_CA',
     type: 'website',
+    images: [
+      {
+        url: '/engineered-hardwood-hallway-flooring-toronto.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Toronto Flooring Installers — Professional Flooring Installation in the GTA',
+      },
+    ],
   },
 }
 

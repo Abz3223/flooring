@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: 'Toronto Flooring Installers | Hardwood, Laminate, Vinyl, Tile & Carpet',
   description:
     'Trusted flooring installation in Toronto and the GTA since 2010. Hardwood, laminate, vinyl/LVP, tile, and carpet. Free estimates. Licensed & insured. Call (647) 905-0050.',
+  alternates: { canonical: '/' },
 }
 
 export default function HomePage() {

@@ -142,6 +142,33 @@ export function getServiceSchema(input: ServiceSchemaInput) {
   }
 }
 
+const BASE_URL = 'https://flooringinstallerstoronto.com'
+
+export function getLocationBusinessSchema(city: string, locationUrl: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${BASE_URL}/#organization`,
+    name: 'Toronto Flooring Installers',
+    url: locationUrl,
+    telephone: '+1-647-905-0050',
+    email: 'info@flooringinstallerstoronto.com',
+    priceRange: '$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2061 McCowan Rd',
+      addressLocality: 'Scarborough',
+      addressRegion: 'ON',
+      postalCode: 'M1S 3Y6',
+      addressCountry: 'CA',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: city,
+    },
+  }
+}
+
 export interface BreadcrumbItem {
   name: string
   url: string

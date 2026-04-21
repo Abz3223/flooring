@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/src/components/ContactForm'
+import MapEmbed from '@/src/components/ui/MapEmbed'
 
 export const metadata: Metadata = {
   title: 'Contact Us — Get a Free Flooring Estimate',
@@ -31,6 +32,13 @@ export default function ContactPage() {
         </div>
       </div>
       <ContactForm />
+      <div className="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <MapEmbed
+          query="2061 McCowan Rd, Scarborough, ON M1S 3Y6"
+          title="Toronto Flooring Installers — 2061 McCowan Rd, Scarborough"
+          height={360}
+        />
+      </div>
     </div>
   )
 }

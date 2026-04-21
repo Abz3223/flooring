@@ -2,15 +2,30 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getLocationBySlug, getAllLocationSlugs } from '@/lib/locations-data'
+import { getLocationBusinessSchema, getFAQSchema, getBreadcrumbSchema } from '@/src/lib/schema'
+import { locationFAQs } from '@/src/constants/faqs'
 import Breadcrumbs from '@/src/components/ui/Breadcrumbs'
 import CTASection from '@/src/components/ui/CTASection'
 import MobileStickyCTA from '@/src/components/ui/MobileStickyCTA'
+import MapEmbed from '@/src/components/ui/MapEmbed'
 import { FLOORING_SERVICES } from '@/src/constants/services'
 import { LOCATIONS } from '@/src/constants/locations'
 import { ArrowRight } from 'lucide-react'
 
 interface PageProps {
   params: { slug: string }
+}
+
+const BASE_URL = 'https://flooringinstallerstoronto.com'
+
+const mapQueries: Record<string, string> = {
+  toronto: 'Toronto, ON, Canada',
+  scarborough: '2061 McCowan Rd, Scarborough, ON M1S 3Y6',
+  'north-york': 'North York, Toronto, ON, Canada',
+  vaughan: 'Vaughan, ON, Canada',
+  markham: 'Markham, ON, Canada',
+  mississauga: 'Mississauga, ON, Canada',
+  pickering: 'Pickering, ON, Canada',
 }
 
 export async function generateStaticParams() {
@@ -31,10 +46,37 @@ export default function LocationPage({ params }: PageProps) {
   const location = getLocationBySlug(params.slug)
   if (!location) notFound()
 
+  const locationUrl = `${BASE_URL}/locations/${params.slug}`
+  const faqs = locationFAQs[params.slug] ?? []
+  const mapQuery = mapQueries[params.slug] ?? `${location.city}, ON, Canada`
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: `${BASE_URL}/` },
+    { name: 'Locations', url: `${BASE_URL}/locations` },
+    { name: location.city, url: locationUrl },
+  ])
+  const localBusinessSchema = getLocationBusinessSchema(location.city, locationUrl)
+  const faqSchema = faqs.length > 0 ? getFAQSchema(faqs) : null
+
   const otherLocations = LOCATIONS.filter((l) => l.slug !== params.slug)
 
   return (
     <div className="min-h-screen bg-surface">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
       <div className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden pt-16">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -87,7 +129,27 @@ export default function LocationPage({ params }: PageProps) {
           </div>
         </div>
 
-        <div className="mt-10">
+        {faqs.length > 0 && (
+          <div className="mt-12 pt-10 border-t border-stone-200">
+            <h2 className="font-serif text-[1.5rem] text-charcoal mb-6">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              {faqs.map((faq, i) => (
+                <div key={i}>
+                  <h3 className="font-sans font-semibold text-charcoal text-[1rem] mb-2">
+                    {faq.question}
+                  </h3>
+                  <p className="text-stone-600 text-[0.9375rem] leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="mt-12 pt-10 border-t border-stone-200">
           <h2 className="font-serif text-[1.25rem] text-charcoal mb-4">
             Nearby Areas We Serve
           </h2>
@@ -102,6 +164,13 @@ export default function LocationPage({ params }: PageProps) {
               </Link>
             ))}
           </div>
+        </div>
+
+        <div className="mt-10">
+          <MapEmbed
+            query={mapQuery}
+            title={`Flooring installation in ${location.city}`}
+          />
         </div>
       </div>
 

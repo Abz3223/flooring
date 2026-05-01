@@ -17,7 +17,7 @@ export default function HeroSection() {
           </p>
 
           <h1 className="font-serif text-white mb-6 leading-[1.15]" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 3.75rem)' }}>
-            Toronto&apos;s Trusted<br />
+            Toronto&apos;s Trusted <br />
             Flooring Installers
           </h1>
 

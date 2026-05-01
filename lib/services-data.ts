@@ -14,8 +14,6 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional hardwood flooring installation in Toronto and the GTA. Solid and engineered hardwood, all species. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Hardwood Flooring Installation in Toronto &amp; the GTA</h1>
-
   <p>If you're looking for hardwood flooring installation in Toronto, you're probably already aware of what a difference it makes — not just to how a room looks, but to how it feels underfoot and what it does for a home's long-term value. We've been installing hardwood throughout the GTA for years, and this page walks through everything you need to know before booking a job.</p>
 
   <h2>Why Hardwood Works So Well in Toronto Homes</h2>
@@ -86,8 +84,6 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional laminate flooring installation in Toronto and the GTA. Durable, affordable, and available in hundreds of styles. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Laminate Flooring Installation in Toronto &amp; the GTA</h1>
-
   <p>Laminate flooring has come a long way from the thin, plastic-looking product it was two decades ago. Today's laminate — particularly in the AC4 and AC5 commercial-grade categories — is remarkably convincing, highly durable, and genuinely affordable. It's one of the most popular flooring choices we install across the GTA, and for good reason.</p>
 
   <h2>Why Laminate is a Smart Choice</h2>
@@ -116,8 +112,6 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Waterproof luxury vinyl plank (LVP) and vinyl flooring installation in Toronto and the GTA. Perfect for kitchens, basements, and bathrooms. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Vinyl &amp; LVP Flooring Installation in Toronto &amp; the GTA</h1>
-
   <p>Luxury vinyl plank — commonly called LVP — has become the fastest-growing flooring category in the GTA over the past several years, and it's not hard to see why. It's 100% waterproof, extremely durable, comfortable underfoot, and available in realistic wood and stone finishes that are genuinely difficult to distinguish from the real thing. We install vinyl and LVP in homes and commercial spaces across Toronto, and it's now one of our most requested services.</p>
 
   <h2>Where Vinyl / LVP Excels</h2>
@@ -146,8 +140,6 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional tile flooring installation in Toronto and the GTA. Porcelain, ceramic, and natural stone for floors, showers, and feature walls. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Tile Flooring Installation in Toronto &amp; the GTA</h1>
-
   <p>Tile is one of the most permanent and versatile flooring choices you can make. Done right, a well-laid tile floor can last the lifetime of the building — and in bathrooms, kitchens, and entryways, it's often the most practical option available. We install porcelain, ceramic, and natural stone tile for floors, shower surrounds, backsplashes, and feature walls across Toronto and the GTA.</p>
 
   <h2>Tile Types We Install</h2>
@@ -174,8 +166,6 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional carpet installation in Toronto and the GTA. Bedroom, stairs, and basement carpet. All styles and brands. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Carpet Installation in Toronto &amp; the GTA</h1>
-
   <p>Carpet remains one of the most popular flooring choices for bedrooms, finished basements, and stairs — and for good reason. It's warm underfoot, provides excellent sound absorption, and creates a comfortable, quiet living environment that hard flooring simply can't match in those spaces. We install carpet throughout Toronto and the GTA, from single bedrooms to whole-home carpeting projects.</p>
 
   <h2>Carpet Styles We Install</h2>

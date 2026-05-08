@@ -9,17 +9,19 @@
   }
 
   body {
-    background-color: #FAFAF8;
-    color: #1C1C1E;
-    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    /* Forest + Copper + Cream palette */
+    background-color: #F5F1E8;        /* cream surface */
+    color: #1F3A2E;                   /* forest (formerly charcoal) */
+    font-family: var(--font-sans), 'Open Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
   }
 
   img {
@@ -28,48 +30,51 @@
   }
 
   *:focus-visible {
-    outline: 2px solid #B8860B;
+    outline: 2px solid #A0522D;       /* copper */
     outline-offset: 2px;
     border-radius: 2px;
   }
 }
 
 @layer components {
+  /* ---------- Service-page body content (HTML strings in services-data.ts) ---------- */
+
   .service-content {
-    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-sans), 'Open Sans', system-ui, sans-serif;
   }
 
   .service-content h1 {
-    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    /* Hidden by design — service page template renders its own H1 */
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 400;
-    color: #1C1C1E;
-    line-height: 1.2;
+    font-weight: 800;
+    color: #1F3A2E;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     display: none;
   }
 
   .service-content h2 {
-    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
     font-size: clamp(1.375rem, 2.5vw, 1.875rem);
-    font-weight: 400;
-    color: #1C1C1E;
-    line-height: 1.25;
+    font-weight: 700;
+    color: #1F3A2E;
+    line-height: 1.2;
     margin-top: 3rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   .service-content h3 {
-    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: #1C1C1E;
-    line-height: 1.4;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1F3A2E;
+    line-height: 1.35;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
   }
 
   .service-content p {
@@ -80,21 +85,21 @@
   }
 
   .service-content a {
-    color: #B8860B;
+    color: #A0522D;                   /* copper */
     text-decoration: underline;
-    text-decoration-color: rgba(184, 134, 11, 0.35);
+    text-decoration-color: rgba(160, 82, 45, 0.35);
     text-underline-offset: 3px;
     transition: color 0.15s ease, text-decoration-color 0.15s ease;
   }
 
   .service-content a:hover {
-    color: #9A7209;
-    text-decoration-color: rgba(154, 114, 9, 0.6);
+    color: #8C4426;
+    text-decoration-color: rgba(140, 68, 38, 0.6);
   }
 
   .service-content .cta-block {
-    background-color: #F7EDD6;
-    border: 1px solid #E8D5A3;
+    background-color: #F4E4D6;        /* copper-muted */
+    border: 1px solid #D9B898;        /* copper-border */
     border-radius: 12px;
     padding: 2rem;
     margin-top: 3rem;
@@ -104,7 +109,7 @@
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0.75rem;
-    color: #1C1C1E;
+    color: #1F3A2E;
   }
 
   .service-content .cta-block p {
@@ -114,56 +119,60 @@
 
   .service-content .cta-button {
     display: inline-block;
-    background-color: #B8860B;
-    color: #FAFAF8;
-    font-family: var(--font-sans), sans-serif;
-    font-weight: 600;
+    background-color: #A0522D;        /* copper */
+    color: #FFFFFF;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 700;
     font-size: 0.9375rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 1.5rem;
     border-radius: 8px;
     text-decoration: none !important;
     transition: background-color 0.2s ease;
+    min-height: 44px;                 /* mobile touch target */
   }
 
   .service-content .cta-button:hover {
-    background-color: #9A7209;
+    background-color: #8C4426;
     text-decoration: none !important;
   }
 
+  /* ---------- Location-page body content (HTML strings in locations-data.ts) ---------- */
+
   .location-content {
-    font-family: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-sans), 'Open Sans', system-ui, sans-serif;
   }
 
   .location-content h1 {
-    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    font-weight: 400;
-    color: #1C1C1E;
-    line-height: 1.2;
+    font-weight: 800;
+    color: #1F3A2E;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     display: none;
   }
 
   .location-content h2 {
-    font-family: var(--font-serif), 'DM Serif Display', Georgia, serif;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
     font-size: clamp(1.375rem, 2.5vw, 1.875rem);
-    font-weight: 400;
-    color: #1C1C1E;
-    line-height: 1.25;
+    font-weight: 700;
+    color: #1F3A2E;
+    line-height: 1.2;
     margin-top: 3rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   .location-content h3 {
-    font-family: var(--font-sans), system-ui, sans-serif;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: #1C1C1E;
-    line-height: 1.4;
+    font-family: var(--font-serif), 'Montserrat', system-ui, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1F3A2E;
+    line-height: 1.35;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   .location-content p {
@@ -174,15 +183,15 @@
   }
 
   .location-content a {
-    color: #B8860B;
+    color: #A0522D;                   /* copper */
     text-decoration: underline;
-    text-decoration-color: rgba(184, 134, 11, 0.35);
+    text-decoration-color: rgba(160, 82, 45, 0.35);
     text-underline-offset: 3px;
     transition: color 0.15s ease;
   }
 
   .location-content a:hover {
-    color: #9A7209;
+    color: #8C4426;
   }
 
   .location-content ul {
@@ -199,8 +208,8 @@
   }
 
   .location-content .cta-block {
-    background-color: #F7EDD6;
-    border: 1px solid #E8D5A3;
+    background-color: #F4E4D6;        /* copper-muted */
+    border: 1px solid #D9B898;
     border-radius: 12px;
     padding: 2rem;
     margin-top: 3rem;
@@ -214,19 +223,20 @@
 
   .location-content .cta-button {
     display: inline-block;
-    background-color: #B8860B;
-    color: #FAFAF8;
-    font-family: var(--font-sans), sans-serif;
-    font-weight: 600;
+    background-color: #A0522D;
+    color: #FFFFFF;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 700;
     font-size: 0.9375rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 1.5rem;
     border-radius: 8px;
     text-decoration: none !important;
     transition: background-color 0.2s ease;
+    min-height: 44px;
   }
 
   .location-content .cta-button:hover {
-    background-color: #9A7209;
+    background-color: #8C4426;
   }
 }
 

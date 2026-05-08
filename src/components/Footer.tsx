@@ -13,8 +13,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
           <div className="lg:col-span-1">
-            <Link href="/" className="font-serif text-[1.0625rem] text-white hover:text-gold transition-colors leading-tight block mb-4">
-              Toronto Flooring Installers
+            <Link href="/" className="font-serif text-[1.125rem] font-extrabold tracking-tight leading-tight block mb-4 group">
+              <span className="text-white group-hover:text-stone-100 transition-colors">
+                Toronto Flooring{' '}
+                <span className="text-gold-light group-hover:text-gold transition-colors">Installers</span>
+              </span>
             </Link>
             <p className="text-stone-400 text-[0.875rem] leading-relaxed mb-6 max-w-xs">
               Professional flooring installation across the Greater Toronto Area. Hardwood, laminate, vinyl, tile, and carpet — done right.
@@ -108,7 +111,7 @@ export default function Footer() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-gold hover:bg-gold-hover text-white text-[0.8125rem] font-semibold px-4 py-2.5 rounded-lg transition-colors"
             >
-              Get Free Estimate
+              Book a Free Estimate
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

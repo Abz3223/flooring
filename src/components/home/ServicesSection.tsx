@@ -25,6 +25,9 @@ const serviceImages: Record<string, { src: string; objectPosition?: string }> = 
   },
 };
 
+// Photo-overlay service cards: full-bleed photo, dark charcoal overlay,
+// centered title + small "Learn more" pill. Mirrors restorationprofessionals.ca
+// pattern but keeps flooring's gold accent color and rounded-xl corners.
 export default function ServicesSection() {
   return (
     <section id="services" className="py-20 lg:py-28 bg-surface">
@@ -34,54 +37,48 @@ export default function ServicesSection() {
             What We Do
           </p>
           <h2 className="font-serif text-h2 text-charcoal mb-4">
-            Flooring Services We Offer
+            Flooring Services <span className="text-gold">We Offer</span>
           </h2>
           <p className="text-stone-500 text-body-lg leading-relaxed">
             From classic hardwood to waterproof luxury vinyl, our installers handle every flooring type with the same level of care on every job.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {FLOORING_SERVICES.map((service) => {
             const img = serviceImages[service.slug];
             return (
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
-                className="group flex flex-col bg-white rounded-xl border border-stone-200 hover:border-stone-300 hover:shadow-card-hover transition-all duration-200 hover:-translate-y-1 overflow-hidden"
+                className="group relative overflow-hidden rounded-xl block"
+                style={{ aspectRatio: '4/3' }}
               >
-                <div className="relative overflow-hidden aspect-[16/10]">
-                  {img && (
-                    <img
-                      src={img.src}
-                      alt={service.imageAlt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      style={{ objectPosition: img.objectPosition }}
-                    />
-                  )}
-                  {!img && (
-                    <div className="w-full h-full bg-stone-100 flex items-center justify-center">
-                      <span className="text-stone-300 text-sm">Photo coming soon</span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-serif text-[1.125rem] text-charcoal mb-2 leading-snug">
+                {img ? (
+                  <img
+                    src={img.src}
+                    alt={service.imageAlt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{ objectPosition: img.objectPosition }}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-charcoal" />
+                )}
+                <div className="absolute inset-0 bg-charcoal/65 group-hover:bg-charcoal/55 transition-colors duration-300" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-5 text-center">
+                  <h3 className="font-serif text-white text-[1.125rem] sm:text-[1.375rem] leading-tight mb-3 drop-shadow">
                     {service.name}
                   </h3>
-                  <p className="text-stone-500 text-[0.875rem] leading-relaxed flex-1 mb-4">
-                    {service.shortDesc}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-gold text-[0.8125rem] font-semibold group-hover:gap-2.5 transition-all duration-200">
-                    Learn more <ArrowRight className="w-3.5 h-3.5" strokeWidth={2.5} />
+                  <span className="inline-flex items-center gap-1.5 bg-gold group-hover:bg-gold-hover text-white text-[0.75rem] font-semibold px-4 py-1.5 rounded-full tracking-wide transition-colors">
+                    Learn more <ArrowRight className="w-3 h-3" strokeWidth={2.5} />
                   </span>
                 </div>
               </Link>
             );
           })}
 
-          <div className="flex flex-col justify-between bg-charcoal rounded-xl p-6 sm:p-7">
+          <div className="flex flex-col justify-between bg-charcoal rounded-xl p-6 sm:p-7 col-span-2 sm:col-span-2 lg:col-span-1">
             <div>
               <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-gold mb-3">
                 Not Sure?

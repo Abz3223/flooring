@@ -6,6 +6,7 @@ import ServicesSection from '@/src/components/home/ServicesSection'
 import WhyChooseUsSection from '@/src/components/home/WhyChooseUsSection'
 import ProjectsSection from '@/src/components/home/ProjectsSection'
 import ServiceAreasSection from '@/src/components/home/ServiceAreasSection'
+import CTABanner from '@/src/components/ui/CTABanner'
 import CTASection from '@/src/components/ui/CTASection'
 
 export const metadata: Metadata = {
@@ -27,9 +28,17 @@ export default function HomePage() {
       <HeroSection />
       <TrustBar />
       <ServicesSection />
+      <CTABanner
+        headline="Free On-Site Estimates Across the GTA"
+        subtext="Same crew, same standard — wherever you are in the Greater Toronto Area."
+      />
       <WhyChooseUsSection />
       <ProjectsSection />
       <ServiceAreasSection />
+      <CTABanner
+        headline="Ready to Start Your Flooring Project?"
+        subtext="Talk to a real installer — written quote within 24 hours of the site visit."
+      />
       <CTASection />
     </>
   )

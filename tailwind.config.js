@@ -8,40 +8,47 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        surface: '#FAFAF8',
+        // Palette: Forest Green + Copper + Warm Cream.
+        // Token names kept as `surface`/`charcoal`/`gold` so existing utility
+        // classes don't need a sitewide rename — names describe role
+        // (background / dark / accent), not literal color.
+        surface: '#F5F1E8',           // warm cream page background
         charcoal: {
-          DEFAULT: '#1C1C1E',
-          light: '#2A2A2C',
+          DEFAULT: '#1F3A2E',         // deep forest green (primary dark)
+          light: '#2D5240',           // forest light (lifted dark sections)
         },
         gold: {
-          DEFAULT: '#B8860B',
-          hover: '#9A7209',
-          light: '#D4A850',
-          muted: '#F7EDD6',
-          border: '#E8D5A3',
+          DEFAULT: '#A0522D',         // copper / sienna (accent / CTA)
+          hover: '#8C4426',           // copper darker (hover)
+          light: '#C66E45',           // copper light (highlights)
+          muted: '#F4E4D6',           // pale copper tint (icon backgrounds)
+          border: '#D9B898',          // copper border tone
         },
         stone: {
           50: '#FAFAF8',
-          100: '#F5F3F0',
-          200: '#E5E3DF',
+          100: '#EFEAE0',             // warmed to harmonize with cream surface
+          200: '#E0DACE',              // ditto, used for borders/dividers
           300: '#CCCAC6',
           400: '#A8A5A0',
           500: '#6B6B6B',
           600: '#4A4A4A',
           700: '#2E2E2E',
-          800: '#1C1C1E',
+          800: '#1F3A2E',             // matches charcoal.DEFAULT (forest)
           900: '#111111',
         },
       },
       fontFamily: {
-        serif: ['var(--font-serif)', 'DM Serif Display', 'Georgia', 'serif'],
-        sans: ['var(--font-sans)', 'DM Sans', 'system-ui', 'sans-serif'],
+        // `serif` token now points at Montserrat (a sans-serif) — kept the
+        // name for backward-compat with existing `font-serif` utility usage.
+        serif: ['var(--font-serif)', 'Montserrat', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Open Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'display': ['clamp(2.5rem, 5vw, 3.5rem)', { lineHeight: '1.15', fontWeight: '400' }],
-        'h1': ['clamp(2rem, 4vw, 3rem)', { lineHeight: '1.2', fontWeight: '400' }],
-        'h2': ['clamp(1.5rem, 3vw, 2.25rem)', { lineHeight: '1.2' }],
-        'h3': ['clamp(1.125rem, 2vw, 1.5rem)', { lineHeight: '1.3' }],
+        // Bolder defaults to match the new Montserrat-driven aesthetic.
+        'display': ['clamp(2.5rem, 5vw, 3.5rem)', { lineHeight: '1.1', fontWeight: '800' }],
+        'h1': ['clamp(2rem, 4vw, 3rem)', { lineHeight: '1.15', fontWeight: '800' }],
+        'h2': ['clamp(1.5rem, 3vw, 2.25rem)', { lineHeight: '1.2', fontWeight: '700' }],
+        'h3': ['clamp(1.125rem, 2vw, 1.5rem)', { lineHeight: '1.3', fontWeight: '700' }],
         'body-lg': ['1.125rem', { lineHeight: '1.7' }],
         'body': ['1rem', { lineHeight: '1.65' }],
       },

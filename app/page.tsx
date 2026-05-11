@@ -4,9 +4,12 @@ import HeroSection from '@/src/components/home/HeroSection'
 import TrustBar from '@/src/components/ui/TrustBar'
 import ServicesSection from '@/src/components/home/ServicesSection'
 import WhyChooseUsSection from '@/src/components/home/WhyChooseUsSection'
+import ReviewsSection from '@/src/components/home/ReviewsSection'
 import ProjectsSection from '@/src/components/home/ProjectsSection'
 import ServiceAreasSection from '@/src/components/home/ServiceAreasSection'
+import CTABanner from '@/src/components/ui/CTABanner'
 import CTASection from '@/src/components/ui/CTASection'
+import MobileStickyCTA from '@/src/components/ui/MobileStickyCTA'
 
 export const metadata: Metadata = {
   title: 'Toronto Flooring Installers | Hardwood, Laminate, Vinyl, Tile & Carpet',
@@ -27,10 +30,20 @@ export default function HomePage() {
       <HeroSection />
       <TrustBar />
       <ServicesSection />
+      <CTABanner
+        headline="Free On-Site Estimates Across the GTA"
+        subtext="Same crew, same standard — wherever you are in the Greater Toronto Area."
+      />
       <WhyChooseUsSection />
+      <ReviewsSection />
       <ProjectsSection />
       <ServiceAreasSection />
+      <CTABanner
+        headline="Ready to Start Your Flooring Project?"
+        subtext="Talk to a real installer — written quote within 24 hours of the site visit."
+      />
       <CTASection />
+      <MobileStickyCTA />
     </>
   )
 }

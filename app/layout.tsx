@@ -1,22 +1,25 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { DM_Serif_Display, DM_Sans } from 'next/font/google'
+import { Montserrat, Open_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/src/components/Header'
 import Footer from '@/src/components/Footer'
 
 const GTM_ID = 'GTM-NDD24Q5J'
 
-const dmSerifDisplay = DM_Serif_Display({
+// Font tokens kept as `--font-serif` / `--font-sans` to avoid renaming
+// every utility class that uses them. The "serif" var now points at
+// Montserrat (a sans) — name is misleading but functional.
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '500', '600', '700', '800', '900'],
   variable: '--font-serif',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const openSans = Open_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 })
@@ -50,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${dmSerifDisplay.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <head>
         <Script id="gtm-init" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -38,7 +38,7 @@ export default function BlogPage() {
           <div className="bg-brand-50 border border-brand-200 rounded-xl p-8 text-center mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Blog Posts Coming Soon</h2>
             <p className="text-gray-600 max-w-xl mx-auto">
-              We are building out our blog with in-depth guides on flooring selection, installation, maintenance, and cost planning for Toronto homeowners. Check back soon &mdash; or contact us directly with any flooring questions.
+              We are building out our blog with in-depth guides on flooring selection, installation, maintenance, and cost planning for Toronto homeowners. Check back soon, or contact us directly with any flooring questions.
             </p>
             <div className="mt-6">
               <Link

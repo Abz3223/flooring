@@ -1,6 +1,6 @@
 // Real Google reviews displayed verbatim (typos preserved for authenticity).
 // Replace `gbpReviewUrl` below with the exact Google Business Profile review
-// URL once it's available — current value is a fallback search.
+// URL once it's available, current value is a fallback search.
 const gbpReviewUrl =
   'https://www.google.com/search?q=Toronto+Flooring+Installers+Scarborough';
 

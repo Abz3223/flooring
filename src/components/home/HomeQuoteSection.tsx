@@ -9,7 +9,7 @@ export default function HomeQuoteSection() {
     <section id="quote" className="py-16 lg:py-20 bg-stone-100 px-4 sm:px-6 lg:px-8">
       <div className="max-w-wide mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-start">
-          {/* Left column — info / trust signals */}
+          {/* Left column, info / trust signals */}
           <div className="lg:col-span-2 order-2 lg:order-1">
             <p className="font-sans text-[0.6875rem] sm:text-xs font-bold uppercase tracking-[0.22em] text-gold mb-3">
               Get a Quote
@@ -64,7 +64,7 @@ export default function HomeQuoteSection() {
             </div>
           </div>
 
-          {/* Right column — the form */}
+          {/* Right column, the form */}
           <div className="lg:col-span-3 order-1 lg:order-2">
             <HomeQuoteForm />
           </div>

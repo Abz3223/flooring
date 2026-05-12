@@ -31,7 +31,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
   {
     src: '/commercial-elevator-lobby-carpet-tile-flooring-toronto-installers.jpeg',
     alt: 'Commercial elevator lobby carpet tile flooring in Toronto',
-    caption: 'Elevator lobby carpet tile — commercial project',
+    caption: 'Elevator lobby carpet tile, commercial project',
     category: 'Carpet',
     location: 'Downtown Toronto',
   },

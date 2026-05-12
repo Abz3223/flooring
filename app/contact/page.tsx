@@ -3,7 +3,7 @@ import ContactForm from '@/src/components/ContactForm'
 import MapEmbed from '@/src/components/ui/MapEmbed'
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Get a Free Flooring Estimate',
+  title: 'Contact Us, Get a Free Flooring Estimate',
   description:
     'Request a free flooring estimate from Toronto Flooring Installers. Serving Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering. Call (647) 905-0050.',
   alternates: { canonical: '/contact' },
@@ -35,7 +35,7 @@ export default function ContactPage() {
       <div className="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <MapEmbed
           query="2061 McCowan Rd, Scarborough, ON M1S 3Y6"
-          title="Toronto Flooring Installers — 2061 McCowan Rd, Scarborough"
+          title="Toronto Flooring Installers, 2061 McCowan Rd, Scarborough"
           height={360}
         />
       </div>

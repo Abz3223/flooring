@@ -106,7 +106,7 @@ export default function ServicePage({ params }: PageProps) {
 
       <CTASection
         headline={`Ready for a Free ${service.title} Estimate?`}
-        subtext="We serve homeowners across Toronto and the GTA. Call us or request a quote online — we respond within a few hours and can usually schedule your site visit within days."
+        subtext="We serve homeowners across Toronto and the GTA. Call us or request a quote online, we respond within a few hours and can usually schedule your site visit within days."
       />
 
       <MobileStickyCTA />

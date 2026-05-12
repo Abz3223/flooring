@@ -5,7 +5,7 @@ interface PageProps {
   params: { slug: string }
 }
 
-// No posts exist yet — generateStaticParams returns empty array
+// No posts exist yet, generateStaticParams returns empty array
 export async function generateStaticParams() {
   return []
 }

@@ -9,7 +9,7 @@ const GTM_ID = 'GTM-NDD24Q5J'
 
 // Font tokens kept as `--font-serif` / `--font-sans` to avoid renaming
 // every utility class that uses them. The "serif" var now points at
-// Montserrat (a sans) — name is misleading but functional.
+// Montserrat (a sans), name is misleading but functional.
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Toronto Flooring Installers',
   },
   description:
-    'Toronto Flooring Installers — professional hardwood, laminate, vinyl, tile, and carpet installation serving Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering.',
+    'Toronto Flooring Installers, professional hardwood, laminate, vinyl, tile, and carpet installation serving Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering.',
   metadataBase: new URL('https://flooringinstallerstoronto.com'),
   openGraph: {
     siteName: 'Toronto Flooring Installers',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: '/engineered-hardwood-hallway-flooring-toronto.jpg',
         width: 1200,
         height: 630,
-        alt: 'Toronto Flooring Installers — Professional Flooring Installation in the GTA',
+        alt: 'Toronto Flooring Installers, Professional Flooring Installation in the GTA',
       },
     ],
   },

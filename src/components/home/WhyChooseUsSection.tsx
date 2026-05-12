@@ -4,7 +4,7 @@ const features = [
   {
     icon: Shield,
     title: 'Licensed & Fully Insured',
-    desc: 'Every job is covered by $2M liability insurance and WSIB compliance — protecting you and our crew.',
+    desc: 'Every job is covered by $2M liability insurance and WSIB compliance, protecting you and our crew.',
   },
   {
     icon: ClipboardList,
@@ -37,7 +37,7 @@ export default function WhyChooseUsSection() {
               Why Toronto Homeowners<br />Choose Us
             </h2>
             <p className="text-stone-400 text-[1.0625rem] leading-relaxed mb-10">
-              We&apos;ve built our reputation on quality craftsmanship, transparent pricing, and respectful service. Every project — large or small — receives the same level of care.
+              We&apos;ve built our reputation on quality craftsmanship, transparent pricing, and respectful service. Every project, large or small, receives the same level of care.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

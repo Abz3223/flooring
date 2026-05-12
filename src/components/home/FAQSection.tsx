@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'Do you provide a warranty on your installations?',
-    a: 'Yes — every installation is backed by our 5-year workmanship warranty. If anything goes wrong due to installation quality, we\'ll fix it at no charge. Material warranties vary by manufacturer.',
+    a: 'Yes, every installation is backed by our 5-year workmanship warranty. If anything goes wrong due to installation quality, we\'ll fix it at no charge. Material warranties vary by manufacturer.',
   },
   {
     q: 'What areas of Toronto and the GTA do you serve?',

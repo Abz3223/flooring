@@ -9,22 +9,22 @@ export const hardwoodFAQs: FAQ[] = [
   {
     question: 'How long does hardwood installation take?',
     answer:
-      'A standard main floor of 600 to 800 square feet generally takes one to two days to install once the subfloor is ready and the wood has acclimated to the space. Site finishing — sanding, staining, and applying polyurethane coats — adds another two to three days plus dry time. We provide a firm timeline during the on-site estimate so there are no surprises.',
+      'A standard main floor of 600 to 800 square feet generally takes one to two days to install once the subfloor is ready and the wood has acclimated to the space. Site finishing, sanding, staining, and applying polyurethane coats, adds another two to three days plus dry time. We provide a firm timeline during the on-site estimate so there are no surprises.',
   },
   {
     question: 'Can you install hardwood over concrete subfloors?',
     answer:
-      'Solid hardwood cannot be glued or nailed directly to concrete — it requires the dimensional stability of a wood subfloor. Engineered hardwood, however, can be glued directly to a clean, level, moisture-tested concrete slab, making it the standard choice for condos and slab-on-grade homes. We always perform a moisture test before committing to any installation method over concrete.',
+      'Solid hardwood cannot be glued or nailed directly to concrete, it requires the dimensional stability of a wood subfloor. Engineered hardwood, however, can be glued directly to a clean, level, moisture-tested concrete slab, making it the standard choice for condos and slab-on-grade homes. We always perform a moisture test before committing to any installation method over concrete.',
   },
   {
-    question: 'Engineered vs solid hardwood — which is better for Toronto homes?',
+    question: 'Engineered vs solid hardwood, which is better for Toronto homes?',
     answer:
       'For most Toronto homes, engineered hardwood is the more practical choice. It handles the city\'s humidity fluctuations better than solid wood, works over concrete subfloors common in condos and newer builds, and is nearly indistinguishable from solid once installed. Solid hardwood makes the most sense for above-grade rooms in detached homes with wood subfloors where the owner wants the option to sand and refinish multiple times over the decades.',
   },
   {
     question: 'Do you offer hardwood floor refinishing?',
     answer:
-      'Yes — we sand, stain, and refinish existing hardwood floors as a standalone service. Refinishing restores a worn or dated floor without the cost of full replacement, and most solid hardwood floors can be refinished three to five times over their lifespan. Contact us for a refinishing quote, which can be arranged alongside or separately from any new installation work.',
+      'Yes, we sand, stain, and refinish existing hardwood floors as a standalone service. Refinishing restores a worn or dated floor without the cost of full replacement, and most solid hardwood floors can be refinished three to five times over their lifespan. Contact us for a refinishing quote, which can be arranged alongside or separately from any new installation work.',
   },
 ]
 
@@ -37,12 +37,12 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Do you install flooring in downtown Toronto condos?',
       answer:
-        'Yes. We work regularly in high-rise buildings throughout the downtown core, Yonge-Eglinton, and Harbourfront. We handle condo board approvals, select acoustic underlayment that meets each building\'s IIC requirements, and coordinate around elevator booking windows — no extra legwork needed from you.',
+        'Yes. We work regularly in high-rise buildings throughout the downtown core, Yonge-Eglinton, and Harbourfront. We handle condo board approvals, select acoustic underlayment that meets each building\'s IIC requirements, and coordinate around elevator booking windows, no extra legwork needed from you.',
     },
     {
       question: 'What flooring is best for Toronto\'s humidity swings?',
       answer:
-        'Engineered hardwood handles Toronto\'s seasonal humidity fluctuations better than solid. It stays dimensionally stable through cold, dry winters and humid summers while looking identical to solid once installed. For basements, kitchens, and bathrooms, waterproof LVP is the standard recommendation — it\'s fully moisture-proof and works directly over concrete.',
+        'Engineered hardwood handles Toronto\'s seasonal humidity fluctuations better than solid. It stays dimensionally stable through cold, dry winters and humid summers while looking identical to solid once installed. For basements, kitchens, and bathrooms, waterproof LVP is the standard recommendation, it\'s fully moisture-proof and works directly over concrete.',
     },
     {
       question: 'Do you install flooring in heritage homes in the Annex or Roncesvalles?',
@@ -65,17 +65,17 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'How much does hardwood flooring cost in Scarborough?',
       answer:
-        'Supply and installation typically runs $8–$18/sq ft depending on species and finish. Because our shop is in Scarborough, there\'s no travel surcharge for local jobs — the estimate you receive reflects actual material and labour costs, not distance fees.',
+        'Supply and installation typically runs $8–$18/sq ft depending on species and finish. Because our shop is in Scarborough, there\'s no travel surcharge for local jobs, the estimate you receive reflects actual material and labour costs, not distance fees.',
     },
     {
       question: 'Can you refinish existing hardwood in older Scarborough homes?',
       answer:
-        'Yes. Many 1960s–70s bungalows in Agincourt and Wexford have original hardwood hidden under carpet that\'s well worth saving. We assess the wood condition, test for subfloor issues, and refinish where viable — the results often exceed what homeowners expect once the carpet is pulled.',
+        'Yes. Many 1960s–70s bungalows in Agincourt and Wexford have original hardwood hidden under carpet that\'s well worth saving. We assess the wood condition, test for subfloor issues, and refinish where viable, the results often exceed what homeowners expect once the carpet is pulled.',
     },
     {
       question: 'Do you work in Scarborough condo buildings on Kingston Road?',
       answer:
-        'Yes. We\'re familiar with the building rules and approval processes for the major residential towers along Kingston Rd. We handle the paperwork, select underlayment that meets acoustic standards, and schedule around elevator access windows — so you don\'t need to manage any of that yourself.',
+        'Yes. We\'re familiar with the building rules and approval processes for the major residential towers along Kingston Rd. We handle the paperwork, select underlayment that meets acoustic standards, and schedule around elevator access windows, so you don\'t need to manage any of that yourself.',
     },
   ],
 
@@ -93,12 +93,12 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Do you install flooring in North York townhomes near Bayview Village or Newtonbrook?',
       answer:
-        'Yes. Townhomes in these areas typically have wood subfloors above grade and concrete below, which shapes product selection for each level. We assess every level during the estimate and recommend accordingly — hardwood or laminate for upper floors, LVP for basements.',
+        'Yes. Townhomes in these areas typically have wood subfloors above grade and concrete below, which shapes product selection for each level. We assess every level during the estimate and recommend accordingly, hardwood or laminate for upper floors, LVP for basements.',
     },
     {
       question: 'Can you match existing hardwood when adding a room or extension in North York?',
       answer:
-        'We try. Matching depends on species, plank width, stain, and sheen — and the older the floor, the harder an exact match becomes. We bring samples during the estimate and advise honestly whether blending or a full-floor refinish after installation will give the most seamless result.',
+        'We try. Matching depends on species, plank width, stain, and sheen, and the older the floor, the harder an exact match becomes. We bring samples during the estimate and advise honestly whether blending or a full-floor refinish after installation will give the cleanest result.',
     },
   ],
 
@@ -106,7 +106,7 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Do you serve new construction homes in Vaughan?',
       answer:
-        'Yes. We frequently upgrade builder-grade flooring in new Vaughan developments in Woodbridge, Maple, and Vellore Village. Builder carpet and entry-level laminate are common starting points — we handle full main-floor replacements efficiently so you can enjoy the home you actually paid for.',
+        'Yes. We frequently upgrade builder-grade flooring in new Vaughan developments in Woodbridge, Maple, and Vellore Village. Builder carpet and entry-level laminate are common starting points, we handle full main-floor replacements efficiently so you can enjoy the home you actually paid for.',
     },
     {
       question: 'How quickly can you schedule an estimate in Vaughan?',
@@ -139,12 +139,12 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Can you match existing hardwood in older Markham homes?',
       answer:
-        'Often yes, depending on the species, width, and finish of the original floor. We\'ll assess whether a close match or a full-floor blend is achievable during the estimate, and we can coordinate refinishing the entire floor after installation to create a seamless result if needed.',
+        'Often yes, depending on the species, width, and finish of the original floor. We\'ll assess whether a close match or a full-floor blend is achievable during the estimate, and we can coordinate refinishing the entire floor after installation to make the new and existing blend properly if needed.',
     },
     {
       question: 'Do you serve Markham alongside nearby Scarborough and Pickering?',
       answer:
-        'Yes. Our Scarborough base makes Markham a natural and efficient service area — there\'s no added travel cost, and scheduling is straightforward. Many of our Markham clients are referred by neighbours in Scarborough or Pickering.',
+        'Yes. Our Scarborough base makes Markham a natural and efficient service area, there\'s no added travel cost, and scheduling is straightforward. Many of our Markham clients are referred by neighbours in Scarborough or Pickering.',
     },
   ],
 
@@ -157,7 +157,7 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'What flooring is best for Mississauga condos near Square One?',
       answer:
-        'High-rise buildings in the City Centre require products that meet acoustic IIC standards — typically engineered hardwood or LVP with quality acoustic underlayment. We check each building\'s specific rules before recommending a product and help you prepare any required condo board documentation.',
+        'High-rise buildings in the City Centre require products that meet acoustic IIC standards, typically engineered hardwood or LVP with quality acoustic underlayment. We check each building\'s specific rules before recommending a product and help you prepare any required condo board documentation.',
     },
     {
       question: 'Is LVP a good choice for older Port Credit or Clarkson homes?',
@@ -175,7 +175,7 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Do you install flooring in Pickering?',
       answer:
-        'Yes. Pickering is a regular part of our service area — we work in Bay Ridges, Dunbarton, Fairport Beach, Liverpool, Rosebank, and the newer Seaton communities in the north end. Call us for a free estimate and we\'ll confirm scheduling when you get in touch.',
+        'Yes. Pickering is a regular part of our service area, we work in Bay Ridges, Dunbarton, Fairport Beach, Liverpool, Rosebank, and the newer Seaton communities in the north end. Call us for a free estimate and we\'ll confirm scheduling when you get in touch.',
     },
     {
       question: 'What flooring is recommended for Pickering waterfront homes?',
@@ -185,12 +185,12 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'Can you handle a whole-home flooring replacement in Pickering?',
       answer:
-        'Yes. Many Pickering clients do full-home refreshes — replacing carpet throughout the main and upper floors, adding new tile in bathrooms, and finishing basements. We coordinate these multi-phase projects with a single timeline and quote so the work is completed efficiently with minimal disruption.',
+        'Yes. Many Pickering clients do full-home refreshes, replacing carpet throughout the main and upper floors, adding new tile in bathrooms, and finishing basements. We coordinate these multi-phase projects with a single timeline and quote so the work is completed efficiently with minimal disruption.',
     },
     {
       question: 'Do you serve the newer Seaton communities in northern Pickering?',
       answer:
-        'Yes. Seaton is one of the fastest-growing communities in Durham Region and we work in new-build homes throughout the area. Concrete subfloors are standard in these builds, making engineered hardwood and LVP the most practical product choices — both of which we install regularly in the area.',
+        'Yes. Seaton is one of the fastest-growing communities in Durham Region and we work in new-build homes throughout the area. Concrete subfloors are standard in these builds, making engineered hardwood and LVP the most practical product choices, both of which we install regularly in the area.',
     },
   ],
 }

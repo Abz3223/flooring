@@ -35,7 +35,7 @@ export const FLOORING_SERVICES: FlooringService[] = [
     name: 'Vinyl & LVP Flooring',
     slug: 'vinyl-flooring-installation',
     icon: 'SquareStack',
-    shortDesc: '100% waterproof luxury vinyl plank — ideal for kitchens, bathrooms, and basements.',
+    shortDesc: '100% waterproof luxury vinyl plank, ideal for kitchens, bathrooms, and basements.',
     description: 'Luxury Vinyl Plank (LVP) is the fastest-growing flooring choice for good reason. Completely waterproof, realistic wood look, and comfortable underfoot.',
     benefits: ['100% waterproof', 'Pet & kid friendly', 'Comfortable underfoot', 'DIY-friendly profiles'],
     imageAlt: 'Luxury vinyl plank flooring installation in Toronto bathroom',

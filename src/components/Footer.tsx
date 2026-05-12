@@ -20,7 +20,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-stone-400 text-[0.875rem] leading-relaxed mb-6 max-w-xs">
-              Professional flooring installation across the Greater Toronto Area. Hardwood, laminate, vinyl, tile, and carpet — done right.
+              Professional flooring installation across the Greater Toronto Area. Hardwood, laminate, vinyl, tile, and carpet, done right.
             </p>
             <div className="space-y-3">
               <a

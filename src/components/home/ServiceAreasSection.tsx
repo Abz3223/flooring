@@ -13,7 +13,7 @@ export default function ServiceAreasSection() {
             Serving the Greater Toronto Area
           </h2>
           <p className="text-stone-500 text-body-lg leading-relaxed mb-10">
-            We install flooring across Toronto and surrounding communities. Same professional crew, same quality — wherever you are in the GTA.
+            We install flooring across Toronto and surrounding communities. Same professional crew, same quality, wherever you are in the GTA.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2.5">

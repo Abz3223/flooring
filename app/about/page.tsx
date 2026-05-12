@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Toronto Flooring Installers — a licensed, insured flooring company serving the GTA since 2010. Based in Scarborough, ON.',
+    'Learn about Toronto Flooring Installers, a licensed, insured flooring company serving the GTA since 2010. Based in Scarborough, ON.',
   alternates: { canonical: '/about' },
 }
 
@@ -19,7 +19,7 @@ const values = [
   },
   {
     title: 'Clean Workmanship',
-    description: 'We treat your home with respect — protecting adjacent surfaces, cleaning up fully at the end of each day, and leaving a site you are proud of.',
+    description: 'We treat your home with respect, protecting adjacent surfaces, cleaning up fully at the end of each day, and leaving a site you are proud of.',
   },
   {
     title: 'Reliable Communication',
@@ -46,10 +46,10 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>
-              Toronto Flooring Installers started in 2010 with a single crew and a straightforward goal: to install flooring properly and treat clients the way we would want to be treated ourselves. We are based in Scarborough at 2061 McCowan Rd, and the majority of our work has always been within the GTA &mdash; Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering.
+              Toronto Flooring Installers started in 2010 with a single crew and a straightforward goal: to install flooring properly and treat clients the way we would want to be treated ourselves. We are based in Scarborough at 2061 McCowan Rd, and the majority of our work has always been within the GTA, Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering.
             </p>
             <p>
-              Over the past 15 years, we have grown into a team of experienced installers who collectively have tens of thousands of square feet of flooring under their belts. We install hardwood, laminate, luxury vinyl plank, tile, and carpet &mdash; across houses, condos, and commercial spaces. Our repeat client rate and referral volume is what we are most proud of, because it reflects the trust homeowners place in us when they invite us into their homes.
+              Over the past 15 years, we have grown into a team of experienced installers who collectively have tens of thousands of square feet of flooring under their belts. We install hardwood, laminate, luxury vinyl plank, tile, and carpet, across houses, condos, and commercial spaces. Our repeat client rate and referral volume is what we are most proud of, because it reflects the trust homeowners place in us when they invite us into their homes.
             </p>
             <p>
               We are not the cheapest company in the GTA and we do not try to be. We compete on quality, reliability, and fair dealing. If you want someone who shows up, does the job right, and backs their work, we think you will be happy with the experience.
@@ -82,7 +82,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Licensing &amp; Insurance</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>
-              Toronto Flooring Installers is a fully licensed contractor operating in Ontario. We carry comprehensive general liability insurance and maintain WSIB (Workplace Safety and Insurance Board) coverage for all of our workers &mdash; which protects both our crew and our clients in the event of any on-site incident.
+              Toronto Flooring Installers is a fully licensed contractor operating in Ontario. We carry comprehensive general liability insurance and maintain WSIB (Workplace Safety and Insurance Board) coverage for all of our workers, which protects both our crew and our clients in the event of any on-site incident.
             </p>
             <p>
               We are happy to provide proof of insurance and WSIB clearance certificates to any client who requests them. We recommend that all homeowners ask for these documents before hiring any trades contractor, regardless of who they work with.

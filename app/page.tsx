@@ -34,7 +34,7 @@ export default function HomePage() {
       <ServicesSection />
       <CTABanner
         headline="Free On-Site Estimates Across the GTA"
-        subtext="Same crew, same standard — wherever you are in the Greater Toronto Area."
+        subtext="Same crew, same standard, wherever you are in the Greater Toronto Area."
       />
       <WhyChooseUsSection />
       <ReviewsSection />
@@ -42,7 +42,7 @@ export default function HomePage() {
       <ServiceAreasSection />
       <CTABanner
         headline="Ready to Start Your Flooring Project?"
-        subtext="Talk to a real installer — written quote within 24 hours of the site visit."
+        subtext="Talk to a real installer, written quote within 24 hours of the site visit."
       />
       <CTASection />
       <MobileStickyCTA />

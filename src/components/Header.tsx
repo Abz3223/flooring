@@ -92,7 +92,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {/* Mobile + tablet: prominent gold phone icon button — primary mobile CTA */}
+            {/* Mobile + tablet: prominent gold phone icon button, primary mobile CTA */}
             <a
               href={`tel:${CONTACT_INFO.phoneRaw}`}
               aria-label={`Call ${CONTACT_INFO.phone}`}
@@ -110,7 +110,7 @@ export default function Header() {
               <Phone className="w-3.5 h-3.5" strokeWidth={2} />
               {CONTACT_INFO.phone}
             </a>
-            {/* Book Estimate button — sm+ only (mobile primary CTA is the gold phone above) */}
+            {/* Book Estimate button, sm+ only (mobile primary CTA is the gold phone above) */}
             <Link
               href="/contact"
               className="hidden sm:inline-flex items-center bg-gold hover:bg-gold-hover text-white text-[0.8125rem] font-bold px-4 py-2 rounded-lg transition-colors duration-200 min-h-[40px]"

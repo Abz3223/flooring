@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getLocalBusinessSchema } from '@/src/lib/schema'
 import HeroSection from '@/src/components/home/HeroSection'
 import TrustBar from '@/src/components/ui/TrustBar'
+import HomeQuoteSection from '@/src/components/home/HomeQuoteSection'
 import ServicesSection from '@/src/components/home/ServicesSection'
 import WhyChooseUsSection from '@/src/components/home/WhyChooseUsSection'
 import ReviewsSection from '@/src/components/home/ReviewsSection'
@@ -29,6 +30,7 @@ export default function HomePage() {
       />
       <HeroSection />
       <TrustBar />
+      <HomeQuoteSection />
       <ServicesSection />
       <CTABanner
         headline="Free On-Site Estimates Across the GTA"

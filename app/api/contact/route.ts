@@ -66,9 +66,9 @@ This lead was submitted via the contact form at flooringinstallerstoronto.com
     })
 
     if (error) {
-      console.error('Resend error:', error)
+      console.error('Resend error:', JSON.stringify(error, null, 2))
       return NextResponse.json(
-        { error: 'Failed to send email. Please call us at (647) 905-0050.' },
+        { error: 'Failed to send email. Please call us at (647) 905-0050.', details: error },
         { status: 500 }
       )
     }

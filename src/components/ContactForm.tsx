@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 const flooringServices = [
@@ -13,6 +14,7 @@ const flooringServices = [
 ]
 
 export default function ContactForm() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +23,7 @@ export default function ContactForm() {
     service: '',
     message: '',
   })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (
@@ -43,8 +45,7 @@ export default function ContactForm() {
       })
 
       if (res.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', phone: '', address: '', service: '', message: '' })
+        router.push('/thank-you')
       } else {
         const data = await res.json()
         setStatus('error')
@@ -67,20 +68,7 @@ export default function ContactForm() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
 
           <div className="lg:col-span-3">
-            {status === 'success' ? (
-              <div className="bg-white border border-stone-200 rounded-2xl p-10 text-center">
-                <div className="w-14 h-14 bg-gold-muted rounded-full flex items-center justify-center mx-auto mb-5">
-                  <svg className="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h2 className="font-serif text-[1.5rem] text-charcoal mb-3">Request Sent</h2>
-                <p className="text-stone-500 text-[0.9375rem] leading-relaxed max-w-sm mx-auto">
-                  Thank you for reaching out. We typically respond within 2&ndash;4 hours during business hours and will confirm your estimate appointment by phone.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className={labelClass}>
@@ -196,7 +184,6 @@ export default function ContactForm() {
                   By submitting, you agree to be contacted by Toronto Flooring Installers. We respect your privacy and will not share your information.
                 </p>
               </form>
-            )}
           </div>
 
           <div className="lg:col-span-2 space-y-6">

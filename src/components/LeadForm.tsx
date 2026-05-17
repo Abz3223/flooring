@@ -2,7 +2,8 @@
 
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Send, CircleAlert as AlertCircle } from 'lucide-react';
 import { FLOORING_TYPES } from '../constants/services';
 
 interface LeadFormProps {
@@ -11,6 +12,7 @@ interface LeadFormProps {
 }
 
 export default function LeadForm({ sourcePage = 'unknown', compact = false }: LeadFormProps) {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -21,7 +23,6 @@ export default function LeadForm({ sourcePage = 'unknown', compact = false }: Le
     accepted_terms: false,
   });
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -47,8 +48,7 @@ export default function LeadForm({ sourcePage = 'unknown', compact = false }: Le
         const d = await res.json();
         throw new Error(d.error || 'Failed to submit');
       }
-      setSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', address: '', flooring_type: '', message: '', accepted_terms: false });
+      router.push('/thank-you');
     } catch (err) {
       setError('Unable to submit. Please call us directly.');
       console.error(err);
@@ -56,18 +56,6 @@ export default function LeadForm({ sourcePage = 'unknown', compact = false }: Le
       setSubmitting(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="text-center py-10 px-6">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-9 h-9 text-green-600" />
-        </div>
-        <h3 className="font-heading font-bold text-navy text-xl mb-2">Request Received!</h3>
-        <p className="text-gray-600">We'll be in touch within 2 hours during business hours. For urgent inquiries, call us directly.</p>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

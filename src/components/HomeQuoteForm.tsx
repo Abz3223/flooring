@@ -2,13 +2,15 @@
 
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Send, CircleAlert as AlertCircle } from 'lucide-react';
 import { FLOORING_TYPES } from '../constants/services';
 
 // Tight 4-field inline lead form for the homepage. Designed for minimum
 // friction: name + phone + email + flooring type. Submits to /api/contact
 // which emails the lead via Resend.
 export default function HomeQuoteForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -17,7 +19,6 @@ export default function HomeQuoteForm() {
     accepted_terms: false,
   });
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (
@@ -46,14 +47,7 @@ export default function HomeQuoteForm() {
         const d = await res.json();
         throw new Error(d.error || 'Failed to submit');
       }
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        flooring_type: '',
-        accepted_terms: false,
-      });
+      router.push('/thank-you');
     } catch (err) {
       const msg =
         err instanceof Error
@@ -65,23 +59,6 @@ export default function HomeQuoteForm() {
       setSubmitting(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="text-center py-10 px-6 bg-white rounded-xl border border-stone-200 shadow-sm">
-        <div className="w-16 h-16 bg-gold-muted rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-8 h-8 text-gold" strokeWidth={2} />
-        </div>
-        <h3 className="font-serif font-extrabold text-charcoal text-xl mb-2">
-          Request Received
-        </h3>
-        <p className="text-stone-500 text-[0.9375rem]">
-          We&apos;ll be in touch within a few hours during business hours. For
-          urgent inquiries, call us at <strong className="text-charcoal">(647) 905-0050</strong>.
-        </p>
-      </div>
-    );
-  }
 
   const inputClass =
     'w-full border border-stone-200 rounded-lg px-4 py-3 text-charcoal placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors text-[0.9375rem] bg-white';

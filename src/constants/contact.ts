@@ -14,9 +14,9 @@ export const TRUST_FACTORS = [
     icon: 'Award',
   },
   {
-    title: 'Licensed & Insured',
-    description: 'All contractors are fully licensed, insured with $2M liability, and WSIB compliant.',
-    icon: 'Shield',
+    title: 'Locally Owned, Scarborough-Based',
+    description: 'Our shop is on McCowan Rd in Scarborough. We live and work in the GTA, which means faster response and a real understanding of local housing.',
+    icon: 'MapPin',
   },
   {
     title: 'Free Estimates',

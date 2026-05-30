@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Toronto Flooring Installers, a licensed, insured flooring company serving the GTA since 2010. Based in Scarborough, ON.',
+    'Learn about Toronto Flooring Installers, a locally owned Scarborough-based flooring company serving the GTA since 2010.',
   alternates: { canonical: '/about' },
 }
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">About Toronto Flooring Installers</h1>
           <p className="text-xl text-gray-300">
-            A licensed, insured flooring company serving the Greater Toronto Area since 2010.
+            A locally owned, Scarborough-based flooring company serving the Greater Toronto Area since 2010.
           </p>
         </div>
       </section>
@@ -72,21 +72,6 @@ export default function AboutPage() {
                 <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Licensing */}
-      <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Licensing &amp; Insurance</h2>
-          <div className="space-y-4 text-gray-600 leading-relaxed">
-            <p>
-              Toronto Flooring Installers is a fully licensed contractor operating in Ontario. We carry comprehensive general liability insurance and maintain WSIB (Workplace Safety and Insurance Board) coverage for all of our workers, which protects both our crew and our clients in the event of any on-site incident.
-            </p>
-            <p>
-              We are happy to provide proof of insurance and WSIB clearance certificates to any client who requests them. We recommend that all homeowners ask for these documents before hiring any trades contractor, regardless of who they work with.
-            </p>
           </div>
         </div>
       </section>

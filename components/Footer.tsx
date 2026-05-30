@@ -39,7 +39,7 @@ export default function Footer() {
               (647) 905-0050
             </a>
             <p className="text-sm text-gray-400">
-              Licensed & insured flooring installation throughout the Greater Toronto Area.
+              Flooring installation throughout the Greater Toronto Area, backed by a 5-year workmanship warranty.
             </p>
           </div>
 

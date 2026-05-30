@@ -26,7 +26,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-white/85 text-base sm:text-lg md:text-xl leading-relaxed mb-9 max-w-2xl mx-auto">
-            Hardwood, laminate, vinyl, tile, and carpet, installed by an experienced GTA crew. Licensed, insured, and backed by a 5-year workmanship warranty.
+            Hardwood, laminate, vinyl, tile, and carpet, installed by an experienced GTA crew. Backed by a 5-year workmanship warranty.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">

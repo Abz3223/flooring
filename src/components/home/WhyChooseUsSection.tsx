@@ -1,10 +1,10 @@
-import { Shield, CircleCheck as CheckCircle, ClipboardList, Star } from 'lucide-react';
+import { MapPin, CircleCheck as CheckCircle, ClipboardList, Star } from 'lucide-react';
 
 const features = [
   {
-    icon: Shield,
-    title: 'Licensed & Fully Insured',
-    desc: 'Every job is covered by $2M liability insurance and WSIB compliance, protecting you and our crew.',
+    icon: MapPin,
+    title: 'Locally Owned, Scarborough-Based',
+    desc: 'Our shop is on McCowan Rd in Scarborough. We live and work in the GTA, which means faster response and a real understanding of local housing.',
   },
   {
     icon: ClipboardList,

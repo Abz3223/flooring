@@ -50,52 +50,6 @@ export function getLocalBusinessSchema() {
       },
     ],
     areaServed: SERVICE_AREA_CITIES,
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Flooring Installation Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Hardwood Flooring Installation',
-            url: 'https://flooringinstallerstoronto.com/services/hardwood-flooring-installation',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Laminate Flooring Installation',
-            url: 'https://flooringinstallerstoronto.com/services/laminate-flooring-installation',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Vinyl & LVP Flooring Installation',
-            url: 'https://flooringinstallerstoronto.com/services/vinyl-flooring-installation',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Tile Flooring Installation',
-            url: 'https://flooringinstallerstoronto.com/services/tile-flooring-installation',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Carpet Installation',
-            url: 'https://flooringinstallerstoronto.com/services/carpet-installation',
-          },
-        },
-      ],
-    },
   }
 }
 

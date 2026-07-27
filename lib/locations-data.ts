@@ -63,7 +63,7 @@ export const locationsData: LocationData[] = [
     slug: 'scarborough',
     city: 'Scarborough',
     title: 'Flooring Installers in Scarborough',
-    metaTitle: 'Scarborough Flooring Installers | Based on McCowan Rd',
+    metaTitle: 'Flooring Installers in Scarborough | Local Licensed Contractors',
     metaDescription:
       'Scarborough-based flooring installation, hardwood, laminate, vinyl, tile, carpet. Headquartered on McCowan Rd. 5-year workmanship warranty. Free estimates.',
     content: `<article class="service-content">
@@ -127,7 +127,7 @@ export const locationsData: LocationData[] = [
     slug: 'north-york',
     city: 'North York',
     title: 'Flooring Installation in North York',
-    metaTitle: 'North York Flooring Installation | Condo & Parquet Experts',
+    metaTitle: 'Flooring Installation North York ON | Toronto Flooring Installers',
     metaDescription:
       'Professional flooring installation in North York. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Willowdale, Don Mills, Jane-Finch, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -223,7 +223,7 @@ export const locationsData: LocationData[] = [
     slug: 'markham',
     city: 'Markham',
     title: 'Flooring Installation in Markham',
-    metaTitle: 'Markham Flooring Installation | Heritage Homes to New Builds',
+    metaTitle: 'Flooring Installation Markham ON | Toronto Flooring Installers',
     metaDescription:
       'Professional flooring installation in Markham, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Unionville, Cornell, Milliken, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -274,7 +274,7 @@ export const locationsData: LocationData[] = [
     slug: 'mississauga',
     city: 'Mississauga',
     title: 'Flooring Installation in Mississauga',
-    metaTitle: 'Mississauga Flooring Installation | Port Credit to Square One',
+    metaTitle: 'Flooring Installation Mississauga ON | Toronto Flooring Installers',
     metaDescription:
       'Professional flooring installation in Mississauga, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Port Credit, Streetsville, Erin Mills, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -329,7 +329,7 @@ export const locationsData: LocationData[] = [
     slug: 'pickering',
     city: 'Pickering',
     title: 'Flooring Installation in Pickering',
-    metaTitle: 'Pickering Flooring Installation | 20 Minutes from Our Shop',
+    metaTitle: 'Flooring Installation Pickering ON | Toronto Flooring Installers',
     metaDescription:
       'Professional flooring installation in Pickering, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Bay Ridges, Dunbarton, Rosebank, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">

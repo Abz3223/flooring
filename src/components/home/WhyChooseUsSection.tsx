@@ -18,7 +18,7 @@ const features = [
   },
   {
     icon: Star,
-    title: '5-Star Google Rating',
+    title: '100+ Five-Star Reviews',
     desc: 'Consistently rated 5 stars by homeowners across the GTA for quality, punctuality, and cleanup.',
   },
 ];

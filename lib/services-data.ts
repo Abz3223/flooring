@@ -10,7 +10,7 @@ export const servicesData: ServiceData[] = [
   {
     slug: 'hardwood-flooring-installation',
     title: 'Hardwood Flooring Installation',
-    metaTitle: 'Hardwood Flooring Installation Toronto | Solid & Engineered',
+    metaTitle: 'Hardwood Flooring Installation Toronto & GTA',
     metaDescription:
       'Professional hardwood flooring installation in Toronto and the GTA. Solid and engineered hardwood, all species. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -108,7 +108,7 @@ export const servicesData: ServiceData[] = [
   {
     slug: 'vinyl-flooring-installation',
     title: 'Vinyl / LVP Flooring Installation',
-    metaTitle: 'Vinyl & LVP Flooring Installation Toronto | 100% Waterproof',
+    metaTitle: 'Vinyl & LVP Flooring Installation Toronto & GTA',
     metaDescription:
       'Waterproof luxury vinyl plank (LVP) and vinyl flooring installation in Toronto and the GTA. Perfect for kitchens, basements, and bathrooms. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -136,7 +136,7 @@ export const servicesData: ServiceData[] = [
   {
     slug: 'tile-flooring-installation',
     title: 'Tile Flooring Installation',
-    metaTitle: 'Tile Flooring Installation Toronto | Bathrooms & Heated Floors',
+    metaTitle: 'Tile Flooring Installation Toronto & GTA',
     metaDescription:
       'Professional tile flooring installation in Toronto and the GTA. Porcelain, ceramic, and natural stone for floors, showers, and feature walls. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
@@ -166,7 +166,7 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional carpet installation in Toronto and the GTA. Bedroom, stairs, and basement carpet. All styles and brands. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <p>We install carpet across Toronto and the GTA, bedrooms, stairs, finished basements, and whole homes. Warm underfoot, quieter than any hard flooring, and installed with proper underpad and stretching so it stays flat and wrinkle-free for years. From a single bedroom to a full house, we handle supply, removal of the old carpet, and installation.</p>
+  <p>Carpet remains one of the most popular flooring choices for bedrooms, finished basements, and stairs, and for good reason. It's warm underfoot, provides excellent sound absorption, and creates a comfortable, quiet living environment that hard flooring simply can't match in those spaces. We install carpet throughout Toronto and the GTA, from single bedrooms to whole-home carpeting projects.</p>
 
   <h2>Carpet Styles We Install</h2>
 

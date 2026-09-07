@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { getServiceBySlug, getAllServiceSlugs } from '@/lib/services-data'
@@ -72,9 +73,16 @@ export default function ServicePage({ params }: PageProps) {
       )}
 
       <div className="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden pt-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${heroImage}')` }}
+        {/* LCP element - see HeroSection.tsx. Real <img> via next/image so the
+            browser's preload scanner can find it before CSS parses. */}
+        <Image
+          src={heroImage}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-charcoal/10" />
         <div className="relative w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-10">

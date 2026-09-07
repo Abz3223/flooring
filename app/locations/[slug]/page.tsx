@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -78,9 +79,16 @@ export default function LocationPage({ params }: PageProps) {
       )}
 
       <div className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden pt-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/engineered-hardwood-hallway-flooring-toronto.jpg')" }}
+        {/* LCP element - see HeroSection.tsx. A CSS background is invisible to
+            the preload scanner, so it must be a real <img> via next/image. */}
+        <Image
+          src="/engineered-hardwood-hallway-flooring-toronto.jpg"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-charcoal/10" />
         <div className="relative w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-10">

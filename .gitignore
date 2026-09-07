@@ -25,3 +25,6 @@ out
 *.sln
 *.sw?
 .env
+.claude/
+
+tsconfig.tsbuildinfo

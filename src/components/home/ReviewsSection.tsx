@@ -1,8 +1,8 @@
 // Real Google reviews displayed verbatim (typos preserved for authenticity).
-// Replace `gbpReviewUrl` below with the exact Google Business Profile review
-// URL once it's available, current value is a fallback search.
-const gbpReviewUrl =
-  'https://www.google.com/search?q=Toronto+Flooring+Installers+Scarborough';
+// Points at the Business Profile itself (CID 279766174431934811). It previously
+// pointed at a Google *search* results page, which sent warm traffic into a SERP
+// listing competitors alongside us.
+const gbpReviewUrl = 'https://www.google.com/maps?cid=279766174431934811';
 
 interface Review {
   name: string;
@@ -104,12 +104,19 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        {/* Review cards */}
+        {/* Review cards. These are card-styled and were previously unlinked,
+            which produced dead clicks in 22% of sessions (Clarity, Sept 2026).
+            People tap a review to read the rest of it or to verify it on
+            Google, so each card now links to the Business Profile. */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {reviews.map((review) => (
-            <article
+            <a
               key={review.name}
-              className="bg-white rounded-xl p-6 border border-stone-200 shadow-sm flex flex-col"
+              href={gbpReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read ${review.name}'s review on Google`}
+              className="bg-white rounded-xl p-6 border border-stone-200 shadow-sm flex flex-col hover:shadow-card-hover hover:border-gold/40 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
               <div className="flex items-center justify-between mb-4">
                 <StarRow size="sm" />
@@ -134,7 +141,7 @@ export default function ReviewsSection() {
                   </p>
                 </div>
               )}
-            </article>
+            </a>
           ))}
         </div>
 

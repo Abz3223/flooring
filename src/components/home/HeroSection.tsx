@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Phone } from 'lucide-react';
 
 // Centered, bold, conversion-focused hero, pattern adapted from
@@ -8,9 +9,18 @@ import { ArrowRight, Phone } from 'lucide-react';
 export default function HeroSection() {
   return (
     <section className="relative min-h-[68vh] md:min-h-[72vh] flex items-center justify-center overflow-hidden pt-16">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/engineered-hardwood-hallway-flooring-toronto.jpg')" }}
+      {/* LCP element. Must stay a real <img> via next/image, NOT a CSS
+          background: a background-image is invisible to the browser's preload
+          scanner, so it is only discovered after CSS parses. That was measured
+          at 11.9s LCP on mobile (Clarity, Sept 2026). priority => preloaded. */}
+      <Image
+        src="/engineered-hardwood-hallway-flooring-toronto.jpg"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-charcoal/65" />
 

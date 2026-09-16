@@ -117,6 +117,30 @@ export default function ServicePage({ params }: PageProps) {
           className="service-content"
           dangerouslySetInnerHTML={{ __html: service.content }}
         />
+
+        {service.photos && service.photos.items.length > 0 && (
+          <section className="mt-12 pt-10 border-t border-stone-200">
+            <h2 className="font-serif text-[1.5rem] text-charcoal mb-6">{service.photos.heading}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {service.photos.items.map((photo) => (
+                <figure key={photo.src}>
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-stone-200 bg-stone-100">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-2 text-stone-500 text-[0.875rem] leading-snug">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
       <CTASection

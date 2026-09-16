@@ -97,6 +97,24 @@
     text-decoration-color: rgba(140, 68, 38, 0.6);
   }
 
+  .service-content blockquote {
+    border-left: 3px solid #A0522D;   /* copper */
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .service-content blockquote p {
+    font-size: 1.0625rem;
+    color: #1F3A2E;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-content blockquote cite {
+    font-style: normal;
+    font-size: 0.875rem;
+    color: #6B6B6B;
+  }
+
   .service-content .cta-block {
     background-color: #F4E4D6;        /* copper-muted */
     border: 1px solid #D9B898;        /* copper-border */

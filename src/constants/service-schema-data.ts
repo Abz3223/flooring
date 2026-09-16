@@ -38,4 +38,11 @@ export const serviceSchemaData: Record<string, ServiceSchemaInput> = {
     serviceType: 'Carpet Installation',
     url: `${BASE_URL}/services/carpet-installation`,
   },
+  'floor-repair': {
+    name: 'Floor Repair',
+    description:
+      'Floor repair across Toronto and the GTA: scratches, gaps, loose planks, and water- and flood-damaged floors removed and replaced once the subfloor is dry.',
+    serviceType: 'Floor Repair',
+    url: `${BASE_URL}/services/floor-repair`,
+  },
 }

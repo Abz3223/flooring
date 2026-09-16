@@ -37,6 +37,13 @@ const heroImages: Record<string, string> = {
   'carpet-installation': '/flooring-residential-staircase-carpet-installation-toronto.jpeg',
 }
 
+// Per-page line under the H1. The default mentions the 5-year workmanship
+// warranty, which is confirmed for installations only, so pages for other
+// kinds of work override it rather than implying the same warranty.
+const heroSubtext: Record<string, string> = {
+  'floor-repair': 'Repairs and water-damage replacements. Free on-site estimates.',
+}
+
 export default function ServicePage({ params }: PageProps) {
   const service = getServiceBySlug(params.slug)
   if (!service) notFound()
@@ -99,7 +106,7 @@ export default function ServicePage({ params }: PageProps) {
               {service.title} in Toronto &amp; the GTA
             </h1>
             <p className="text-white/75 text-[1rem] mt-2">
-              Professional installation. Free on-site estimates. 5-year workmanship warranty.
+              {heroSubtext[params.slug] ?? 'Professional installation. Free on-site estimates. 5-year workmanship warranty.'}
             </p>
           </div>
         </div>

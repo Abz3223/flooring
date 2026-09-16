@@ -47,7 +47,7 @@ export default function ServicesHubPage() {
               Flooring Installation Services in Toronto &amp; the GTA
             </h1>
             <p className="text-white/75 text-[1rem] mt-3 max-w-2xl">
-              We supply and install five types of flooring from our shop on McCowan Rd in
+              We supply, install and repair flooring from our shop on McCowan Rd in
               Scarborough, with free on-site estimates and a 5-year workmanship warranty.
             </p>
           </div>
@@ -111,6 +111,18 @@ export default function ServicesHubPage() {
               carpet installation
             </Link>{' '}
             page for the styles we install and our process.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-serif text-[1.5rem] text-charcoal mb-3">Floor Repair</h2>
+          <p className="text-stone-600 text-[1rem] leading-relaxed">
+            Scratches, gaps, loose planks, and floors damaged by water, including a Richmond Hill
+            home flooded in the September 2 storm. See our{' '}
+            <Link href="/services/floor-repair" className={linkClass}>
+              floor repair
+            </Link>{' '}
+            page for how we decide between repairing and replacing.
           </p>
         </section>
 

@@ -148,7 +148,9 @@ export default function HomeQuoteForm() {
           checked={formData.accepted_terms}
           onChange={handleChange}
           required
-          className="mt-1 flex-shrink-0 w-4 h-4 accent-gold cursor-pointer"
+          // 24px minimum touch target. Was 16px (w-4 h-4) and is a REQUIRED
+          // field gating submission, on a page where ~55% of sessions are mobile.
+          className="mt-0.5 flex-shrink-0 w-6 h-6 accent-gold cursor-pointer"
         />
         <label
           htmlFor="home_quote_accepted_terms"

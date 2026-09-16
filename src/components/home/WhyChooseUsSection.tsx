@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { MapPin, CircleCheck as CheckCircle, ClipboardList, Star } from 'lucide-react';
 
 const features = [
@@ -18,7 +19,7 @@ const features = [
   },
   {
     icon: Star,
-    title: '100+ Five-Star Reviews',
+    title: '5-Star Google Rating',
     desc: 'Consistently rated 5 stars by homeowners across the GTA for quality, punctuality, and cleanup.',
   },
 ];
@@ -59,11 +60,12 @@ export default function WhyChooseUsSection() {
 
           <div className="relative hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
-              <img
+              <Image
                 src="/hardwood-flooring-after-toronto.jpeg"
                 alt="Beautiful hardwood flooring installation completed by Toronto Flooring Installers"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
               />
             </div>
             <div className="absolute -bottom-5 -left-5 bg-gold text-white rounded-xl p-5 shadow-xl">

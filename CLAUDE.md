@@ -31,7 +31,8 @@ Phone: `(647) 905-0050`. Public-facing email: `info@flooringinstallerstoronto.co
 ## Repo layout (important: there are TWO components folders)
 - `app/` — App Router routes
   - `api/contact/route.ts` — POST handler that emails leads via Resend
-  - `services/[slug]/`, `locations/[slug]/`, `neighborhoods/[slug]/`, `blog/[slug]/` — dynamic pages
+  - `services/[slug]/`, `locations/[slug]/`, `blog/[slug]/` — dynamic pages. `services/page.tsx` and `locations/page.tsx` are the hub pages every child breadcrumbs to; they must exist.
+  - `neighborhoods/` was deleted Sept 2026. It redirected any slug (307) to a nonexistent `/locations/<slug>` (404). Do not rebuild neighbourhood pages.
   - `sitemap.ts`, `robots.ts` — Next.js native SEO files (use these, not the `.xml`/`.txt` static copies)
 - `src/components/` — **the live components folder.** Layout imports from here (`@/src/components/...`).
   - `home/` — homepage sections (Hero, Services, WhyChooseUs, Projects, ServiceAreas, FAQ, Quote)
@@ -82,6 +83,7 @@ In Netlify, set these in **Site settings → Environment variables**. They are n
 - Don't remove or rename meta tags / JSON-LD schema without checking.
 - Don't edit anything in the top-level `/components` folder — it's dead code (the live ones are in `/src/components`).
 - Don't push directly to `main`. Work on a branch.
+- **Production can drift from this repo.** Deploys go through Bolt, and Bolt edits have reached production without being pushed here (Aug 2026: 52 lines across 21 pages). Before merging, build, run `next start`, and diff rendered titles, metas, canonicals and body copy against the live site.
 - Don't add heavy client-side JS to mostly-static content pages.
 
 ## Current state (as of 2026-05-01, fresh from Bolt)
@@ -96,7 +98,7 @@ In Netlify, set these in **Site settings → Environment variables**. They are n
 - [ ] **Duplicate Tailwind config**: both `tailwind.config.js` and `tailwind.config.ts` exist — keep one, delete the other.
 - [ ] **Vite leftover in sitemap script**: `scripts/generate-sitemap.js` reads `process.env.VITE_SUPABASE_ANON_KEY` (Bolt scaffold remnant). Either delete the script (App Router's `app/sitemap.ts` already covers sitemap) or fix it to use `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 - [ ] **Stale doc**: `SITEMAP_OPTIMIZATION_SUMMARY.md` claims build runs `vite build`. Actual build is `next build`. Update or delete the doc.
-- [ ] **Duplicate sitemaps/robots**: `app/sitemap.xml`, `app/sitemap/`, `app/robots.txt` exist alongside the live `app/sitemap.ts` / `app/robots.ts`. Delete the static duplicates so search engines see one canonical version.
+- [x] **Duplicate sitemaps/robots** (fixed Sept 2026): the static `public/sitemap.xml` and `public/robots.txt` were being served instead of `app/sitemap.ts` / `app/robots.ts`, so production's sitemap was frozen at May 2026 and listed two 404 blog URLs. Both static files deleted. Note `app/sitemap/page.tsx` is the HTML site map page, not a duplicate: keep it.
 - [ ] **`.next/` checked into git**: build artifacts shouldn't be committed. Add `.next` to `.gitignore` and remove from the repo.
 - [ ] **Resend sender domain**: `app/api/contact/route.ts` sends from `onboarding@resend.dev` (Resend sandbox). Verify the production domain in Resend and switch to e.g. `noreply@flooringinstallerstoronto.com`.
 - [ ] **Two lead pipelines**: both `app/api/contact/route.ts` and `supabase/functions/send-lead-notification/index.ts` exist. Confirm which the form actually calls and delete the unused one.

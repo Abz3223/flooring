@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description:
     'Flooring tips, guides, and inspiration from Toronto Flooring Installers. Hardwood, laminate, vinyl, tile, and carpet advice for GTA homeowners.',
   alternates: { canonical: '/blog' },
+  // Noindex until real posts exist: an indexed "coming soon" page signals an
+  // unfinished site. Remove this line when the first post publishes.
+  robots: { index: false, follow: true },
 }
 
 const comingSoonTopics = [

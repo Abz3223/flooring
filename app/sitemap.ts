@@ -1,52 +1,39 @@
 import { MetadataRoute } from 'next'
 import { getAllServiceSlugs } from '@/lib/services-data'
 import { getAllLocationSlugs } from '@/lib/locations-data'
-import { BLOG_POSTS } from '@/src/constants/blogPosts'
 
 const BASE = 'https://flooringinstallerstoronto.com'
 
-// Sitemap covers every indexable page on the site. Notes:
-// - Neighborhood URLs (app/neighborhoods/[slug]) intentionally excluded —
-//   they 301-redirect to /locations/[slug] and including them would
-//   signal duplicate content to Google.
-// - Blog posts use their published `date` field for lastModified.
-// - Priorities reflect commercial importance for a local-service site:
-//   homepage 1.0, conversion+money pages 0.8-0.9, content 0.6-0.7,
-//   legal 0.3.
+// Money pages and their hubs only.
+// - Legal and utility pages (privacy, terms, disclaimer, /sitemap) are left out
+//   so the sitemap only asks Google to spend crawl on pages that earn leads.
+//   They stay crawlable through the footer.
+// - Blog posts are left out until real posts exist. The two slugs in
+//   src/constants/blogPosts.ts render notFound().
+// - No lastModified. `new Date()` stamped every URL with the build date on every
+//   deploy, which tells Google nothing. Add a real per-page date only when a
+//   page's content genuinely changes.
+// - Neighbourhood URLs are gone entirely (the route was deleted, Sept 2026).
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${BASE}`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${BASE}/sitemap`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
-    { url: `${BASE}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE}/disclaimer`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE}`, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE}/services`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/locations`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/contact`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.7 },
   ]
 
   const servicePages: MetadataRoute.Sitemap = getAllServiceSlugs().map((slug) => ({
     url: `${BASE}/services/${slug}`,
-    lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
   const locationPages: MetadataRoute.Sitemap = getAllLocationSlugs().map((slug) => ({
     url: `${BASE}/locations/${slug}`,
-    lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
-  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-    url: `${BASE}/blog/${post.slug}`,
-    lastModified: post.date ? new Date(post.date) : now,
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }))
-
-  return [...staticPages, ...servicePages, ...locationPages, ...blogPages]
+  return [...staticPages, ...servicePages, ...locationPages]
 }

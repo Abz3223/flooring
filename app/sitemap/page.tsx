@@ -4,8 +4,9 @@ import { getAllServiceSlugs } from '@/lib/services-data'
 import { getAllLocationSlugs } from '@/lib/locations-data'
 
 export const metadata: Metadata = {
-  title: 'Sitemap | Toronto Flooring Installers',
+  title: 'Site Map',
   description: 'Full sitemap for Toronto Flooring Installers. Find all our service and location pages.',
+  alternates: { canonical: '/sitemap' },
 }
 
 const serviceSlugs = getAllServiceSlugs()
@@ -47,6 +48,8 @@ export default function SitemapPage() {
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About', href: '/about' },
+                { label: 'All Services', href: '/services' },
+                { label: 'All Service Areas', href: '/locations' },
                 { label: 'Contact', href: '/contact' },
                 { label: 'Blog', href: '/blog' },
                 { label: 'Privacy Policy', href: '/privacy' },

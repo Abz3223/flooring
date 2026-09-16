@@ -16,7 +16,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Professional flooring installation in Toronto. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving the Annex, Beaches, Leslieville, Etobicoke, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Toronto</h1>
+  <h2>Flooring Installation in Toronto</h2>
 
   <p>We install flooring across the City of Toronto, and Toronto is not one market. The flooring job in a Cabbagetown Victorian is nothing like the job in a Liberty Village condo, and the bungalow in Etobicoke is different again. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it, but the right product and the right approach depend heavily on what kind of building you're working in.</p>
 
@@ -67,7 +67,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Scarborough-based flooring installation, hardwood, laminate, vinyl, tile, carpet. Headquartered on McCowan Rd. 5-year workmanship warranty. Free estimates.',
     content: `<article class="service-content">
-  <h1>Flooring Installers in Scarborough</h1>
+  <h2>Flooring Installers in Scarborough</h2>
 
   <p>We are flooring installers in Scarborough, and this isn't a service area we drive out to. Our shop is on McCowan Rd, right in the heart of the community we grew up working in. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> for homeowners and condo owners across Scarborough. When you call, we can often do a same-day or next-day site visit, there's no travel time factored into the estimate, because we're already here.</p>
 
@@ -131,7 +131,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Professional flooring installation in North York. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Willowdale, Don Mills, Jane-Finch, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in North York, ON</h1>
+  <h2>Flooring Installation in North York, ON</h2>
 
   <p>North York is its own city within the city, a former municipality that became part of Toronto in 1998 but kept the housing patterns and neighbourhood identities that make it distinct from Old Toronto, Etobicoke, or Scarborough. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of North York, and the work splits roughly into two categories: post-war detached homes and high-rise condos.</p>
 
@@ -176,11 +176,11 @@ export const locationsData: LocationData[] = [
     slug: 'vaughan',
     city: 'Vaughan',
     title: 'Flooring Installation in Vaughan',
-    metaTitle: 'Flooring Installation Vaughan ON | Toronto Flooring Installers',
+    metaTitle: 'Flooring Installation Vaughan ON',
     metaDescription:
       'Professional flooring installation in Vaughan, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Woodbridge, Maple, Thornhill, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Vaughan, ON</h1>
+  <h2>Flooring Installation in Vaughan, ON</h2>
 
   <p>Vaughan has gone from a smaller suburban municipality to one of the largest cities in Ontario in roughly thirty years, and the housing stock reflects that timeline almost perfectly. The vast majority of homes we install flooring in across Vaughan were built between the early 1990s and today, which means consistent construction practices, predictable subfloor conditions, and a market that's still very much in renovation cycle one (the original builder-grade flooring being replaced for the first time). We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
 
@@ -227,7 +227,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Professional flooring installation in Markham, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Unionville, Cornell, Milliken, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Markham, ON</h1>
+  <h2>Flooring Installation in Markham, ON</h2>
 
   <p>Markham is one of the most active flooring markets in York Region, and the work splits across two distinct types of project: heritage and character-home renovations in older areas like Unionville and Old Markham Village, and new-construction upgrades in the planned communities that have been built out over the past two decades, Cornell, Cathedraltown, Angus Glen, Greensborough, and others. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it.</p>
 
@@ -278,7 +278,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Professional flooring installation in Mississauga, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Port Credit, Streetsville, Erin Mills, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Mississauga, ON</h1>
+  <h2>Flooring Installation in Mississauga, ON</h2>
 
   <p>Mississauga is the GTA's third-largest city by population and arguably its most varied in terms of housing, from early-1900s lakefront homes in Port Credit to brand-new high-rises around Square One, with nearly every era of suburban development in between. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across the city's neighbourhoods, and the right product almost always depends on which slice of Mississauga's history a home was built in.</p>
 
@@ -333,7 +333,7 @@ export const locationsData: LocationData[] = [
     metaDescription:
       'Professional flooring installation in Pickering, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Bay Ridges, Dunbarton, Rosebank, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <h1>Flooring Installation in Pickering, ON</h1>
+  <h2>Flooring Installation in Pickering, ON</h2>
 
   <p>Pickering sits on the eastern edge of Durham Region and is one of our shorter drives, our shop in Scarborough is about 20 minutes east on the 401 to most parts of the city. The housing is a mix of post-war lakefront and inland communities from the 1950s-70s, larger 1990s-2000s estate-feel subdivisions, and the newer growth that's happening in the north end of the city. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
 

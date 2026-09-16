@@ -166,23 +166,38 @@ export const servicesData: ServiceData[] = [
     metaDescription:
       'Professional carpet installation in Toronto and the GTA. Bedroom, stairs, and basement carpet. All styles and brands. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
-  <p>We install carpet across Toronto and the GTA, bedrooms, stairs, finished basements, and whole homes. Warm underfoot, quieter than any hard flooring, and installed with proper underpad and stretching so it stays flat and wrinkle-free for years. From a single bedroom to a full house, we handle supply, removal of the old carpet, and installation.</p>
+  <p>We supply and install carpet across Toronto and the GTA, from single bedrooms and stairs to whole floors of homes and offices. We keep our prices low by buying through long-standing supplier and warehouse connections, so you get a wide choice of carpet without paying extra for it. If you already have a written quote from another installer, show it to us and we will see if we can match it.</p>
 
-  <h2>Carpet Styles We Install</h2>
+  <h2>The job that turned out bigger than the quote</h2>
 
-  <p>Cut pile carpet, including plush, frieze, and textured saxony, is the most common residential choice and works well in master bedrooms and formal living spaces. Berber (loop pile) carpet is a durable, practical option for basements, home offices, and stairs, and it's generally easier to clean. Pattern carpets add visual interest to formal rooms and hallways. We work with a range of suppliers and can help you select the right fibre (nylon, polyester, wool, or blended), pile height, and density for your specific space and lifestyle. Households with pets or children benefit from stain-treated nylon options that hold up to heavy use and frequent cleaning.</p>
+  <p>We were booked to replace the carpet in a mixed-use building on the Danforth, with a professional office on the ground floor. It looked like a routine carpet swap until we pulled the old carpet up and found years of water damage underneath. The floor was wet in places, and the old underpad had been stuck down hard by the damage.</p>
 
-  <p>Quality underpad is just as important as the carpet itself, a proper 8 lb or 10 lb rebond underpad extends the life of the carpet, adds comfort, and improves insulation and sound absorption. We include underpad in all our carpet quotes and don't cut corners on this step.</p>
+  <p>We cut the old underpad into pieces and removed it and the carpet without affecting any other part of the building, cleaned the floor thoroughly, and wore proper protective equipment throughout so the damage did not spread. Then we laid new underpad and installed the new carpet across three rooms of about 500, 800 and 1,400 square feet, plus the stairs, and finished the same day. The customer picked their carpet from a wide selection through our suppliers.</p>
 
-  <h2>The Installation Process</h2>
+  <p>The extra work was ours to absorb. The price we quoted did not change.</p>
 
-  <p>We remove and dispose of the old carpet and underpad, inspect the subfloor for any protruding nails or staples, install tack strips around the perimeter, lay the new underpad, and then stretch and secure the carpet for a smooth, wrinkle-free finish. Stairs are wrapped individually for a clean, professional look. We serve homeowners in <a href="/locations/scarborough">Scarborough</a>, <a href="/locations/markham">Markham</a>, <a href="/locations/vaughan">Vaughan</a>, <a href="/locations/pickering">Pickering</a>, and all of the GTA. If carpet isn't quite right for your space, explore our <a href="/services/hardwood-flooring-installation">hardwood</a> or <a href="/services/vinyl-flooring-installation">vinyl/LVP</a> options.</p>
+  <h2>What carpet installation costs</h2>
 
-  <div class="cta-block">
-    <h2>Get Your Free Carpet Installation Estimate</h2>
-    <p>Call us at <a href="tel:6479050050">(647) 905-0050</a> or fill out our contact form to book a free on-site estimate for your carpet project.</p>
-    <a href="/contact" class="cta-button">Request a Free Estimate</a>
-  </div>
+  <p>We price every job after a free on-site measure, because the number depends on how much area you are covering, how long the work takes, the carpet you choose, and how many stairs there are. Underpad is included in every carpet quote. Bring us a written quote from another installer and we will see if we can match it.</p>
+
+  <h2>Carpet styles and underpad</h2>
+
+  <p>Cut pile carpet (plush, frieze, saxony) suits bedrooms and living rooms. Berber loop pile is tougher and easier to clean, which makes it a good fit for basements, home offices and stairs. For homes with pets or kids, stain-treated nylon holds up best. Underneath, we use 8 lb or 10 lb rebond underpad, which adds comfort, insulation and sound absorption and helps the carpet last longer.</p>
+
+  <h2>How we install it</h2>
+
+  <p>We remove and dispose of the old carpet and underpad, check the subfloor for nails, staples and damage, fit tack strip around the edges, lay the new underpad, and stretch the carpet so it stays flat without wrinkles. Stairs are wrapped one at a time.</p>
+
+  <h2>What customers say</h2>
+
+  <blockquote>
+    <p>&ldquo;Great service, very honest and helpful team. Highly recommend for any floor installation needs&rdquo;</p>
+    <cite>Nuraz, Google review</cite>
+  </blockquote>
+
+  <p><a href="https://www.google.com/maps?cid=279766174431934811">Read all of our reviews on Google</a>.</p>
+
+  <p>We install carpet in <a href="/locations/scarborough">Scarborough</a>, <a href="/locations/markham">Markham</a>, <a href="/locations/vaughan">Vaughan</a>, <a href="/locations/pickering">Pickering</a>, and across the GTA. If carpet is not right for your space, look at our <a href="/services/hardwood-flooring-installation">hardwood</a> or <a href="/services/vinyl-flooring-installation">vinyl and LVP</a> options.</p>
 </article>`,
   },
 ]

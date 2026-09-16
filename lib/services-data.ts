@@ -1,9 +1,19 @@
+export interface ServicePhoto {
+  src: string
+  alt: string
+  caption: string
+}
+
 export interface ServiceData {
   slug: string
   title: string
   metaTitle: string
   metaDescription: string
   content: string
+  /** Real job photos, rendered below the content with next/image. Captions
+   *  describe only what is visible; do not attribute a photo to a specific job,
+   *  date or address unless the file itself confirms it. */
+  photos?: { heading: string; items: ServicePhoto[] }
 }
 
 export const servicesData: ServiceData[] = [
@@ -231,6 +241,26 @@ export const servicesData: ServiceData[] = [
 
   <p>Water under carpet is its own job: read about the <a href="/services/carpet-installation">carpet job on the Danforth</a> where we found years of water damage under the old underpad. For replacement floors, see our <a href="/services/vinyl-flooring-installation">vinyl and LVP</a> and <a href="/services/hardwood-flooring-installation">hardwood</a> installation pages.</p>
 </article>`,
+    photos: {
+      heading: 'Water-damaged floor replacement, from our jobs',
+      items: [
+        {
+          src: '/water-damaged-flooring-removed-hallway-concrete.jpg',
+          alt: 'Hallway stripped down to the concrete slab after damaged flooring was removed',
+          caption: 'Damaged flooring removed down to the concrete.',
+        },
+        {
+          src: '/water-damaged-flooring-removed-main-room-concrete.jpg',
+          alt: 'Main room stripped to the concrete slab mid-job, with new baseboards and tools on site',
+          caption: 'Mid-job: floor out, new baseboards ready to go in.',
+        },
+        {
+          src: '/new-plank-flooring-installed-bedroom.jpg',
+          alt: 'Finished bedroom with new wood-look plank flooring and white baseboards',
+          caption: 'Finished: new flooring and baseboards in.',
+        },
+      ],
+    },
   },
 ]
 

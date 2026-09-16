@@ -174,7 +174,7 @@ export const servicesData: ServiceData[] = [
 
   <p>We cut the old underpad into pieces and removed it and the carpet without affecting any other part of the building, cleaned the floor thoroughly, and wore proper protective equipment throughout so the damage did not spread. Then we laid new underpad and installed the new carpet across three rooms of about 500, 800 and 1,400 square feet, plus the stairs, and finished the same day. The customer picked their carpet from a wide selection through our suppliers.</p>
 
-  <p>The extra work was ours to absorb. The price we quoted did not change.</p>
+  <p>The extra work was ours to absorb. The price we quoted did not change. If water has damaged a hard floor instead, see our <a href="/services/floor-repair">floor repair</a> page.</p>
 
   <h2>What carpet installation costs</h2>
 
@@ -198,6 +198,38 @@ export const servicesData: ServiceData[] = [
   <p><a href="https://www.google.com/maps?cid=279766174431934811">Read all of our reviews on Google</a>.</p>
 
   <p>We install carpet in <a href="/locations/scarborough">Scarborough</a>, <a href="/locations/markham">Markham</a>, <a href="/locations/vaughan">Vaughan</a>, <a href="/locations/pickering">Pickering</a>, and across the GTA. If carpet is not right for your space, look at our <a href="/services/hardwood-flooring-installation">hardwood</a> or <a href="/services/vinyl-flooring-installation">vinyl and LVP</a> options.</p>
+</article>`,
+  },
+  {
+    slug: 'floor-repair',
+    title: 'Floor Repair',
+    metaTitle: 'Floor Repair Toronto | Water & Flood Damaged Floors',
+    metaDescription:
+      'Floor repair in Toronto and the GTA: scratches, gaps, loose planks and water-damaged floors, including a Richmond Hill flood job after the September 2 storm. Free on-site estimates. Call (647) 905-0050.',
+    content: `<article class="service-content">
+  <p>Floor repair in Toronto and the GTA covers everything from scratches, gaps and loose planks to floors ruined by water. When a floor has sat in water too long to save, we take the damaged flooring out, make sure the concrete underneath is dry, and put new flooring down, then clean up so the space is ready to live in.</p>
+
+  <h2>Flood damage in Richmond Hill after the September 2 storm</h2>
+
+  <p>The severe thunderstorm that hit the GTA on September 2, 2026 flooded a home in Richmond Hill. The engineered hardwood downstairs was left sitting in water too long to save. A restoration company had already been in and torn out some of the flooring and drywall, and the owner wanted new flooring and tile.</p>
+
+  <p>When we arrived, the downstairs was a mix of torn-up hardwood and cut-open drywall. We took out the rest of the damaged engineered hardwood, about 1,400 square feet, and made sure the concrete was dry before any new flooring went down. Then we replaced the floor.</p>
+
+  <p>The restoration crew had left the drywall torn up in places, so we fixed it at no charge. We also did additional work upstairs in the same house. The whole job took two to three days, and we cleaned up after ourselves and left it looking new.</p>
+
+  <h2>Repair or replace?</h2>
+
+  <p>Scratches, gaps between boards and a few loose or damaged planks can usually be repaired without replacing the whole floor. A floor that has soaked in water is different: engineered hardwood and laminate swell and lift, and the lasting fix is to take it out and install new flooring on a dry base. We will tell you which one your floor needs once we see it.</p>
+
+  <h2>Floor repairs we take on</h2>
+
+  <p>Laminate flooring repair, hardwood floor repair and vinyl flooring repair: scratches and gaps, loose and lifting planks, and water-damaged floors, whether that means replacing a few boards or taking out a whole room. If a restoration company has already been in after a flood, we pick up from there and put the floor back.</p>
+
+  <h2>What floor repair costs</h2>
+
+  <p>Every repair is different, so we quote after a free on-site look at the damage. The price depends on how much flooring is damaged, whether it can be repaired or has to come out, and what goes in its place. If you already have a written quote from another company, show it to us and we will see if we can match it.</p>
+
+  <p>Water under carpet is its own job: read about the <a href="/services/carpet-installation">carpet job on the Danforth</a> where we found years of water damage under the old underpad. For replacement floors, see our <a href="/services/vinyl-flooring-installation">vinyl and LVP</a> and <a href="/services/hardwood-flooring-installation">hardwood</a> installation pages.</p>
 </article>`,
   },
 ]

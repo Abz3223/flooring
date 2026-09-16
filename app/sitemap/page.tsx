@@ -18,6 +18,7 @@ const serviceLabels: Record<string, string> = {
   'vinyl-flooring-installation': 'Vinyl / LVP Flooring Installation',
   'tile-flooring-installation': 'Tile Flooring Installation',
   'carpet-installation': 'Carpet Installation',
+  'floor-repair': 'Floor Repair',
 }
 
 const locationLabels: Record<string, string> = {

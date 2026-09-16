@@ -65,7 +65,7 @@ export default function HeroSection() {
               ))}
             </div>
             <span className="text-white/85 font-semibold text-xs sm:text-sm">
-              Rated 5 Stars by 100+ GTA Homeowners
+              Rated 5.0 Stars on Google
             </span>
           </div>
         </div>

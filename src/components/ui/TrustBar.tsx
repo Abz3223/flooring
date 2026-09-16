@@ -6,7 +6,7 @@
 const stats = [
   { number: '500+', label: 'GTA Projects Completed' },
   { number: '15+', label: 'Years of Experience' },
-  { number: '100+', label: '5-Star Reviews' },
+  { number: '5.0', label: 'Google Star Rating' },
   { number: '5-Year', label: 'Workmanship Warranty' },
 ];
 

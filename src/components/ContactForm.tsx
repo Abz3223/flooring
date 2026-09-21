@@ -202,13 +202,13 @@ export default function ContactForm() {
                 </div>
               </a>
 
-              <a href="mailto:info@flooringinstallerstoronto.com" className="flex items-start gap-3.5 group">
+              <a href="mailto:torontoflooringinstallers@gmail.com" className="flex items-start gap-3.5 group">
                 <div className="w-9 h-9 bg-gold-muted rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Mail className="w-4 h-4 text-gold" strokeWidth={1.75} />
                 </div>
                 <div>
                   <p className="font-sans font-medium text-charcoal text-[0.9375rem] group-hover:text-gold transition-colors break-all">
-                    info@flooringinstallerstoronto.com
+                    torontoflooringinstallers@gmail.com
                   </p>
                   <p className="text-stone-400 text-[0.8125rem] mt-0.5">We respond same day</p>
                 </div>

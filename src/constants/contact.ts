@@ -2,7 +2,7 @@ export const CONTACT_INFO = {
   name: 'Flooring Installers Toronto',
   phone: '(647) 905-0050',
   phoneRaw: '+16479050050',
-  email: 'info@flooringinstallerstoronto.com',
+  email: 'torontoflooringinstallers@gmail.com',
   address: 'Toronto, Ontario',
   serviceRadius: 'Greater Toronto Area',
 };

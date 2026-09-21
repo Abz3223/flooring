@@ -20,7 +20,7 @@ export function getLocalBusinessSchema() {
       'Professional flooring installation company serving Toronto and the GTA. Specializing in hardwood, laminate, vinyl/LVP, tile, and carpet installation for residential and commercial properties.',
     url: 'https://flooringinstallerstoronto.com',
     telephone: '+1-647-905-0050',
-    email: 'info@flooringinstallerstoronto.com',
+    email: 'torontoflooringinstallers@gmail.com',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
@@ -152,7 +152,7 @@ export function getLocationBusinessSchema(city: string, locationUrl: string) {
     name: 'Toronto Flooring Installers',
     url: locationUrl,
     telephone: '+1-647-905-0050',
-    email: 'info@flooringinstallerstoronto.com',
+    email: 'torontoflooringinstallers@gmail.com',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

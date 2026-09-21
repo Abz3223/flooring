@@ -34,7 +34,7 @@ export default function DisclaimerPage() {
             <p>Our website may contain links to third-party websites. We are not responsible for the content or practices of these sites and encourage you to review their privacy policies.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have any questions about this disclaimer, please contact us at info@flooringinstallerstoronto.com or call (647) 905-0050.</p>
+            <p>If you have any questions about this disclaimer, please contact us at torontoflooringinstallers@gmail.com or call (647) 905-0050.</p>
           </div>
         </div>
       </section>

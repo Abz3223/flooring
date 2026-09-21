@@ -8,7 +8,7 @@ This Next.js codebase IS the production site at flooringinstallerstoronto.com (o
 This site is part of a broader local SEO + Google Ads strategy run by **Local Rank**. SEO and conversion performance matter more than fancy features.
 
 Public domain (per `metadataBase` in `app/layout.tsx`): `https://flooringinstallerstoronto.com`
-Phone: `(647) 905-0050`. Public-facing email: `info@flooringinstallerstoronto.com`. Lead-form notifications currently route to `abduljaafar10@gmail.com` (set in `app/api/contact/route.ts`).
+Phone: `(647) 905-0050`. Public-facing email: `torontoflooringinstallers@gmail.com` (shown in the footer, contact page, disclaimer and JSON-LD; single source is `src/constants/contact.ts`). Lead-form notifications route to `abduljaafar10@gmail.com` and must stay there (set in `app/api/contact/route.ts` and the Supabase edge function). These two are deliberately different: do not "fix" the mismatch.
 
 ## Tech stack (verified against package.json)
 - **Framework:** Next.js 14.2.29 (App Router)

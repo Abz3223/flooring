@@ -105,7 +105,7 @@ export default function LocationPage({ params }: PageProps) {
               Flooring Installers in {location.city}
             </h1>
             <p className="text-white/75 text-[1rem] mt-2">
-              Serving {location.city} and surrounding communities. Free estimates. 5-year warranty.
+              Serving {location.city} and surrounding communities. Free estimates.
             </p>
           </div>
         </div>

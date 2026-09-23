@@ -9,10 +9,6 @@ const faqs = [
     a: 'Most residential projects are completed in 1–3 days depending on the size and complexity. Larger commercial jobs may take longer. We\'ll give you a realistic timeline before work begins.',
   },
   {
-    q: 'Do you provide a warranty on your installations?',
-    a: 'Yes, every installation is backed by our 5-year workmanship warranty. If anything goes wrong due to installation quality, we\'ll fix it at no charge. Material warranties vary by manufacturer.',
-  },
-  {
     q: 'What areas of Toronto and the GTA do you serve?',
     a: 'We serve all of Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, Pickering, and surrounding communities throughout the Greater Toronto Area.',
   },

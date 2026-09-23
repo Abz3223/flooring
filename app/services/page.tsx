@@ -48,7 +48,7 @@ export default function ServicesHubPage() {
             </h1>
             <p className="text-white/75 text-[1rem] mt-3 max-w-2xl">
               We supply, install and repair flooring from our shop on McCowan Rd in
-              Scarborough, with free on-site estimates and a 5-year workmanship warranty.
+              Scarborough, with free on-site estimates.
             </p>
           </div>
         </div>

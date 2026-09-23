@@ -23,9 +23,4 @@ export const TRUST_FACTORS = [
     description: 'No-obligation, detailed quotes provided before any work begins.',
     icon: 'ClipboardList',
   },
-  {
-    title: '5-Year Warranty',
-    description: 'Every installation backed by our comprehensive workmanship guarantee.',
-    icon: 'CheckCircle',
-  },
 ];

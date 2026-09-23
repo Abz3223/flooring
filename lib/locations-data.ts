@@ -65,7 +65,7 @@ export const locationsData: LocationData[] = [
     title: 'Flooring Installers in Scarborough',
     metaTitle: 'Scarborough Flooring Installers | Based on McCowan Rd',
     metaDescription:
-      'Scarborough-based flooring installation, hardwood, laminate, vinyl, tile, carpet. Headquartered on McCowan Rd. 5-year workmanship warranty. Free estimates.',
+      'Scarborough-based flooring installation, hardwood, laminate, vinyl, tile, carpet. Headquartered on McCowan Rd. Free on-site estimates.',
     content: `<article class="service-content">
   <h2>Flooring Installers in Scarborough</h2>
 
@@ -118,7 +118,7 @@ export const locationsData: LocationData[] = [
 
   <div class="cta-block">
     <h2>Get Your Free Estimate in Scarborough</h2>
-    <p>Call us at <a href="tel:6479050050">(647) 905-0050</a> or fill out our contact form. We're local, we back our work with a 5-year warranty, and we can usually get to you within a day.</p>
+    <p>Call us at <a href="tel:6479050050">(647) 905-0050</a> or fill out our contact form. We're local, and we can usually get to you within a day.</p>
     <a href="/contact" class="cta-button">Request a Free Estimate</a>
   </div>
 </article>`,

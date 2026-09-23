@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MapPin, CircleCheck as CheckCircle, ClipboardList, Star } from 'lucide-react';
+import { MapPin, ClipboardList, Star } from 'lucide-react';
 
 const features = [
   {
@@ -11,11 +11,6 @@ const features = [
     icon: ClipboardList,
     title: 'Free On-Site Estimates',
     desc: 'We come to your home, measure accurately, and provide a written quote with no pressure and no obligation.',
-  },
-  {
-    icon: CheckCircle,
-    title: '5-Year Workmanship Warranty',
-    desc: 'Every installation is backed by our workmanship guarantee. If something is wrong, we make it right.',
   },
   {
     icon: Star,

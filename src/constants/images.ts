@@ -4,9 +4,13 @@ export interface ProjectImage {
   caption: string;
   category: string;
   location: string;
-  /** Service page this project links to. Fixes dead clicks on the gallery
-   *  (Clarity logged dead clicks in 22% of sessions, Sept 2026) and gives the
-   *  service pages a contextual in-body link from the homepage. */
+  /** Where the card links. Keeps the dead-click fix (Clarity logged dead
+   *  clicks in 22% of sessions, Sept 2026) but points at the LOCATION page for
+   *  the city in `location` rather than the service page. The service grid
+   *  above already links all six services, so the old hrefs were six duplicate
+   *  links to four URLs; these six are distinct, and three of them
+   *  (north-york, markham, mississauga) had no contextual in-body link from
+   *  the homepage at all. */
   href: string;
 }
 
@@ -17,7 +21,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Engineered hardwood in a modern Toronto living room',
     category: 'Hardwood',
     location: 'North York, Toronto',
-    href: '/services/hardwood-flooring-installation',
+    href: '/locations/north-york',
   },
   {
     src: '/commercial-carpet-tile-flooring-installation-toronto-markham.jpg',
@@ -25,7 +29,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Commercial carpet tile installation, Markham office',
     category: 'Carpet',
     location: 'Markham, York Region',
-    href: '/services/carpet-installation',
+    href: '/locations/markham',
   },
   {
     src: '/custom-staircase-renovation-wood-treads-toronto-installers.jpeg',
@@ -33,7 +37,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Custom white oak open-riser staircase renovation',
     category: 'Hardwood',
     location: 'Vaughan, York Region',
-    href: '/services/hardwood-flooring-installation',
+    href: '/locations/vaughan',
   },
   {
     src: '/commercial-elevator-lobby-carpet-tile-flooring-toronto-installers.jpeg',
@@ -41,7 +45,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Elevator lobby carpet tile, commercial project',
     category: 'Carpet',
     location: 'Downtown Toronto',
-    href: '/services/carpet-installation',
+    href: '/locations/toronto',
   },
   {
     src: '/toronto-bathroom-renovation-tile-flooring-toronto..jpg',
@@ -49,7 +53,7 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Large-format porcelain tile bathroom renovation',
     category: 'Tile',
     location: 'Mississauga, Peel Region',
-    href: '/services/tile-flooring-installation',
+    href: '/locations/mississauga',
   },
   {
     src: '/installers-commercial-wood-look-flooring-installation-toronto.jpeg',
@@ -57,6 +61,6 @@ export const PROJECT_IMAGES: ProjectImage[] = [
     caption: 'Wood-look LVP in a Toronto commercial space',
     category: 'Vinyl / LVP',
     location: 'Scarborough, Toronto',
-    href: '/services/vinyl-flooring-installation',
+    href: '/locations/scarborough',
   },
 ];

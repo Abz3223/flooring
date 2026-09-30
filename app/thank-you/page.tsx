@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, CircleCheck as CheckCircle, Clock, Star } from 'lucide-react'
+import { BUSINESS_HOURS } from '@/src/constants/contact'
 
 export const metadata: Metadata = {
   title: 'Thank You | Request Received',
@@ -13,7 +14,7 @@ const nextSteps = [
   {
     icon: Clock,
     heading: 'We respond fast',
-    body: 'Expect a call or email within 2–4 hours during business hours (Mon–Fri 8am–7pm, Sat 9am–5pm).',
+    body: `Expect a call or email within 2–4 hours during business hours (${BUSINESS_HOURS.summary}).`,
   },
   {
     icon: CheckCircle,

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { BUSINESS_HOURS } from '../constants/contact';
 
 const flooringServices = [
   'Hardwood Flooring',
@@ -233,9 +234,11 @@ export default function ContactForm() {
                 <div>
                   <p className="font-sans font-medium text-charcoal text-[0.9375rem]">Business Hours</p>
                   <div className="text-stone-500 text-[0.8125rem] mt-1.5 space-y-1">
-                    <p>Monday &ndash; Friday: 8:00 AM &ndash; 7:00 PM</p>
-                    <p>Saturday: 9:00 AM &ndash; 5:00 PM</p>
-                    <p>Sunday: By appointment</p>
+                    {BUSINESS_HOURS.display.map((row) => (
+                      <p key={row.days}>
+                        {row.days}: {row.hours}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -25,7 +25,9 @@ export default function ProjectsSection() {
             >
               {/* These cards read as clickable (rounded, shadowed, category tag)
                   and previously were not linked, which produced dead clicks in
-                  22% of sessions. Each now goes to its matching service page. */}
+                  22% of sessions. Each goes to the location page for the city
+                  in the caption; the service grid already links the services,
+                  so linking them here again was six links to four URLs. */}
               <Link href={project.href} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-xl">
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <Image

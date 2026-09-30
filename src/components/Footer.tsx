@@ -89,7 +89,6 @@ export default function Footer() {
             <ul className="space-y-2.5 mb-8">
               {[
                 { label: 'About Us', href: '/about' },
-                { label: 'Blog', href: '/blog' },
                 { label: 'Contact', href: '/contact' },
                 { label: 'Privacy Policy', href: '/privacy' },
                 { label: 'Terms of Service', href: '/terms' },

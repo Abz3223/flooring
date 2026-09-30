@@ -83,9 +83,6 @@ export default function Header() {
             <Link href="/about" className="text-stone-600 hover:text-charcoal px-3 py-2 text-[0.875rem] font-medium transition-colors rounded-md">
               About
             </Link>
-            <Link href="/blog" className="text-stone-600 hover:text-charcoal px-3 py-2 text-[0.875rem] font-medium transition-colors rounded-md">
-              Blog
-            </Link>
             <Link href="/contact" className="text-stone-600 hover:text-charcoal px-3 py-2 text-[0.875rem] font-medium transition-colors rounded-md">
               Contact
             </Link>
@@ -181,7 +178,6 @@ export default function Header() {
 
             {[
               { label: 'About', href: '/about' },
-              { label: 'Blog', href: '/blog' },
               { label: 'Contact', href: '/contact' },
             ].map((item) => (
               <Link

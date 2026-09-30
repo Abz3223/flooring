@@ -60,6 +60,16 @@ export const FLOORING_SERVICES: FlooringService[] = [
     benefits: ['Sound dampening', 'Warm & comfortable', 'Wide range of styles', 'Stain-resistant options'],
     imageAlt: 'Carpet installation on residential staircase in Toronto',
   },
+  {
+    id: 'repair',
+    name: 'Floor Repair',
+    slug: 'floor-repair',
+    icon: 'Wrench',
+    shortDesc: 'Scratches, gaps, loose planks, and water- or flood-damaged floors taken out and replaced.',
+    description: 'Floor repair across Toronto and the GTA. Scratches, gaps and loose planks can usually be repaired in place. A floor that has soaked in water comes out, the subfloor is confirmed dry, and new flooring goes down.',
+    benefits: ['Repair instead of replace where possible', 'Water and flood damage', 'Subfloor dried before reinstall', 'Free on-site assessment'],
+    imageAlt: 'New plank flooring installed after water-damage removal in a GTA home',
+  },
 ];
 
 export const FLOORING_TYPES = [

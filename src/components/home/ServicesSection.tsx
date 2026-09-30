@@ -24,6 +24,10 @@ const serviceImages: Record<string, { src: string; objectPosition?: string }> = 
     src: '/flooring-residential-staircase-carpet-installation-toronto.jpeg',
     objectPosition: 'top',
   },
+  'floor-repair': {
+    src: '/new-plank-flooring-installed-bedroom.jpg',
+    objectPosition: 'center',
+  },
 };
 
 // Photo-overlay service cards: full-bleed photo, dark charcoal overlay,
@@ -80,8 +84,8 @@ export default function ServicesSection() {
             );
           })}
 
-          <div className="flex flex-col justify-between bg-charcoal rounded-xl p-6 sm:p-7 col-span-2 sm:col-span-2 lg:col-span-1">
-            <div>
+          <div className="flex flex-col justify-between bg-charcoal rounded-xl p-6 sm:p-7 col-span-2 sm:col-span-2 lg:col-span-3 lg:flex-row lg:items-center lg:gap-8">
+            <div className="lg:max-w-2xl">
               <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-gold mb-3">
                 Not Sure?
               </p>
@@ -94,7 +98,7 @@ export default function ServicesSection() {
             </div>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-2 bg-gold hover:bg-gold-hover text-white text-[0.8125rem] font-semibold px-5 py-2.5 rounded-lg transition-colors w-fit"
+              className="mt-6 lg:mt-0 lg:flex-shrink-0 inline-flex items-center gap-2 bg-gold hover:bg-gold-hover text-white text-[0.8125rem] font-semibold px-5 py-2.5 rounded-lg transition-colors w-fit"
             >
               Book a Consultation <ArrowRight className="w-3.5 h-3.5" />
             </Link>

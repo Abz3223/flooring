@@ -1,3 +1,5 @@
+import { BUSINESS_HOURS } from '@/src/constants/contact'
+
 const BUSINESS_ID = 'https://flooringinstallerstoronto.com/#organization'
 
 const SERVICE_AREA_CITIES = [
@@ -35,20 +37,15 @@ export function getLocalBusinessSchema() {
       latitude: 43.795837,
       longitude: -79.2607885,
     },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday'],
-        opens: '09:00',
-        closes: '16:00',
-      },
-    ],
+    // Hours come from BUSINESS_HOURS so the schema cannot drift from the
+    // hours shown on /contact and /thank-you. Sunday is "by appointment",
+    // which openingHoursSpecification cannot express, so it is omitted.
+    openingHoursSpecification: BUSINESS_HOURS.schema.map((slot) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: slot.days,
+      opens: slot.opens,
+      closes: slot.closes,
+    })),
     areaServed: SERVICE_AREA_CITIES,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -92,6 +89,14 @@ export function getLocalBusinessSchema() {
             '@type': 'Service',
             name: 'Carpet Installation',
             url: 'https://flooringinstallerstoronto.com/services/carpet-installation',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Floor Repair',
+            url: 'https://flooringinstallerstoronto.com/services/floor-repair',
           },
         },
       ],

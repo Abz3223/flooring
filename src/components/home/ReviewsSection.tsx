@@ -1,4 +1,6 @@
 // Real Google reviews displayed verbatim (typos preserved for authenticity).
+// No relative dates: they were hard-coded "2 weeks ago" / "3 weeks ago" while
+// the reviews were five months old. Either pull them live or say nothing.
 // Points at the Business Profile itself (CID 279766174431934811). It previously
 // pointed at a Google *search* results page, which sent warm traffic into a SERP
 // listing competitors alongside us.
@@ -6,7 +8,6 @@ const gbpReviewUrl = 'https://www.google.com/maps?cid=279766174431934811';
 
 interface Review {
   name: string;
-  timeAgo: string;
   text: string;
   ownerReply: string | null;
 }
@@ -14,21 +15,18 @@ interface Review {
 const reviews: Review[] = [
   {
     name: 'Nuraz',
-    timeAgo: '2 weeks ago',
     text: 'Great service, very honest and helpful team. Highly recommend for any floor installation needs.',
     ownerReply:
       'Thank you Nuraz, happy your were satisfied with our service and work.',
   },
   {
     name: 'Prady',
-    timeAgo: '3 weeks ago',
     text: 'Honestly the best flooring installers in the city, Mike did a amazing job and super happy with the results.',
     ownerReply:
       'Prady, thank you for the honest review. Your recommendation means alot to us.',
   },
   {
     name: 'Wyvern',
-    timeAgo: '3 weeks ago',
     text: 'Did my flooring quoted me better price Ethan anywhere in Toronto.',
     ownerReply: null,
   },
@@ -91,17 +89,7 @@ export default function ReviewsSection() {
             <StarRow size="md" />
             <span className="font-sans font-extrabold text-charcoal text-lg">5.0</span>
           </div>
-          <p className="text-stone-500 text-sm">
-            Verified reviews on{' '}
-            <a
-              href={gbpReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold hover:text-gold-hover font-bold underline"
-            >
-              Google
-            </a>
-          </p>
+          <p className="text-stone-500 text-sm">Verified reviews on Google</p>
         </div>
 
         {/* Review cards. These are card-styled and were previously unlinked,
@@ -129,7 +117,7 @@ export default function ReviewsSection() {
                 <p className="font-sans font-bold text-charcoal text-sm">
                   {review.name}
                 </p>
-                <p className="text-stone-500 text-xs mt-0.5">{review.timeAgo}</p>
+                <p className="text-stone-500 text-xs mt-0.5">Verified Google review</p>
               </div>
               {review.ownerReply && (
                 <div className="mt-4 pt-4 border-t border-stone-200">
@@ -151,9 +139,9 @@ export default function ReviewsSection() {
             href={gbpReviewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-gold hover:bg-gold-hover text-white font-bold text-sm px-7 py-3.5 rounded-lg transition-colors min-h-[48px]"
+            className="inline-flex items-center justify-center text-gold hover:text-gold-hover font-bold text-sm underline min-h-[48px] px-4"
           >
-            Read All Reviews on Google
+            Read all reviews on Google
           </a>
         </div>
       </div>

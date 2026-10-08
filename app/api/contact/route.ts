@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { spamSignals } from '@/src/lib/spam-check'
 
 // Lead-notification handler. Accepts a flexible set of fields from any of
 // the site's forms (HomeQuoteForm, LeadForm, ContactForm) and emails the
@@ -27,6 +28,7 @@ export async function POST(request: NextRequest) {
       address,
       message,
       source_page,
+      heard_about,
     } = body
 
     const serviceLabel = flooring_type || service || 'Not specified'
@@ -39,8 +41,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Flag, never drop: see src/lib/spam-check.ts.
+    const spamReasons = spamSignals(body)
+    const spamLine = spamReasons.length
+      ? `SPAM CHECK: flagged as likely spam - ${spamReasons.join('; ')}.\nIf this is a real customer, reply as normal.\n\n`
+      : ''
+
     const emailBody = `
-New flooring enquiry from flooringinstallerstoronto.com
+${spamLine}New flooring enquiry from flooringinstallerstoronto.com
 
 Name: ${name}
 Phone: ${phone || 'Not provided'}
@@ -48,6 +56,7 @@ Email: ${email || 'Not provided'}
 Property Address: ${address || 'Not provided'}
 Flooring Type: ${serviceLabel}
 Source Page: ${source_page || 'unknown'}
+How they heard about us: ${heard_about || 'Not answered'}
 
 Message:
 ${message || 'No additional message provided.'}
@@ -60,7 +69,7 @@ This lead was submitted via the contact form at flooringinstallerstoronto.com
       // TODO: After domain verification in Resend, switch to noreply@flooringinstallerstoronto.com
       from: 'onboarding@resend.dev',
       to: ['abduljaafar10@gmail.com'],
-      subject: `New Lead from Toronto Flooring Website - ${name}`,
+      subject: `${spamReasons.length ? '[Likely spam] ' : ''}New Lead from Toronto Flooring Website - ${name}`,
       text: emailBody,
       reply_to: email || undefined,
     })

@@ -1,9 +1,11 @@
 'use client'
 
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, useRef, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { BUSINESS_HOURS } from '../constants/contact';
+import { HONEYPOT_FIELD } from '../lib/spam-check';
+import HoneypotField from './HoneypotField';
 
 const flooringServices = [
   'Hardwood Flooring',
@@ -23,7 +25,14 @@ export default function ContactForm() {
     address: '',
     service: '',
     message: '',
+    heard_about: '',
   })
+  // Set on mount (client only) so the API can tell a person from a script
+  // that posts instantly. See src/lib/spam-check.ts.
+  const mountedAt = useRef<number | null>(null)
+  useEffect(() => {
+    mountedAt.current = Date.now()
+  }, [])
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -35,6 +44,8 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const trap = new FormData(e.currentTarget).get(HONEYPOT_FIELD)
+    const elapsed_ms = mountedAt.current ? Date.now() - mountedAt.current : null
     setStatus('loading')
     setErrorMessage('')
 
@@ -42,7 +53,12 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          source_page: 'contact',
+          elapsed_ms,
+          [HONEYPOT_FIELD]: typeof trap === 'string' ? trap : '',
+        }),
       })
 
       if (res.ok) {
@@ -69,7 +85,7 @@ export default function ContactForm() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
 
           <div className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="relative space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className={labelClass}>
@@ -80,6 +96,7 @@ export default function ContactForm() {
                       name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Jane Smith"
@@ -95,6 +112,7 @@ export default function ContactForm() {
                       name="phone"
                       type="tel"
                       required
+                      autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(647) 555-1234"
@@ -111,6 +129,7 @@ export default function ContactForm() {
                     id="email"
                     name="email"
                     type="email"
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="jane@example.com"
@@ -126,6 +145,7 @@ export default function ContactForm() {
                     id="address"
                     name="address"
                     type="text"
+                    autoComplete="street-address"
                     value={formData.address}
                     onChange={handleChange}
                     placeholder="123 Main St, Toronto, ON"
@@ -167,8 +187,26 @@ export default function ContactForm() {
                   />
                 </div>
 
+                <div>
+                  <label htmlFor="heard_about" className={labelClass}>
+                    How did you hear about us? <span className="font-normal text-stone-500">(optional)</span>
+                  </label>
+                  <input
+                    id="heard_about"
+                    name="heard_about"
+                    type="text"
+                    autoComplete="off"
+                    value={formData.heard_about}
+                    onChange={handleChange}
+                    placeholder="Google, a friend, ChatGPT..."
+                    className={inputClass}
+                  />
+                </div>
+
+                <HoneypotField />
+
                 {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-[0.875rem]">
+                  <div role="alert" className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-red-700 text-[0.875rem]">
                     {errorMessage}
                   </div>
                 )}

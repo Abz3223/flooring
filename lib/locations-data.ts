@@ -18,7 +18,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in Toronto</h2>
 
-  <p>We install flooring across the City of Toronto, and Toronto is not one market. The flooring job in a Cabbagetown Victorian is nothing like the job in a Liberty Village condo, and the bungalow in Etobicoke is different again. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it, but the right product and the right approach depend heavily on what kind of building you're working in.</p>
+  <p>Flooring installation in Toronto is not one market, and we work across the whole City of Toronto. The flooring job in a Cabbagetown Victorian is nothing like the job in a Liberty Village condo, and the bungalow in Etobicoke is different again. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it, but the right product and the right approach depend heavily on what kind of building you're working in.</p>
 
   <h2>Toronto's Housing Eras and What They Mean for Flooring</h2>
 
@@ -133,7 +133,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in North York, ON</h2>
 
-  <p>North York is its own city within the city, a former municipality that became part of Toronto in 1998 but kept the housing patterns and neighbourhood identities that make it distinct from Old Toronto, Etobicoke, or Scarborough. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of North York, and the work splits roughly into two categories: post-war detached homes and high-rise condos.</p>
+  <p>Flooring installation in North York splits roughly into two kinds of job: post-war detached homes and high-rise condos. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of North York.</p>
 
   <h2>Don Mills and the Mid-Century Bungalows</h2>
 
@@ -182,7 +182,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in Vaughan, ON</h2>
 
-  <p>Vaughan has gone from a smaller suburban municipality to one of the largest cities in Ontario in roughly thirty years, and the housing stock reflects that timeline almost perfectly. The vast majority of homes we install flooring in across Vaughan were built between the early 1990s and today, which means consistent construction practices, predictable subfloor conditions, and a market that's still very much in renovation cycle one (the original builder-grade flooring being replaced for the first time). We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
+  <p>Flooring installation in Vaughan is shaped by how young the city's housing is: Vaughan has gone from a smaller suburban municipality to one of the largest cities in Ontario in roughly thirty years. The vast majority of homes we install flooring in across Vaughan were built between the early 1990s and today, which means consistent construction practices, predictable subfloor conditions, and a market that's still very much in renovation cycle one (the original builder-grade flooring being replaced for the first time). We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
 
   <h2>Vaughan Communities and What's in Them</h2>
 
@@ -229,7 +229,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in Markham, ON</h2>
 
-  <p>Markham is one of the most active flooring markets in York Region, and the work splits across two distinct types of project: heritage and character-home renovations in older areas like Unionville and Old Markham Village, and new-construction upgrades in the planned communities that have been built out over the past two decades, Cornell, Cathedraltown, Angus Glen, Greensborough, and others. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it.</p>
+  <p>Flooring installation in Markham splits across two distinct types of project: heritage and character-home renovations in older areas like Unionville and Old Markham Village, and new-construction upgrades in the planned communities that have been built out over the past two decades, Cornell, Cathedraltown, Angus Glen, Greensborough, and others. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across all of it.</p>
 
   <h2>Unionville and Old Markham Village: Heritage Considerations</h2>
 
@@ -280,7 +280,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in Mississauga, ON</h2>
 
-  <p>Mississauga is the GTA's third-largest city by population and arguably its most varied in terms of housing, from early-1900s lakefront homes in Port Credit to brand-new high-rises around Square One, with nearly every era of suburban development in between. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across the city's neighbourhoods, and the right product almost always depends on which slice of Mississauga's history a home was built in.</p>
+  <p>Flooring installation in Mississauga almost always depends on when a home was built, and the city has nearly every era: early-1900s lakefront homes in Port Credit, brand-new high-rises around Square One, and suburban development of every decade in between. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> across the city's neighbourhoods.</p>
 
   <h2>The Lakefront: Port Credit, Lakeview, Clarkson</h2>
 
@@ -335,7 +335,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installation in Pickering, ON</h2>
 
-  <p>Pickering sits on the eastern edge of Durham Region and is one of our shorter drives, our shop in Scarborough is about 20 minutes east on the 401 to most parts of the city. The housing is a mix of post-war lakefront and inland communities from the 1950s-70s, larger 1990s-2000s estate-feel subdivisions, and the newer growth that's happening in the north end of the city. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
+  <p>Flooring installation in Pickering is one of our shorter drives: Pickering sits on the eastern edge of Durham Region, about 20 minutes east of our Scarborough shop on the 401 to most parts of the city. The housing is a mix of post-war lakefront and inland communities from the 1950s-70s, larger 1990s-2000s estate-feel subdivisions, and the newer growth that's happening in the north end of the city. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
 
   <h2>The Lakeshore Communities: Bay Ridges, West Shore, Liverpool</h2>
 

@@ -29,6 +29,16 @@ const mapQueries: Record<string, string> = {
   pickering: 'Pickering, ON, Canada',
 }
 
+// H1 uses the same words as the page's <title>. Local queries are matched
+// lexically, so "Flooring Installation Vaughan ON" in the title and
+// "Flooring Installers in Vaughan" in the H1 split the signal. Scarborough's
+// title is "Scarborough Flooring Installers", so its H1 keeps "Installers".
+function locationH1(slug: string, city: string) {
+  return slug === 'scarborough'
+    ? `Flooring Installers in ${city}`
+    : `Flooring Installation in ${city}`
+}
+
 export async function generateStaticParams() {
   return getAllLocationSlugs().map((slug) => ({ slug }))
 }
@@ -102,7 +112,7 @@ export default function LocationPage({ params }: PageProps) {
               ]}
             />
             <h1 className="font-serif text-white mt-3 leading-tight" style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-              Flooring Installers in {location.city}
+              {locationH1(location.slug, location.city)}
             </h1>
             <p className="text-white/75 text-[1rem] mt-2">
               Serving {location.city} and surrounding communities. Free estimates.

@@ -36,7 +36,13 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-white/85 text-base sm:text-lg md:text-xl leading-relaxed mb-9 max-w-2xl mx-auto">
-            Hardwood, laminate, vinyl, tile, and carpet, installed by an experienced GTA crew.
+            {/* The first sentences after the H1 are what AI answers extract as
+                "what makes this business different". Every fact here is already
+                published elsewhere on the site (shop address, free on-site
+                estimate, written itemized quote within 24 hours). Do not add a
+                price guarantee here without the owner confirming it is policy. */}
+            Hardwood, laminate, vinyl, tile and carpet, installed from our shop on McCowan Rd in Scarborough.
+            Free on-site estimate, and a written, itemized quote within 24&nbsp;hours.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">

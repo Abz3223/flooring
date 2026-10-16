@@ -15,7 +15,7 @@ const BASE_URL = 'https://flooringinstallerstoronto.com'
 export const metadata: Metadata = {
   title: 'Flooring Installation Across Toronto & the GTA',
   description:
-    'Flooring installation in Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering from our shop on McCowan Rd in Scarborough. Free on-site estimates.',
+    'Flooring installation in Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering from our office on McCowan Rd in Scarborough. Free on-site estimates.',
   alternates: { canonical: '/locations' },
 }
 
@@ -46,7 +46,7 @@ export default function LocationsHubPage() {
               Flooring Installation Across Toronto &amp; the GTA
             </h1>
             <p className="text-white/75 text-[1rem] mt-3 max-w-2xl">
-              Our shop is on McCowan Rd in Scarborough. The right floor depends on when and how
+              Our office is on McCowan Rd in Scarborough. The right floor depends on when and how
               your home was built, so each area below has its own page.
             </p>
           </div>
@@ -127,7 +127,7 @@ export default function LocationsHubPage() {
         <section>
           <h2 className="font-serif text-[1.5rem] text-charcoal mb-3">Pickering</h2>
           <p className="text-stone-600 text-[1rem] leading-relaxed">
-            About 20 minutes east of our shop on the 401. More on{' '}
+            About 20 minutes east of our office on the 401. More on{' '}
             <Link href="/locations/pickering" className={linkClass}>
               flooring installation in Pickering
             </Link>

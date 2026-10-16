@@ -65,7 +65,7 @@ export const locationFAQs: Record<string, FAQ[]> = {
     {
       question: 'How much does hardwood flooring cost in Scarborough?',
       answer:
-        'Supply and installation typically runs $8–$18/sq ft depending on species and finish. Because our shop is in Scarborough, there\'s no travel surcharge for local jobs, the estimate you receive reflects actual material and labour costs, not distance fees.',
+        'Supply and installation typically runs $8–$18/sq ft depending on species and finish. Because our office is in Scarborough, there\'s no travel surcharge for local jobs, the estimate you receive reflects actual material and labour costs, not distance fees.',
     },
     {
       question: 'Can you refinish existing hardwood in older Scarborough homes?',

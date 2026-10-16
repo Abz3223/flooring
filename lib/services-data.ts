@@ -117,24 +117,54 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'vinyl-flooring-installation',
-    title: 'Vinyl / LVP Flooring Installation',
-    metaTitle: 'Vinyl & LVP Flooring Installation Toronto | 100% Waterproof',
+    title: 'Vinyl Flooring Installation',
+    metaTitle: 'Vinyl Flooring Installation Toronto',
     metaDescription:
-      'Waterproof luxury vinyl plank (LVP) and vinyl flooring installation in Toronto and the GTA. Perfect for kitchens, basements, and bathrooms. Free estimates. Call (647) 905-0050.',
+      'Vinyl plank installation in Toronto condos and homes. Real jobs: a 700 sq ft Scarborough condo for about $7,000 and a 525 sq ft King West condo for about $5,000.',
     content: `<article class="service-content">
-  <p>Luxury vinyl plank, commonly called LVP, has become the fastest-growing flooring category in the GTA over the past several years, and it's not hard to see why. It's 100% waterproof, extremely durable, comfortable underfoot, and available in realistic wood and stone finishes that are genuinely difficult to distinguish from the real thing. We install vinyl and LVP in homes and commercial spaces across Toronto, and it's now one of our most requested services.</p>
+  <p>We do vinyl flooring installation in Toronto condos, houses and basements, and that includes taking out the old floor, levelling the concrete and moving your furniture. Our last three vinyl jobs came in at $8 to $10 per square foot all-in, including removal and cleanup. Here they are.</p>
 
-  <h2>Where Vinyl / LVP Excels</h2>
+  <h2>A Scarborough condo: carpet out, vinyl in</h2>
 
-  <p>The waterproof core is the defining advantage of LVP. Unlike hardwood or laminate, it won't swell, warp, or grow mould when water gets underneath, which makes it the obvious choice for basements, bathrooms, laundry rooms, and kitchens. In condos and apartment buildings, LVP also performs well because it installs over concrete without adhesive (most products float over an underlayment), has excellent dimensional stability, and many products achieve good sound ratings for multi-unit buildings. It's also one of the more forgiving products on slightly uneven subfloors, though we still recommend addressing major dips and humps before installation.</p>
+  <p>Jennifer called us about her condo at Midland and Lawrence in Scarborough. She wanted the carpet gone and a floor that would not scratch easily and could handle water, so we brought samples of several scratch-resistant, waterproof vinyl planks to the measure and she picked one there.</p>
 
-  <p>LVP typically costs $5 to $11 per square foot installed in the Toronto area, depending on the wear layer thickness (12 mil to 20 mil), board dimensions, and brand. Thicker wear layers last longer in high-traffic areas. We carry and install products from leading brands with proven performance records.</p>
+  <p>When the carpet and underpad came up, a few spots in the concrete were low. That is normal under carpet, because carpet hides dips that a click floor will not. We levelled those spots before laying the vinyl, moved the furniture out and back, and cleaned up.</p>
 
-  <h2>Installation and What to Expect</h2>
+  <ul>
+    <li>About 700 sq ft across the bedrooms and hallway</li>
+    <li>Condo board approved our product specs as submitted</li>
+    <li>3.5 days on site</li>
+    <li>About $7,000 all-in, roughly $10 per sq ft including removal, levelling and furniture moving</li>
+  </ul>
 
-  <p>Most LVP products use a click-lock floating method, no glue, no nails, which makes installation faster and cleaner than many other floor types. We assess your subfloor, install appropriate underlayment if needed, lay the field, fit transitions at doorways, and reinstall or replace baseboards. Most standard rooms are done in a day. We serve homeowners throughout <a href="/locations/mississauga">Mississauga</a>, <a href="/locations/vaughan">Vaughan</a>, <a href="/locations/markham">Markham</a>, and <a href="/locations/pickering">Pickering</a> for vinyl and LVP projects.</p>
+  <p>Jennifer's Google review: &ldquo;Very high quality, and reliable flooring installers... 11/10 results.&rdquo;</p>
 
-  <p>Not sure if vinyl is the right choice? Compare it with <a href="/services/laminate-flooring-installation">laminate flooring</a> or <a href="/services/tile-flooring-installation">tile flooring</a> to find the best fit for your space and budget.</p>
+  <h2>A King West condo, second time hiring us</h2>
+
+  <p>Fatema had already used us once. For her condo near King Street West and Spadina, she wanted waterproof vinyl that would hold up to everyday life downtown. We brought samples, the board approved the specs, and the install took two days.</p>
+
+  <ul>
+    <li>About 525 sq ft across the bedrooms and hallway</li>
+    <li>2 days on site</li>
+    <li>About $5,000 all-in, roughly $9.50 per sq ft</li>
+  </ul>
+
+  <p>Fatema's Google review: &ldquo;Second time hiring toronto flooring installers and another great job.&rdquo;</p>
+
+  <h2>Two bedrooms, line by line</h2>
+
+  <p>For two bedrooms, about 220 sq ft, the total came to $1,750, about $8 per square foot. That included removing and disposing of the old carpet and underpad, the vinyl plank and underpad, new baseboard and shoe moulding, and cleanup.</p>
+
+  <h2>What changes the price</h2>
+
+  <ul>
+    <li><strong>Removal.</strong> Carpet comes out faster than tile.</li>
+    <li><strong>Levelling.</strong> Only where the floor is low, but common after carpet.</li>
+    <li><strong>Stairs.</strong> Priced per step.</li>
+    <li><strong>Condos.</strong> Elevator booking and board paperwork add time.</li>
+  </ul>
+
+  <p>We price after a free measure, because two rooms of the same size can need very different prep. Comparing floors? See <a href="/services/laminate-flooring-installation">laminate</a> and <a href="/services/tile-flooring-installation">tile</a>. We install vinyl across <a href="/locations/scarborough">Scarborough</a>, <a href="/locations/toronto">Toronto</a> and the rest of the GTA.</p>
 
   <div class="cta-block">
     <h2>Get Your Free Vinyl Flooring Estimate</h2>

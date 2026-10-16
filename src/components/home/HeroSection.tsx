@@ -27,22 +27,22 @@ export default function HeroSection() {
       <div className="relative w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center">
         <div className="max-w-3xl mx-auto">
           <p className="font-sans text-[0.6875rem] sm:text-xs font-bold uppercase tracking-[0.22em] text-gold-light mb-5">
-            Est. 2010 &middot; Greater Toronto Area
+            Installing in the GTA since 2014
           </p>
 
           <h1 className="font-serif font-extrabold text-white tracking-tight mb-6 leading-[1.05] text-[2.25rem] sm:text-5xl lg:text-6xl">
-            Toronto&apos;s Trusted <br className="hidden sm:block" />
-            Flooring <span className="text-gold-light">Installers</span>
+            Flooring Installers <br className="hidden sm:block" />
+            in Toronto <span className="text-gold-light">&amp; the GTA</span>
           </h1>
 
           <p className="text-white/85 text-base sm:text-lg md:text-xl leading-relaxed mb-9 max-w-2xl mx-auto">
             {/* The first sentences after the H1 are what AI answers extract as
-                "what makes this business different". Every fact here is already
-                published elsewhere on the site (shop address, free on-site
-                estimate, written itemized quote within 24 hours). Do not add a
-                price guarantee here without the owner confirming it is policy. */}
-            Hardwood, laminate, vinyl, tile and carpet, installed from our shop on McCowan Rd in Scarborough.
-            Free on-site estimate, and a written, itemized quote within 24&nbsp;hours.
+                "what makes this business different". Facts confirmed by the
+                owner 2026-10-15: crew of five, first installer started 2014,
+                samples brought to the measure, quote the next day. Do not add a
+                warranty or price guarantee here without written confirmation. */}
+            We&apos;re a crew of five flooring installers in Toronto, installing vinyl, laminate, hardwood, herringbone, tile, carpet and stairs across the GTA.
+            We bring samples to the free measure, and your written quote usually arrives the next&nbsp;day.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">

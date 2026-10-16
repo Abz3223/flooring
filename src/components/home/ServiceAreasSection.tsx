@@ -16,7 +16,7 @@ export default function ServiceAreasSection() {
             We install flooring across Toronto and surrounding communities. Same professional crew, same quality, wherever you are in the GTA.
           </p>
           <p className="text-stone-500 text-[0.9375rem] leading-relaxed mb-10 max-w-xl mx-auto">
-            Our shop is on McCowan Rd, so{' '}
+            Our office is on McCowan Rd, so{' '}
             <Link href="/locations/scarborough" className="text-gold hover:text-gold-hover font-semibold underline underline-offset-2">
               flooring installation in Scarborough
             </Link>{' '}

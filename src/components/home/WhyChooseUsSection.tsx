@@ -1,21 +1,26 @@
 import Image from 'next/image';
-import { MapPin, ClipboardList, Star } from 'lucide-react';
+import { MapPin, Palette, Ruler, Building2 } from 'lucide-react';
 
 const features = [
   {
+    icon: Palette,
+    title: 'Samples Come to You',
+    desc: 'We bring samples to the free measure, so you pick your floor in your own light, next to your own walls. Your written quote usually arrives the next day.',
+  },
+  {
+    icon: Ruler,
+    title: 'Levelling Is in the Price',
+    desc: 'Carpet hides dips in the concrete. When it comes out, we level the low spots before the new floor goes down, and we tell you up front.',
+  },
+  {
+    icon: Building2,
+    title: 'Condo Paperwork Handled',
+    desc: 'We send your board the product specs it asks for and book the elevator. Our last two condo jobs, in Scarborough and on King West, were approved as submitted.',
+  },
+  {
     icon: MapPin,
-    title: 'Locally Owned, Scarborough-Based',
-    desc: 'Our shop is on McCowan Rd in Scarborough. We live and work in the GTA, which means faster response and a real understanding of local housing.',
-  },
-  {
-    icon: ClipboardList,
-    title: 'Free On-Site Estimates',
-    desc: 'We come to your home, measure accurately, and provide a written quote with no pressure and no obligation.',
-  },
-  {
-    icon: Star,
-    title: '5-Star Google Rating',
-    desc: 'Consistently rated 5 stars by homeowners across the GTA for quality, punctuality, and cleanup.',
+    title: 'An Office You Can Visit',
+    desc: 'Our office at 2061 McCowan Rd in Scarborough has samples. Call ahead and we will make sure someone is there to meet you.',
   },
 ];
 
@@ -33,7 +38,7 @@ export default function WhyChooseUsSection() {
               Why Toronto Homeowners<br />Choose Us
             </h2>
             <p className="text-stone-400 text-[1.0625rem] leading-relaxed mb-10">
-              We&apos;ve built our reputation on quality craftsmanship, transparent pricing, and respectful service. Every project, large or small, receives the same level of care.
+              Five installers, the first of them laying floors since 2014. Mostafa, Mike and the rest of the crew have done more than 500 jobs between them, and we&apos;re usually a little under typical GTA prices without skipping the prep.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -65,11 +70,11 @@ export default function WhyChooseUsSection() {
             </div>
             <div className="absolute -bottom-5 -left-5 bg-gold text-white rounded-xl p-5 shadow-xl">
               <div className="font-serif text-3xl font-normal">500+</div>
-              <div className="font-sans text-[0.8125rem] font-medium mt-0.5">GTA Projects Completed</div>
+              <div className="font-sans text-[0.8125rem] font-medium mt-0.5">Jobs Between Our Installers</div>
             </div>
             <div className="absolute -top-5 -right-5 bg-white rounded-xl p-5 shadow-xl">
-              <div className="font-serif text-3xl text-charcoal font-normal">15+</div>
-              <div className="font-sans text-[0.8125rem] font-medium mt-0.5 text-stone-500">Years Experience</div>
+              <div className="font-serif text-3xl text-charcoal font-normal">2014</div>
+              <div className="font-sans text-[0.8125rem] font-medium mt-0.5 text-stone-500">Installing Since</div>
             </div>
           </div>
         </div>

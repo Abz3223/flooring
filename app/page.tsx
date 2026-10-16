@@ -13,9 +13,9 @@ import CTASection from '@/src/components/ui/CTASection'
 import MobileStickyCTA from '@/src/components/ui/MobileStickyCTA'
 
 export const metadata: Metadata = {
-  title: 'Toronto Flooring Installers | Hardwood, Laminate, Vinyl, Tile & Carpet',
+  title: { absolute: 'Toronto Flooring Installers | Samples Brought to the Measure' },
   description:
-    'Trusted flooring installation in Toronto and the GTA since 2010. Hardwood, laminate, vinyl/LVP, tile, and carpet. Free written estimates. Call (647) 905-0050.',
+    'Five flooring installers covering Toronto and the GTA since 2014. We bring samples to the free measure and send a written quote the next day. Call (647) 905-0050.',
   alternates: { canonical: '/' },
 }
 

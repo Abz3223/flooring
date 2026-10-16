@@ -4,26 +4,31 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Toronto Flooring Installers, a locally owned Scarborough-based flooring company serving the GTA since 2010.',
+    'Five GTA flooring installers, the first of them laying floors since 2014. Office and samples at 2061 McCowan Rd, Scarborough, by appointment.',
   alternates: { canonical: '/about' },
 }
 
-const values = [
+// Owner-confirmed facts, 2026-10-15. No warranty line until it is confirmed in writing.
+const steps = [
   {
-    title: 'Honest Pricing',
-    description: 'Our quotes are itemized and transparent. You know exactly what you are paying for before any work starts, with no surprise charges at the end.',
+    title: '1. You call or send the form',
+    description: 'We call back within a few hours to ask about the rooms, the floor you have now and your timing.',
   },
   {
-    title: 'Quality Materials',
-    description: 'We source flooring from reputable manufacturers and do not cut corners on subfloor prep, underlayment, or installation hardware.',
+    title: '2. Free measure, samples included',
+    description: 'We measure on site and bring samples with us, so you can choose your floor on the spot.',
   },
   {
-    title: 'Clean Workmanship',
-    description: 'We treat your home with respect, protecting adjacent surfaces, cleaning up fully at the end of each day, and leaving a site you are proud of.',
+    title: '3. Written quote the next day',
+    description: 'The quote lists removal, levelling, materials and installation, so you can see what you are paying for.',
   },
   {
-    title: 'Reliable Communication',
-    description: 'We show up on time, communicate any changes immediately, and do not leave clients wondering what is happening with their project.',
+    title: '4. Condo? We handle the board',
+    description: 'We send the building the product specs it asks for and book the elevator before we start.',
+  },
+  {
+    title: '5. Install and cleanup',
+    description: 'We take out the old floor, level the low spots, install, put the furniture back and clean up.',
   },
 ]
 
@@ -35,7 +40,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">About Toronto Flooring Installers</h1>
           <p className="text-xl text-gray-300">
-            A locally owned, Scarborough-based flooring company serving the Greater Toronto Area since 2010.
+            A crew of five flooring installers working across the GTA from an office at 2061 McCowan Rd in Scarborough.
           </p>
         </div>
       </section>
@@ -46,33 +51,45 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed">
             <p>
-              Toronto Flooring Installers started in 2010 with a single crew and a straightforward goal: to install flooring properly and treat clients the way we would want to be treated ourselves. We are based in Scarborough at 2061 McCowan Rd, and the majority of our work has always been within the GTA, Toronto, Scarborough, North York, Vaughan, Markham, Mississauga, and Pickering.
+              Mostafa started installing floors in 2014, and he is still on the tools. Mike and the rest of the crew joined over the next few years, a couple of them in 2016 and 2017. Between them they have done more than 500 jobs: condos downtown and in Scarborough, basements, stairs, herringbone, tile showers, heated floors and commercial spaces.
             </p>
             <p>
-              Over the past 15 years, we have grown into a team of experienced installers who collectively have tens of thousands of square feet of flooring under their belts. We install hardwood, laminate, luxury vinyl plank, tile, and carpet, across houses, condos, and commercial spaces. Our repeat client rate and referral volume is what we are most proud of, because it reflects the trust homeowners place in us when they invite us into their homes.
+              We are usually a little under typical GTA prices, and we do not get there by skipping prep. When the old carpet comes up and the concrete underneath is not flat, we level it. We tell you about it before we start, not after.
             </p>
             <p>
-              We are not the cheapest company in the GTA and we do not try to be. We compete on quality, reliability, and fair dealing. If you want someone who shows up, does the job right, and backs their work, we think you will be happy with the experience.
+              One thing we do not do is cap and cove, where the flooring is run about 6 inches up the wall in place of a baseboard.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* How a job runs */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">How We Work</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">How a Job Runs</h2>
           <p className="text-gray-600 text-center mb-12 max-w-xl mx-auto">
-            These are the principles that guide every project we take on.
+            The same five steps on every job, from a single bedroom to a whole condo.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {values.map((v) => (
+            {steps.map((v) => (
               <div key={v.title} className="bg-white rounded-xl p-6 border border-gray-200">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{v.description}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Visit */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Visit Our Office</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Our office at 2061 McCowan Rd in Scarborough has flooring samples and room to talk through your project. We are often out on a measure, so call{' '}
+            <a href="tel:+16479050050" className="text-brand-600 font-semibold">(647) 905-0050</a>{' '}
+            before you come and we will make sure someone is there.
+          </p>
         </div>
       </section>
 

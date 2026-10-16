@@ -69,7 +69,7 @@ export const locationsData: LocationData[] = [
     content: `<article class="service-content">
   <h2>Flooring Installers in Scarborough</h2>
 
-  <p>We are flooring installers in Scarborough, and this isn't a service area we drive out to. Our shop is on McCowan Rd, right in the heart of the community we grew up working in. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> for homeowners and condo owners across Scarborough. When you call, we can often do a same-day or next-day site visit, there's no travel time factored into the estimate, because we're already here.</p>
+  <p>We are flooring installers in Scarborough, and this isn't a service area we drive out to. Our office is on McCowan Rd, with samples you can see by appointment. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> for homeowners and condo owners across Scarborough. When you call, we can often do a same-day or next-day site visit, there's no travel time factored into the estimate, because we're already here.</p>
 
   <h2>Scarborough's Housing Stock and Flooring Needs</h2>
 
@@ -161,7 +161,7 @@ export const locationsData: LocationData[] = [
 
   <h2>What to Expect from Us in North York</h2>
 
-  <p>Our shop is in Scarborough, which puts North York within a 25-30 minute drive depending on which stretch of the 401 we're crossing. We can typically do an on-site estimate within a day or two of your call. For condo projects, the estimate visit is also when we sort out building requirements, we'll ask for the building's flooring spec sheet (most have one) and confirm what underlayment and documentation will be needed before we book the work.</p>
+  <p>Our office is in Scarborough, which puts North York within a 25-30 minute drive depending on which stretch of the 401 we're crossing. We can typically do an on-site estimate within a day or two of your call. For condo projects, the estimate visit is also when we sort out building requirements, we'll ask for the building's flooring spec sheet (most have one) and confirm what underlayment and documentation will be needed before we book the work.</p>
 
   <p>We also serve <a href="/locations/toronto">Toronto</a>, <a href="/locations/vaughan">Vaughan</a>, <a href="/locations/markham">Markham</a>, and <a href="/locations/scarborough">Scarborough</a>.</p>
 
@@ -208,7 +208,7 @@ export const locationsData: LocationData[] = [
 
   <h2>Working with Us in Vaughan</h2>
 
-  <p>From our shop in Scarborough, Vaughan is a 35-45 minute drive depending on traffic and which corner of the city we're heading to. We typically schedule estimates for early morning or late afternoon to avoid the worst of the 401-and-407 congestion, but the timing rarely affects the project itself once it's booked.</p>
+  <p>From our office in Scarborough, Vaughan is a 35-45 minute drive depending on traffic and which corner of the city we're heading to. We typically schedule estimates for early morning or late afternoon to avoid the worst of the 401-and-407 congestion, but the timing rarely affects the project itself once it's booked.</p>
 
   <p>We serve <a href="/locations/markham">Markham</a>, <a href="/locations/north-york">North York</a>, <a href="/locations/toronto">Toronto</a>, and <a href="/locations/scarborough">Scarborough</a> as well, call us if you have a property in any of them.</p>
 
@@ -329,13 +329,13 @@ export const locationsData: LocationData[] = [
     slug: 'pickering',
     city: 'Pickering',
     title: 'Flooring Installation in Pickering',
-    metaTitle: 'Pickering Flooring Installation | 20 Minutes from Our Shop',
+    metaTitle: 'Pickering Flooring Installation | 20 Minutes from Our Office',
     metaDescription:
       'Professional flooring installation in Pickering, ON. Hardwood, laminate, vinyl/LVP, tile, and carpet. Serving Bay Ridges, Dunbarton, Rosebank, and more. Free estimates. Call (647) 905-0050.',
     content: `<article class="service-content">
   <h2>Flooring Installation in Pickering, ON</h2>
 
-  <p>Flooring installation in Pickering is one of our shorter drives: Pickering sits on the eastern edge of Durham Region, about 20 minutes east of our Scarborough shop on the 401 to most parts of the city. The housing is a mix of post-war lakefront and inland communities from the 1950s-70s, larger 1990s-2000s estate-feel subdivisions, and the newer growth that's happening in the north end of the city. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
+  <p>Flooring installation in Pickering is one of our shorter drives: Pickering sits on the eastern edge of Durham Region, about 20 minutes east of our Scarborough office on the 401 to most parts of the city. The housing is a mix of post-war lakefront and inland communities from the 1950s-70s, larger 1990s-2000s estate-feel subdivisions, and the newer growth that's happening in the north end of the city. We install <a href="/services/hardwood-flooring-installation">hardwood</a>, <a href="/services/laminate-flooring-installation">laminate</a>, <a href="/services/vinyl-flooring-installation">vinyl/LVP</a>, <a href="/services/tile-flooring-installation">tile</a>, and <a href="/services/carpet-installation">carpet</a> throughout the city.</p>
 
   <h2>The Lakeshore Communities: Bay Ridges, West Shore, Liverpool</h2>
 

@@ -47,13 +47,13 @@ export const BUSINESS_HOURS = {
 
 export const TRUST_FACTORS = [
   {
-    title: '15+ Years Experience',
-    description: 'Serving Toronto and the GTA with professional flooring installations since 2009.',
+    title: 'Installing Since 2014',
+    description: 'Five installers serving Toronto and the GTA, the first of them laying floors since 2014.',
     icon: 'Award',
   },
   {
     title: 'Locally Owned, Scarborough-Based',
-    description: 'Our shop is on McCowan Rd in Scarborough. We live and work in the GTA, which means faster response and a real understanding of local housing.',
+    description: 'Our office is on McCowan Rd in Scarborough, with samples you can see by appointment.',
     icon: 'MapPin',
   },
   {

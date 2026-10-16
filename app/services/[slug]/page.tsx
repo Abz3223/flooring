@@ -41,6 +41,7 @@ const heroImages: Record<string, string> = {
 // override the default rather than describing themselves as installation.
 const heroSubtext: Record<string, string> = {
   'floor-repair': 'Repairs and water-damage replacements. Free on-site estimates.',
+  'vinyl-flooring-installation': 'Condos, houses and basements. Free measure, samples brought to you.',
 }
 
 export default function ServicePage({ params }: PageProps) {

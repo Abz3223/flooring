@@ -3,9 +3,11 @@
 // Adopted from restorationprofessionals.ca pattern (Path B port: structure
 // only, kept the flooring charcoal/gold/serif identity).
 
+// Owner-confirmed 2026-10-15. 500+ is the combined total across the
+// installers, so the label says so. Do not reintroduce "15+ years".
 const stats = [
-  { number: '500+', label: 'GTA Projects Completed' },
-  { number: '15+', label: 'Years of Experience' },
+  { number: '2014', label: 'Installing Since' },
+  { number: '500+', label: 'Jobs Between Our Installers' },
   { number: '5.0', label: 'Google Star Rating' },
 ];
 

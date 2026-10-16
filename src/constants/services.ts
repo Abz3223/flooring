@@ -78,5 +78,6 @@ export const FLOORING_TYPES = [
   'Vinyl / LVP',
   'Tile',
   'Carpet',
+  'Floor Repair',
   'Other / Not Sure',
 ];

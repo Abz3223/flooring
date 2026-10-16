@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
       address,
       message,
       source_page,
-      heard_about,
     } = body
 
     const serviceLabel = flooring_type || service || 'Not specified'
@@ -53,13 +52,11 @@ ${spamLine}New flooring enquiry from flooringinstallerstoronto.com
 Name: ${name}
 Phone: ${phone || 'Not provided'}
 Email: ${email || 'Not provided'}
-Property Address: ${address || 'Not provided'}
-Flooring Type: ${serviceLabel}
+${address ? `Property Address: ${address}\n` : ''}Flooring Type: ${serviceLabel}
 Source Page: ${source_page || 'unknown'}
-How they heard about us: ${heard_about || 'Not answered'}
 
-Message:
-${message || 'No additional message provided.'}
+What they need:
+${message || 'No message provided.'}
 
 ---
 This lead was submitted via the contact form at flooringinstallerstoronto.com

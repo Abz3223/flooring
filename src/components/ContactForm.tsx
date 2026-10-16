@@ -1,31 +1,24 @@
 'use client'
 
 import { useState, useEffect, useRef, FormEvent } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { BUSINESS_HOURS } from '../constants/contact';
+import { FLOORING_TYPES } from '../constants/services';
 import { HONEYPOT_FIELD } from '../lib/spam-check';
 import HoneypotField from './HoneypotField';
 
-const flooringServices = [
-  'Hardwood Flooring',
-  'Laminate Flooring',
-  'Vinyl / LVP Flooring',
-  'Tile Flooring',
-  'Carpet Installation',
-  'Not sure yet',
-]
-
+// Same fields as the homepage form, per the owner (Oct 2026): name, phone,
+// email (optional), flooring type (optional), and what they need.
 export default function ContactForm() {
   const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',
-    service: '',
+    flooring_type: '',
     message: '',
-    heard_about: '',
   })
   // Set on mount (client only) so the API can tell a person from a script
   // that posts instantly. See src/lib/spam-check.ts.
@@ -89,7 +82,7 @@ export default function ContactForm() {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className={labelClass}>
-                      Full Name <span className="text-gold">*</span>
+                      Name <span className="text-gold">*</span>
                     </label>
                     <input
                       id="name"
@@ -99,13 +92,13 @@ export default function ContactForm() {
                       autoComplete="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Jane Smith"
+                      placeholder="Your name"
                       className={inputClass}
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className={labelClass}>
-                      Phone Number <span className="text-gold">*</span>
+                      Phone <span className="text-gold">*</span>
                     </label>
                     <input
                       id="phone"
@@ -123,7 +116,7 @@ export default function ContactForm() {
 
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    Email Address
+                    Email <span className="font-normal text-stone-500">(optional)</span>
                   </label>
                   <input
                     id="email"
@@ -132,74 +125,42 @@ export default function ContactForm() {
                     autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="jane@example.com"
+                    placeholder="you@example.com"
                     className={inputClass}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="address" className={labelClass}>
-                    Property Address
-                  </label>
-                  <input
-                    id="address"
-                    name="address"
-                    type="text"
-                    autoComplete="street-address"
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="123 Main St, Toronto, ON"
-                    className={inputClass}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="service" className={labelClass}>
-                    Flooring Type <span className="text-gold">*</span>
+                  <label htmlFor="flooring_type" className={labelClass}>
+                    Flooring type <span className="font-normal text-stone-500">(optional)</span>
                   </label>
                   <select
-                    id="service"
-                    name="service"
-                    required
-                    value={formData.service}
+                    id="flooring_type"
+                    name="flooring_type"
+                    value={formData.flooring_type}
                     onChange={handleChange}
                     className={inputClass}
                   >
-                    <option value="">Select a service...</option>
-                    {flooringServices.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                    <option value="">Select...</option>
+                    {FLOORING_TYPES.map((t) => (
+                      <option key={t} value={t}>{t}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className={labelClass}>
-                    Project Details
+                    What do you need? <span className="text-gold">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
+                    required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Approximate square footage, rooms involved, current subfloor, timeline..."
-                    className={`${inputClass} resize-none`}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="heard_about" className={labelClass}>
-                    How did you hear about us? <span className="font-normal text-stone-500">(optional)</span>
-                  </label>
-                  <input
-                    id="heard_about"
-                    name="heard_about"
-                    type="text"
-                    autoComplete="off"
-                    value={formData.heard_about}
-                    onChange={handleChange}
-                    placeholder="Google, a friend, ChatGPT..."
-                    className={inputClass}
+                    placeholder="e.g. Vinyl in a 600 sq ft basement, old carpet to remove"
+                    className={`${inputClass} resize-y`}
                   />
                 </div>
 
@@ -219,8 +180,12 @@ export default function ContactForm() {
                   {status === 'loading' ? 'Sending...' : 'Request a Free Estimate'}
                 </button>
 
-                <p className="text-stone-400 text-[0.75rem] text-center">
-                  By submitting, you agree to be contacted by Toronto Flooring Installers. We respect your privacy and will not share your information.
+                <p className="text-stone-500 text-[0.75rem] text-center">
+                  By sending this, you agree we can contact you about your project. See our{' '}
+                  <Link href="/privacy" className="text-gold hover:text-gold-hover underline">
+                    Privacy Policy
+                  </Link>
+                  .
                 </p>
               </form>
           </div>

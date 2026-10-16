@@ -8,9 +8,11 @@ import { FLOORING_TYPES } from '../constants/services';
 import { HONEYPOT_FIELD } from '../lib/spam-check';
 import HoneypotField from './HoneypotField';
 
-// Inline lead form for the homepage: name + phone + email + flooring type,
-// plus an optional "how did you hear about us" (lead-source attribution).
-// Submits to /api/contact, which emails the lead via Resend.
+// Homepage lead form. Fields per the owner (Oct 2026): name, phone, email
+// (optional), flooring type (optional), and a message saying what they need.
+// No consent checkbox: replying to someone's own quote request does not need
+// one, so it was friction on a required field. A notice line links the
+// privacy policy instead. Submits to /api/contact, which emails the lead.
 export default function HomeQuoteForm() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -18,8 +20,7 @@ export default function HomeQuoteForm() {
     phone: '',
     email: '',
     flooring_type: '',
-    heard_about: '',
-    accepted_terms: false,
+    message: '',
   });
   // Set on mount (client only) so the API can tell a person from a script
   // that posts instantly. See src/lib/spam-check.ts.
@@ -31,14 +32,10 @@ export default function HomeQuoteForm() {
   const [error, setError] = useState('');
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]:
-        type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -78,6 +75,8 @@ export default function HomeQuoteForm() {
 
   const inputClass =
     'w-full border border-stone-200 rounded-lg px-4 py-3 text-charcoal placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-colors text-[0.9375rem] bg-white';
+  const labelClass = 'block text-[0.8125rem] font-bold text-charcoal mb-1.5';
+  const optional = <span className="font-normal text-stone-500">(optional)</span>;
 
   return (
     <form
@@ -86,8 +85,8 @@ export default function HomeQuoteForm() {
     >
       <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-[0.8125rem] font-bold text-charcoal mb-1.5">
-            Full Name <span className="text-gold">*</span>
+          <label htmlFor="name" className={labelClass}>
+            Name <span className="text-gold">*</span>
           </label>
           <input
             id="name"
@@ -97,12 +96,12 @@ export default function HomeQuoteForm() {
             onChange={handleChange}
             required
             autoComplete="name"
-            placeholder="John Smith"
+            placeholder="Your name"
             className={inputClass}
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-[0.8125rem] font-bold text-charcoal mb-1.5">
+          <label htmlFor="phone" className={labelClass}>
             Phone <span className="text-gold">*</span>
           </label>
           <input
@@ -121,8 +120,8 @@ export default function HomeQuoteForm() {
 
       <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 mt-3 sm:mt-4">
         <div>
-          <label htmlFor="email" className="block text-[0.8125rem] font-bold text-charcoal mb-1.5">
-            Email
+          <label htmlFor="email" className={labelClass}>
+            Email {optional}
           </label>
           <input
             id="email"
@@ -131,13 +130,13 @@ export default function HomeQuoteForm() {
             value={formData.email}
             onChange={handleChange}
             autoComplete="email"
-            placeholder="john@example.com"
+            placeholder="you@example.com"
             className={inputClass}
           />
         </div>
         <div>
-          <label htmlFor="flooring_type" className="block text-[0.8125rem] font-bold text-charcoal mb-1.5">
-            Flooring Type
+          <label htmlFor="flooring_type" className={labelClass}>
+            Flooring type {optional}
           </label>
           <select
             id="flooring_type"
@@ -157,46 +156,22 @@ export default function HomeQuoteForm() {
       </div>
 
       <div className="mt-3 sm:mt-4">
-        <label htmlFor="heard_about" className="block text-[0.8125rem] font-bold text-charcoal mb-1.5">
-          How did you hear about us? <span className="font-normal text-stone-500">(optional)</span>
+        <label htmlFor="message" className={labelClass}>
+          What do you need? <span className="text-gold">*</span>
         </label>
-        <input
-          id="heard_about"
-          type="text"
-          name="heard_about"
-          value={formData.heard_about}
+        <textarea
+          id="message"
+          name="message"
+          rows={3}
+          value={formData.message}
           onChange={handleChange}
-          autoComplete="off"
-          placeholder="Google, a friend, ChatGPT..."
-          className={inputClass}
+          required
+          placeholder="e.g. Vinyl in a 600 sq ft basement, old carpet to remove"
+          className={`${inputClass} resize-y`}
         />
       </div>
 
       <HoneypotField />
-
-      <div className="flex items-start gap-2.5 mt-5">
-        <input
-          type="checkbox"
-          name="accepted_terms"
-          id="home_quote_accepted_terms"
-          checked={formData.accepted_terms}
-          onChange={handleChange}
-          required
-          // 24px minimum touch target. Was 16px (w-4 h-4) and is a REQUIRED
-          // field gating submission, on a page where ~55% of sessions are mobile.
-          className="mt-0.5 flex-shrink-0 w-6 h-6 accent-gold cursor-pointer"
-        />
-        <label
-          htmlFor="home_quote_accepted_terms"
-          className="text-xs text-stone-500 leading-relaxed cursor-pointer"
-        >
-          I agree to be contacted about my flooring project per the{' '}
-          <Link href="/privacy" className="text-gold hover:text-gold-hover underline">
-            Privacy Policy
-          </Link>
-          .
-        </label>
-      </div>
 
       {error && (
         <div role="alert" className="flex items-start gap-2 text-red-700 text-[0.8125rem] bg-red-50 border border-red-200 rounded-lg px-3 py-2.5 mt-4">
@@ -219,6 +194,14 @@ export default function HomeQuoteForm() {
           </>
         )}
       </button>
+
+      <p className="text-xs text-stone-500 leading-relaxed text-center mt-3">
+        By sending this, you agree we can contact you about your project. See our{' '}
+        <Link href="/privacy" className="text-gold hover:text-gold-hover underline">
+          Privacy Policy
+        </Link>
+        .
+      </p>
     </form>
   );
 }
